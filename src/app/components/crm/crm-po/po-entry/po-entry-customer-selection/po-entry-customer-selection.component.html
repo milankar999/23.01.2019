@@ -1,0 +1,147 @@
+
+<br><br>
+<h2>Select a Customer Selection List </h2><button type="button" class="btn btn-success btn-lg" (click)="openModalDialog()"> <span class="glyphicon glyphicon-plus"></span>ADD NEW</button> 
+<!--After clicking the buttons open the model dialog using open/close event biniding methods-->
+<div class="backdrop" [ngStyle]="{'display' :display}"></div>  
+<!--modal-->
+<div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
+    <!--modal-dialog-->
+    <div class="modal-dialog" role="document">
+        <!--modal-conent-->
+        <div class="modal-content">
+            <!--modal-header-->
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center">New Customer-Selection
+                <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
+
+         </div>
+            <!--modal-body-->
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label class="form-input" for="name">Customer Name <a style="color: red">*</a></label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Organization Name" required>
+                        <label class="form-input" for="location">Location <a style="color: red">*</a></label>
+                        <input type="text" class="form-control" id="location" name="location" required>
+                        <label class="form-input" for="code">Code <a style="color: red">*</a></label>
+                        <input type="text" class="form-control" id="code" name="code" placeholder="provide a unique identification code" required>
+                        <label class="form-input" for="address">Address <a style="color: red"></a></label>
+                        <textarea type="text" class="form-control" id="address" name="address"></textarea>
+                        <label class="form-input" for="code">City <a style="color: red">*</a></label>
+                        <input type="text" class="form-control" id="city" name="city" required>
+                        <label class="form-input" for="state">State <a style="color: red">*</a></label>
+                        <select class="form-control" id="state" name="state" required>
+                        <option></option>
+                        <option>Karnataka</option>
+                        <option>Andhara Predesh</option>
+                        <option>Punjab</option>
+                        <option>Tamilnadu</option>
+                        <option>Telangena</option>
+                        </select>
+                        <label class="form-input" for="pin">Pin </label>
+                        <input type="number" class="form-control" id="pin" name="pin">
+                        <label class="form-input" for="country">Country </label>
+                        <input type="text" class="form-control" id="country" name="country" value="India">
+                        <label class="form-input" for="officeemail1">Office Email ID 1 </label>
+                        <input type="email" class="form-control" id="offieemail1" name="officeemail1">
+                        <label class="form-input" for="officeemail2">Office Email ID 2 </label>
+                        <input type="email" class="form-control" id="offieemail2" name="officeemail2">
+                        <label class="form-input" for="officephone1">Office Phone No 1 </label>
+                        <input type="number" class="form-control" id="offiephone1" name="officephone1">
+                        <label class="form-input" for="officephone2">Office Phone No 2 </label>
+                        <input type="number" class="form-control" id="offiephone2" name="officephone2">
+                        <label class="form-input" for="GSTNo">GST Number </label>
+                        <input type="text" class="form-control" id="GSTNo" name="GSTNo">
+                        <label class="form-input" for="VendorCode">Vendor Code </label>
+                        <input type="text" class="form-control" id="VendorCode" name="VendorCode">
+                        <label class="form-input" for="PaymentTerm">Payment Term (in Days) <a style="color: red">*</a></label>
+                        <input type="number" class="form-control" id="PaymentTerm" name="PaymentTerm" required>
+                        <label class="form-input" for="IncoTerm">Inco Term </label>
+                        <input type="text" class="form-control" id="IncoTerm" name="IncoTerm">
+                        <label class="form-input" for="TaxType">Tax-Type </label>
+                        <input type="text" class="form-control" id="TaxType" name="TaxType">
+                        <label class="form-input" for="Billing-Address">Billing-Address </label>
+                        <textarea type="text" class="form-control" id="Billing-Address" name="Billing-Address"></textarea>
+                        <label class="form-input" for="Shipping-Address">Shipping-Address </label>
+                        <textarea type="text" class="form-control" id="Shipping-Address" name="Shipping-Address"></textarea>
+                        </div>
+                </form>
+            </div>
+            <!--modal-footer-->
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-success" (click)="closeModalDialog()">Submit</button>
+                <button type="button" class="btn btn-danger" (click)="closeModalDialog()">Cancel</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<hr>
+ <div class="col-md-offset-2 col-md-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center">Customer Selection List</div>
+                 <div class="panel-body">
+                     <div class="col-md-4">
+                         <input type="text" class="form-control" placeholder="search...">
+                     </div>
+                 </div>
+    
+     <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+         <thead>
+             <tr>
+                <th></th>
+                <th>ID</th>
+                <th>Customer Name</th>
+                <th>Customer Code</th>
+                <th>Location</th>
+                <th>State</th>
+               
+            </tr >
+            <tr>
+                 <td>
+                    <a href="crm/po-entry/1/requester-selection"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
+                </td>
+                 <td>1</td>
+                 <td>krupanka</td>
+                 <td>C00124</td>
+                 <td>mysuru</td>
+                 <td>karnataka</td>
+             </tr>
+             <tr>
+                    <td>
+                        <a href="crm/po-entry/2/requester-selection"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
+                   </td>
+              
+                    <td>2</td>
+                    <td>Sarika</td>
+                    <td>C00134</td>
+                    <td>Mandya</td>
+                    <td>karnataka</td>
+          
+                </tr>
+                <tr>
+                        <td>
+                           <span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                       </td>
+                  
+                        <td>3</td>
+                        <td>Sanju</td>
+                        <td>C00132</td>
+                        <td>Bangluru</td>
+                        <td>karnataka</td>
+              
+                    </tr>
+            
+        </thead>
+    </table> <br>
+
+    </div>
+    </div>
+    <app-crm-footer></app-crm-footer>
+    <app-crm-header></app-crm-header>
+    
+   
+
+    
+  

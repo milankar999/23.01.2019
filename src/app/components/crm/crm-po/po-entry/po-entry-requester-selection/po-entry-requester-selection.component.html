@@ -1,0 +1,120 @@
+ <br><br>
+    <h2>Select a Requestor Selection List </h2>
+    <!--After clicking the buttons open the model dialog using open/close event biniding methods-->
+    <button type="button" class="btn btn-info btn-lg" (click)="openModalDialog()">ADD NEW</button> 
+    <div class="ex1">
+    <div class="backdrop" [ngStyle]="{'display' :display}"></div>  
+    <!--modal-->
+    <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
+        <!--modal-dialog-->
+        <div class="modal-dialog" role="document">
+            <!--modal-conent-->
+            <div class="modal-content">
+                <!--modal-header-->
+                <div class="panel panel-primary">
+                    <div class="panel-heading text-center">New  Request-Selection
+                    <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
+    
+               </div>
+                <!--modal-body-->
+                <div class="modal-body">
+                    <form  >
+                        <div class="form-group">
+                            <label class="form-input" for="name">  Name <a style="color: red">*</a></label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Organization Name" required>
+ 
+                            <label class="form-input" for=" Mobil1"> Mobil No 1 </label>
+                            <input type="number" class="form-control" id="offiephone1" name="officephone1">
+
+                            <label class="form-input" for="Mobil2"> Mobil No 2 </label>
+                            <input type="number" class="form-control" id="offiephone2" name="officephone2">
+
+                            
+                            <label class="form-input" for="officeemail1">Office Email ID 1 </label>
+                            <input type="email" class="form-control" id="offieemail1" name="officeemail1">
+                            <label class="form-input" for="officeemail2">Office Email ID 2 </label>
+                            <input type="email" class="form-control" id="offieemail2" name="officeemail2">
+                           
+                            
+                            </div>
+                           
+                    </form>
+                </div>
+                <!--modal-footer-->
+                <div class="modal-footer">
+                        <button type="button" class="btn btn-success" (click)="closeModalDialog()">Submit</button>
+                    <button type="button" class="btn btn-danger" (click)="closeModalDialog()">Cancel</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <hr>                
+     <div class="col-md-offset-2 col-md-8">  <!--table fields-->
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center"> Request Selection table</div>
+                     <div class="panel-body">
+                         <div class="col-md-4">
+                             <input type="text" class="form-control" placeholder="search...">
+                         </div>
+                     </div>
+        
+         <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+             <thead>
+                 <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>  Mobil No 1</th>
+                    <th> Mobil No 2</th>
+                    <th>Office Email ID 1</th>
+                    <th>Office Email ID 2</th>
+                   
+                </tr >
+                <tr>
+                     <td>
+                        <a href="crm/po-entry/1/1/receiver-selection"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
+                    </td>
+               
+                     <td>1</td>
+                     <td>vinay</td>
+                     <td>C00124</td>
+                     <td>mysuru</td>
+                     <td>karnataka</td>
+           
+                 </tr>
+                 <tr>
+                        <td>
+                            <a href="crm/po-entry/1/2/receiver-selection"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
+                       </td>
+                  
+                        <td>2</td>
+                        <td>Sarika</td>
+                        <td>C00134</td>
+                        <td>Mandya</td>
+                        <td>karnataka</td>
+              
+                    </tr>
+                    <tr>
+                            <td>
+                               <span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                           </td>
+                      
+                            <td>3</td>
+                            <td>vinayrao</td>
+                            <td>C00132</td>
+                            <td>Bangluru</td>
+                            <td>karnataka</td>
+                  
+                        </tr>
+                
+            </thead>
+        </table> <br>
+    
+        </div>
+        </div>
+        </div>
+        <app-crm-footer></app-crm-footer>
+        <app-crm-header></app-crm-header>
+    
+    
