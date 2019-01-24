@@ -8,6 +8,7 @@ import { PoEntryReceiverSelectionComponent } from './components/crm/crm-po/po-en
 import { PoEntryRequesterSelectionComponent } from './components/crm/crm-po/po-entry/po-entry-requester-selection/po-entry-requester-selection.component';
 import { PoEntrySupportingInfoComponent } from './components/crm/crm-po/po-entry/po-entry-supporting-info/po-entry-supporting-info.component';
 import { CrmFooterComponent } from './components/crm/crm-footer/crm-footer.component';
+import { PoEntrySelectedProductComponent } from './components/crm/crm-po/po-entry/po-entry-selected-product/po-entry-selected-product.component';
 
 const routes:Routes=[
   { path:'login',component:LoginComponent },
@@ -20,6 +21,7 @@ const routes:Routes=[
   { path:'crm/po-entry/:customer/requester-selection',component: PoEntryRequesterSelectionComponent },
   { path:'crm/po-entry/:customer/:requester/receiver-selection',component: PoEntryReceiverSelectionComponent },
   { path:'crm/po-entry/:customer/:requester/:receiver/supportinginfo',component: PoEntrySupportingInfoComponent },
+  {path:'crm/po-entry/po-entry-selected-product',component:PoEntrySelectedProductComponent}
 ]
 
 @NgModule({
