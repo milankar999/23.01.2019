@@ -12,6 +12,9 @@ import { PoEntryQuotationSelectionComponent } from './components/crm/crm-po/po-e
 import { PoEntryProductSelectionComponent } from './components/crm/crm-po/po-entry/po-entry-product-selection/po-entry-product-selection.component';
 import { QuotationSelectionDetailsComponent } from './components/crm/crm-po/po-entry/po-entry-quotation-selection/quotation-selection-details/quotation-selection-details.component';
 
+import { QuotationSelectionDetailsComponent } from './components/crm/crm-po/po-entry/po-entry-quotation-selection/quotation-selection-details/quotation-selection-details.component';
+import { PoEntryEditSelectedProductComponent } from './components/crm/crm-po/po-entry/po-entry-edit-selected-product/po-entry-edit-selected-product.component';
+ 
 const routes:Routes=[
   { path:'login',component:LoginComponent },
 
@@ -23,9 +26,14 @@ const routes:Routes=[
   { path:'crm/po-entry/:customer/requester-selection',component: PoEntryRequesterSelectionComponent },
   { path:'crm/po-entry/:customer/:requester/receiver-selection',component: PoEntryReceiverSelectionComponent },
   { path:'crm/po-entry/:customer/:requester/:receiver/supportinginfo',component: PoEntrySupportingInfoComponent },
+<<<<<<< HEAD
   { path:'crm/po-entry/quotation-selection', component:PoEntryQuotationSelectionComponent},
   {path :'crm/po-entry/production-selection', component:PoEntryProductSelectionComponent},
   {path :'crm/po-entry/quotation-selection-details',component:QuotationSelectionDetailsComponent}
+=======
+  { path:'crm/po-entry/quotation-selection-details', component:QuotationSelectionDetailsComponent },
+  { path:'crm/po-entry/po-entry-edit-selected-product',component:PoEntryEditSelectedProductComponent}
+>>>>>>> origin/vinayrao
 ]
 
 @NgModule({
