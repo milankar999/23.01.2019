@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { DataTablesModule } from 'angular-datatables';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -28,6 +29,7 @@ import { PoEntryEditSelectedProductComponent } from './components/crm/crm-po/po-
 
 @NgModule({
   declarations: [
+    DataTablesModule,
     AppComponent,
     LoginComponent,
     CrmComponent,
