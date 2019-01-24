@@ -9,6 +9,9 @@ import { PoEntryRequesterSelectionComponent } from './components/crm/crm-po/po-e
 import { PoEntrySupportingInfoComponent } from './components/crm/crm-po/po-entry/po-entry-supporting-info/po-entry-supporting-info.component';
 import { CrmFooterComponent } from './components/crm/crm-footer/crm-footer.component';
 
+import { QuotationSelectionDetailsComponent } from './components/crm/crm-po/po-entry/po-entry-quotation-selection/quotation-selection-details/quotation-selection-details.component';
+import { PoEntryEditSelectedProductComponent } from './components/crm/crm-po/po-entry/po-entry-edit-selected-product/po-entry-edit-selected-product.component';
+ 
 const routes:Routes=[
   { path:'login',component:LoginComponent },
 
@@ -20,6 +23,8 @@ const routes:Routes=[
   { path:'crm/po-entry/:customer/requester-selection',component: PoEntryRequesterSelectionComponent },
   { path:'crm/po-entry/:customer/:requester/receiver-selection',component: PoEntryReceiverSelectionComponent },
   { path:'crm/po-entry/:customer/:requester/:receiver/supportinginfo',component: PoEntrySupportingInfoComponent },
+  { path:'crm/po-entry/quotation-selection-details', component:QuotationSelectionDetailsComponent },
+  { path:'crm/po-entry/po-entry-edit-selected-product',component:PoEntryEditSelectedProductComponent}
 ]
 
 @NgModule({
