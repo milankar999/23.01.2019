@@ -1,3 +1,88 @@
-<p>
-  po-entry-quotation-selection works!
-</p>
+
+<br><br>
+<h2>Select a Quotation Selection List </h2><button type="button" class="btn btn-success btn-lg" (click)="openModalDialog()"> <span class="glyphicon glyphicon-plus"></span>ADD NEW</button> 
+<!--After clicking the buttons open the model dialog using open/close event biniding methods-->
+<div class="backdrop" [ngStyle]="{'display' :display}"></div>  
+<!--modal-->
+<div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
+    <!--modal-dialog-->
+    <div class="modal-dialog" role="document">
+        <!--modal-conent-->
+        <div class="modal-content">
+            <!--modal-header-->
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center">New Quotation-Selection
+                <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
+
+         </div>
+            <!--modal-body-->
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label class="form-input" for="quotationNo">Quotation No <a style="color: red">*</a></label>
+                        <input type="text" class="form-control" id="quotationNo" name="quotationNo" required>
+                        <label class="form-input" for="date">Date <a style="color: red">*</a></label>
+                        <input type="date" class="form-control" id="date" name="date" required>
+                        <label class="form-input" for="contact">Contact Person <a style="color: red">*</a></label>
+                        <input type="text" class="form-control" id="contact" name="contact"required>
+                        <label class="form-input" for="sourcing">Sourcing Person <a style="color: red"></a></label>
+                        <input type="text" class="form-control" id="sourcing" name="sourcing">
+                   </div>
+              </form>
+            </div>
+            <!--modal-footer-->
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-success" (click)="closeModalDialog()">Submit</button>
+                <button type="button" class="btn btn-danger" (click)="closeModalDialog()">Cancel</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<hr>
+ <div class="col-md-offset-2 col-md-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center">Quotation-Selection List</div>
+                 <div class="panel-body">
+                     <div class="col-md-4">
+                         <input type="text" class="form-control" placeholder="search...">
+                     </div>
+                 </div>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+             <tr>
+                <th></th>
+                <th>Quotation No</th>
+                <th>Date</th>
+                <th>Contact Person</th>
+                <th>Sourcing Person</th>
+                <th></th>
+               
+            </tr >
+            <tr formArrayName="orders" *ngFor="let order of form.controls.orders.controls; let i = index">
+                <td>
+                    <input type="checkbox" [formControlName]="i">
+                </td>
+                 <td>{{orders[i].quotation_no}}</td>
+                 <td>{{orders[i].quotation_no}}</td>
+                 <td>{{orders[i].quotation_no}}</td>
+                 <td>{{orders[i].quotation_no}}</td> 
+                 <td>
+                        <a href="crm/po-entry/quotation-selection-details" target="_blank"><span class="glyphicon glyphicon-edit" style="color: blue"></span></a>
+                    </td>               
+            </tr>
+            <hr>
+            &nbsp;  <button class="btn btn-danger">Proceed</button>
+       </table> <br>
+    </form>
+
+ </div>
+ </div>
+    <app-crm-footer></app-crm-footer>
+    <app-crm-header></app-crm-header>
+    
+   
+
+    
+  
