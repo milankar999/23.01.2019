@@ -24,6 +24,8 @@ import { QuotationSelectionDetailsComponent } from './components/crm/crm-po/po-e
 import { PoEntryProductSelectionComponent } from './components/crm/crm-po/po-entry/po-entry-product-selection/po-entry-product-selection.component';
 import { PoEntrySelectedProductComponent } from './components/crm/crm-po/po-entry/po-entry-selected-product/po-entry-selected-product.component';
 import { PoEntryEditSelectedProductComponent } from './components/crm/crm-po/po-entry/po-entry-edit-selected-product/po-entry-edit-selected-product.component';
+import { SearchPipe } from './pipes/search.pipe';
+ 
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { PoEntryEditSelectedProductComponent } from './components/crm/crm-po/po-
     QuotationSelectionDetailsComponent,
     PoEntryProductSelectionComponent,
     PoEntrySelectedProductComponent,
-    PoEntryEditSelectedProductComponent
+    PoEntryEditSelectedProductComponent,
+    SearchPipe,
+    
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,8 @@ import { CrmFooterComponent } from './components/crm/crm-footer/crm-footer.compo
 
 import { QuotationSelectionDetailsComponent } from './components/crm/crm-po/po-entry/po-entry-quotation-selection/quotation-selection-details/quotation-selection-details.component';
 import { PoEntryEditSelectedProductComponent } from './components/crm/crm-po/po-entry/po-entry-edit-selected-product/po-entry-edit-selected-product.component';
- 
+import { SearchPipe } from './pipes/search.pipe';
+
 const routes:Routes=[
   { path:'login',component:LoginComponent },
 
