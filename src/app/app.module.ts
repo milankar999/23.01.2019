@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { DataTablesModule } from 'angular-datatables';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -25,11 +24,12 @@ import { QuotationSelectionDetailsComponent } from './components/crm/crm-po/po-e
 import { PoEntryProductSelectionComponent } from './components/crm/crm-po/po-entry/po-entry-product-selection/po-entry-product-selection.component';
 import { PoEntrySelectedProductComponent } from './components/crm/crm-po/po-entry/po-entry-selected-product/po-entry-selected-product.component';
 import { PoEntryEditSelectedProductComponent } from './components/crm/crm-po/po-entry/po-entry-edit-selected-product/po-entry-edit-selected-product.component';
+import { SearchPipe } from './pipes/search.pipe';
+
 
 
 @NgModule({
   declarations: [
-    DataTablesModule,
     AppComponent,
     LoginComponent,
     CrmComponent,
@@ -49,7 +49,9 @@ import { PoEntryEditSelectedProductComponent } from './components/crm/crm-po/po-
     QuotationSelectionDetailsComponent,
     PoEntryProductSelectionComponent,
     PoEntrySelectedProductComponent,
-    PoEntryEditSelectedProductComponent
+    PoEntryEditSelectedProductComponent,
+    SearchPipe,
+ 
   ],
   imports: [
     BrowserModule,

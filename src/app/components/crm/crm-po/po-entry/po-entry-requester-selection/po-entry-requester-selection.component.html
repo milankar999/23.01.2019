@@ -56,7 +56,7 @@
                 <div class="panel-heading text-center"> Request Selection table</div>
                      <div class="panel-body">
                          <div class="col-md-4">
-                             <input type="text" class="form-control" placeholder="search...">
+                             <input type="text" class="form-control" placeholder="search..."[(ngModel)]="query">
                          </div>
                      </div>
         
@@ -65,49 +65,26 @@
                  <tr>
                     <th></th>
                     <th>Name</th>
-                    <th>  Mobil No 1</th>
-                    <th> Mobil No 2</th>
+                    <th>Mobil No 1</th>
+                    <th>Mobil No 2</th>
                     <th>Office Email ID 1</th>
                     <th>Office Email ID 2</th>
                    
                 </tr >
-                <tr>
-                     <td>
-                        <a href="crm/po-entry/1/1/receiver-selection"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
-                    </td>
-               
-                     <td>1</td>
-                     <td>vinay</td>
-                     <td>C00124</td>
-                     <td>mysuru</td>
-                     <td>karnataka</td>
-           
-                 </tr>
-                 <tr>
+                 <tr *ngFor="let data of  requestpolist|search:query">
                         <td>
                             <a href="crm/po-entry/1/2/receiver-selection"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
                        </td>
                   
-                        <td>2</td>
-                        <td>Sarika</td>
-                        <td>C00134</td>
-                        <td>Mandya</td>
-                        <td>karnataka</td>
+                       <td>{{data.name}}</td>
+                   <td>{{data.mobile1}}</td>
+                   <td>{{data.mobile2}}</td>
+                   <td>{{data.email1}}</td>
+                   <td>{{data.email2}}</td>
+         
               
                     </tr>
-                    <tr>
-                            <td>
-                               <span class="glyphicon glyphicon-forward" style="color: blue"></span>
-                           </td>
-                      
-                            <td>3</td>
-                            <td>vinayrao</td>
-                            <td>C00132</td>
-                            <td>Bangluru</td>
-                            <td>karnataka</td>
-                  
-                        </tr>
-                
+                    
             </thead>
         </table> <br>
     
