@@ -25,7 +25,19 @@ import { PoEntryProductSelectionComponent } from './components/crm/crm-po/po-ent
 import { PoEntrySelectedProductComponent } from './components/crm/crm-po/po-entry/po-entry-selected-product/po-entry-selected-product.component';
 import { PoEntryEditSelectedProductComponent } from './components/crm/crm-po/po-entry/po-entry-edit-selected-product/po-entry-edit-selected-product.component';
 import { SearchPipe } from './pipes/search.pipe';
-
+import { SalesHeaderComponent } from './components/sales/sales-header/sales-header.component';
+import { SalesFooterComponent } from './components/sales/sales-footer/sales-footer.component';
+import { SalesHomeComponent } from './components/sales/sales-home/sales-home.component';
+import { SalesPoComponent } from './components/sales/sales-po/sales-po.component';
+import { PoApprovalComponent } from './components/sales/sales-po/po-approval/po-approval.component';
+import { SalesPoApprovalListComponent } from './components/sales/sales-po/po-approval/sales-po-approval-list/sales-po-approval-list.component';
+import { SalesPoApprovalDetailsComponent } from './components/sales/sales-po/po-approval/sales-po-approval-details/sales-po-approval-details.component';
+import { SalesPoApprovalSupportInfoComponent } from './components/sales/sales-po/po-approval/sales-po-approval-support-info/sales-po-approval-support-info.component';
+import { PoModificationComponent } from './components/crm/crm-po/po-modification/po-modification.component';
+import { CrmPoRejectedListComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-list/crm-po-rejected-list.component';
+import { CrmPoRejectedDetailsComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-details/crm-po-rejected-details.component';
+import { CrmPoRejectedLineitemEditComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-lineitem-edit/crm-po-rejected-lineitem-edit.component';
+import { CrmPoRejectedSuppinfoEditComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-suppinfo-edit/crm-po-rejected-suppinfo-edit.component';
 
 
 @NgModule({
@@ -51,7 +63,19 @@ import { SearchPipe } from './pipes/search.pipe';
     PoEntrySelectedProductComponent,
     PoEntryEditSelectedProductComponent,
     SearchPipe,
- 
+    SalesHeaderComponent,
+    SalesFooterComponent,
+    SalesHomeComponent,
+    SalesPoComponent,
+    PoApprovalComponent,
+    SalesPoApprovalListComponent,
+    SalesPoApprovalDetailsComponent,
+    SalesPoApprovalSupportInfoComponent,
+    PoModificationComponent,
+    CrmPoRejectedListComponent,
+    CrmPoRejectedDetailsComponent,
+    CrmPoRejectedLineitemEditComponent,
+    CrmPoRejectedSuppinfoEditComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@
             <div class="panel-heading text-center"> Quotation Selection details</div>
                  <div class="panel-body">
                      <div class="col-md-4">
-                         <input type="text" class="form-control" placeholder="search...">
+                         <input type="text" class="form-control" placeholder="search..." [(ngModel)]="query">
                      </div>
                  </div>
     
@@ -24,56 +24,23 @@
                         <th>Hsn code</th>
                         <th>gst</th>
                         <th>UOM</th>
-                        <th>Price / Unit</th>
+                        <th>Price</th>
                      </tr >
 
-                    <tr>
-                         <td>
-                            <a href=" #"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
-                        </td>
-                        <td>Destop</td>
-                        <td>krupanka</td>
-                        <td>C00124</td>
-                        <td>mysuru</td>
-                        <td>karnataka</td>
-                        <td>karnataka</td>
-                        <td>karnataka</td>
-                        <td>karnataka</td>
-                        <td>karnataka</td>
-                        <td>karnataka</td>
-                        </tr>
-                     <tr>
-                         <td>
-                            <a href=" #"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
-                        </td>
-              
-                        <td>computers</td>
-                        <td>Sarika</td>
-                        <td>C00134</td>
-                        <td>Mandya</td>
-                        <td>karnataka</td>
-                        <td>karnataka</td>
-                        <td>karnataka</td>
-                        <td>karnataka</td>
-                        <td>karnataka</td>
-                        <td>karnataka</td>
+               <tr *ngFor="let item of quotationlist|search:query">
+                                <td><span class="glyphicon glyphicon-forward" style="color: blue"></span></td>
+                                <td> {{item.name}}</td>
+                                <td>{{item.description}}</td>
+                                <td>{{item.model}}</td>
+                                <td>{{item.brand}}</td>
+                                <td>{{item.partno}}</td>
+                                <td>{{item.productcode}}</td>
+                                <td>{{item.hsncode}}</td>
+                                <td>{{item.gst}}</td>
+                                <td>{{item.uom}}</td>
+                                <td>{{item.price}}</td>
                      </tr>
-                     <tr>
-                        <td>
-                           <a href=" #"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
-                       </td>
-             
-                       <td>computers</td>
-                       <td>Sarika</td>
-                       <td>C00134</td>
-                       <td>Mandya</td>
-                       <td>karnataka</td>
-                       <td>karnataka</td>
-                       <td>karnataka</td>
-                       <td>karnataka</td>
-                       <td>karnataka</td>
-                       <td>karnataka</td>
-                    </tr>
+                    
                  </thead>
               </table> <br>
          </div>
