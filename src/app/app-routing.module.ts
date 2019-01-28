@@ -16,6 +16,11 @@ import { PoEntrySelectedProductComponent } from './components/crm/crm-po/po-entr
 import { PoEntryEditSelectedProductComponent } from './components/crm/crm-po/po-entry/po-entry-edit-selected-product/po-entry-edit-selected-product.component';
 import { SearchPipe } from './pipes/search.pipe';
 
+import { SalesPoApprovalListComponent } from './components/sales/sales-po/po-approval/sales-po-approval-list/sales-po-approval-list.component';
+import { CrmPoRejectedListComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-list/crm-po-rejected-list.component';
+import { CrmPoRejectedSuppinfoEditComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-suppinfo-edit/crm-po-rejected-suppinfo-edit.component';
+
+
 const routes:Routes=[
   { path:'login',component:LoginComponent },
 
@@ -31,7 +36,11 @@ const routes:Routes=[
   { path:'crm/po-entry/production-selection', component:PoEntryProductSelectionComponent},
   { path:'crm/po-entry/quotation-selection-details',component:QuotationSelectionDetailsComponent},
   { path:'crm/po-entry/po-entry-edit-selected-product',component:PoEntryEditSelectedProductComponent},
-  { path:'crm/po-entry/po-entry-selected-product',component:PoEntrySelectedProductComponent}
+  { path:'crm/po-entry/po-entry-selected-product',component:PoEntrySelectedProductComponent},
+
+  { path:'sales/sales-po/sales-po-approval-list',component:SalesPoApprovalListComponent},
+  { path: 'crm/crm-po/po-modification/crm-po-rejected-list',component:CrmPoRejectedListComponent},
+  { path: 'crm/crm-po/po-modification/crm-po-rejected-supporting-edit',component:CrmPoRejectedSuppinfoEditComponent}
 ]
 
 @NgModule({
