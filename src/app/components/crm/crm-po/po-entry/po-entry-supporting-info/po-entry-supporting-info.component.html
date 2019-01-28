@@ -6,16 +6,38 @@
       <hr>
       <form>
         <div class="form-group">
-            <label class="form-input" for="Shipping-Address">Shipping-Address </label>
-            <textarea type="text" class="form-control" id="Shipping-Address" name="Shipping-Address"></textarea>
-            <label class="form-input" for="Billing-Address">Billing-Address </label>
-            <textarea type="text" class="form-control" id="Billing-Address" name="Billing-Address"></textarea>
+            <label class="form-input" for="Shippingaddress">Shipping-Address </label>
+            <input type="text" class="form-control" id="Shippingaddress" name="Shippingaddress"
+                    [(ngModel)]="model.Shippingaddress"
+                    required 
+                    #Shippingaddress="ngModel">
+                    <span *ngIf="Shippingaddress.touched && Shippingaddress.invalid" class="help-block">Shipping-Address can't be blank</span><br>
+          
+
+            <label class="form-input" for="Billingaddress">Billing-Address </label>
+            <input type="text" class="form-control" id="Billingaddress" name="Billingaddress"[(ngModel)]="model.Billingaddress"
+            required 
+            #Billingaddress="ngModel">
+            <span *ngIf="Billingaddress.touched && Billingaddress.invalid" class="help-block">Billing-Address can't be blank</span><br>
+            
             <label class="form-input" for="Deliverydate">Delivery Date</label>
-            <input type="date" class="form-control" id="Deliverydate" name="Deliverydate" required>
-            <label class="form-input" for="poNo"> PO No <a style="color: red"></a></label>
-            <input type="text" class="form-control" id="PoNo" name="PoNo" required>
+            <input type="date" class="form-control" id="Deliverydate" name="Deliverydate" [(ngModel)]="model.Deliverydate"
+            required 
+            #Deliverydate="ngModel">
+            <span *ngIf="Deliverydate.touched && Deliverydate.invalid" class="help-block">Deliverydate can't be blank</span><br>
+
+            <label class="form-input" for="PoNo"> PO No <a style="color: red">*</a></label>
+            <input type="text" class="form-control" id="PoNo" name="PoNo" [(ngModel)]="model.PoNo"
+            required 
+            #PoNo="ngModel">
+            <span *ngIf="PoNo.touched && PoNo.invalid" class="help-block">PoNo can't be blank</span><br>
+
+
             <label class="form-input" for="date">Po Date</label>
-            <input type="date" class="form-control" id="date" name="date" required>
+            <input type="date" class="form-control" id="date" name="date" [(ngModel)]="model.date"
+            required 
+            #date="ngModel">
+            <span *ngIf="date.touched && date.invalid" class="help-block">Date can't be blank</span><br>
         </div>
           <hr>
           <button routerLink="/crm/po-entry/po12345" type="button" class="btn btn-success">Submit</button>&nbsp;

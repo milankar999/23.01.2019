@@ -76,6 +76,7 @@ import { CrmPoRejectedSuppinfoEditComponent } from './components/crm/crm-po/po-m
     CrmPoRejectedDetailsComponent,
     CrmPoRejectedLineitemEditComponent,
     CrmPoRejectedSuppinfoEditComponent,
+  
   ],
   imports: [
     BrowserModule,

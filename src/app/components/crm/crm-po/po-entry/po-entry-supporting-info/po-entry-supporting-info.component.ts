@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./po-entry-supporting-info.component.css']
 })
 export class PoEntrySupportingInfoComponent implements OnInit {
+  model : any={};
+  
 
   constructor() { }
 

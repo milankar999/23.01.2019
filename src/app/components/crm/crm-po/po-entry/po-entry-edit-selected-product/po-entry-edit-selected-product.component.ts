@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./po-entry-edit-selected-product.component.css']
 })
 export class PoEntryEditSelectedProductComponent implements OnInit {
-
+  model : any={};
   constructor() { }
 
   ngOnInit() {
