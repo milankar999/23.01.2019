@@ -19,8 +19,6 @@ export class PoEntryServicesService {
 
   poEntryCustomer:PoEntryNewCustomer []=[];
 
-
-
   constructor(private http: HttpClient) { }
 
   //PoEntryCustomerSelection using GET method()...

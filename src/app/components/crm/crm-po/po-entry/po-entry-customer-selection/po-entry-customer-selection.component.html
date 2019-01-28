@@ -101,7 +101,7 @@
             </tr >
             <tr *ngFor="let data of customerselectionlist|search:query">
                  <td>
-                    <a href="crm/po-entry/1/requester-selection"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
+                    <a href="crm/po-entry/{{data.id}}/requester-selection"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
                 </td>
                 
                  <td>{{data.id}}</td>
