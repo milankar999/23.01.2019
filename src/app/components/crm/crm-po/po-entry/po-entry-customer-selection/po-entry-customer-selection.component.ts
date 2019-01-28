@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 
+import {PoEntryServicesService}from '../../../../../services/crm/po/po-entry/po-entry-services.service';
 
+import{ Router } from '@angular/router';
+import{ HttpResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-po-entry-customer-selection',
@@ -10,19 +13,27 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class PoEntryCustomerSelectionComponent implements OnInit {
   query:string='';
-  customerpolist=[
-    {id:1,name:"krupanka", code:"c001",location:"mysuru",state:"karnataka"},
-    {id:2,name:"sarika", code:"c002",location:"bangaluru",state:"karnataka"},
-    {id:3,name:"sanju", code:"c003",location:"mandya",state:"karnataka"}
-  ];
- 
- display='none';
-  constructor() { }
+  
+   customerselectionlist:Object[]=[];
+    display='none';
+
+  constructor(private poEntryServicesService:PoEntryServicesService,
+    private router:Router) { }
   
 
   ngOnInit() {
+    this.PoEntryCustomerSelection()
+
   }
-  
+  PoEntryCustomerSelection(){
+    this.poEntryServicesService.getPoEntryCustomerSelection().subscribe((data)=>{  
+      this.customerselectionlist=data;
+      
+  })
+}
+
+
+
   openModalDialog(){
     this.display='block';
   }
@@ -31,3 +42,66 @@ export class PoEntryCustomerSelectionComponent implements OnInit {
 
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
