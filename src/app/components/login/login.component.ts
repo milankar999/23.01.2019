@@ -21,8 +21,8 @@ model:any={};
 
     this.LoginServicesService.getLoginDetails(this.model.inputUsername, this.model.inputPassword).subscribe(data => {
       alert('Your login as been success');
-       localStorage.setItem('username', data.username);
-      localStorage.setItem('password', data.password);
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('hr_user_type', data.hr_user_type);
       this.router.navigate(['/crm/po-entry/customer-selection']);
       console.log(data);
     
