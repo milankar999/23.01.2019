@@ -21,7 +21,10 @@ import { SalesPoApprovalSupportInfoComponent } from './components/sales/sales-po
 import { SalesPoApprovalListComponent } from './components/sales/sales-po/po-approval/sales-po-approval-list/sales-po-approval-list.component';
 import { CrmPoRejectedListComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-list/crm-po-rejected-list.component';
 import { CrmPoRejectedSuppinfoEditComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-suppinfo-edit/crm-po-rejected-suppinfo-edit.component';
-
+import { SearchPipe } from './pipes/search.pipe';
+import { SalesFooterComponent } from './components/sales/sales-footer/sales-footer.component';
+import { SalesPoApprovalDetailsComponent } from './components/sales/sales-po/po-approval/sales-po-approval-details/sales-po-approval-details.component';
+import { CrmPoRejectedDetailsComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-details/crm-po-rejected-details.component';
 
 const routes:Routes=[
   { path:'login',component:LoginComponent },
@@ -39,13 +42,17 @@ const routes:Routes=[
   { path:'crm/po-entry/quotation-selection-details',component:QuotationSelectionDetailsComponent},
   { path:'crm/po-entry/po-entry-edit-selected-product',component:PoEntryEditSelectedProductComponent},
   { path:'crm/po-entry/po-entry-selected-product',component:PoEntrySelectedProductComponent},
-
   { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent},
   { path:'sales-po/po-approval/sales-po-approval-support-info', component:SalesPoApprovalSupportInfoComponent},
 
   { path:'sales/sales-po/sales-po-approval-list',component:SalesPoApprovalListComponent},
   { path: 'crm/crm-po/po-modification/crm-po-rejected-list',component:CrmPoRejectedListComponent},
-  { path: 'crm/crm-po/po-modification/crm-po-rejected-supporting-edit',component:CrmPoRejectedSuppinfoEditComponent}
+  { path: 'crm/crm-po/po-modification/crm-po-rejected-supporting-edit',component:CrmPoRejectedSuppinfoEditComponent},
+
+  { path:'sales/sales-footer', component:SalesFooterComponent},
+  { path:'sales/sales-po/sales-po-approval-details' ,component:SalesPoApprovalDetailsComponent},
+  { path:'crm/crm-po/po-mdification/crm-po-rejected-details', component:CrmPoRejectedDetailsComponent}
+
 ]
 
 @NgModule({
