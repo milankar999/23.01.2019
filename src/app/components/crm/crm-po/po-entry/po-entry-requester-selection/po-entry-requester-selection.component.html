@@ -18,22 +18,22 @@
                </div>
                 <!--modal-body-->
                 <div class="modal-body">
-                    <form  >
+                   <form>
                         <div class="form-group">
-                            <label class="form-input" for="name">  Name <a style="color: red">*</a></label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Organization Name" required>
+                            <label class="form-input" for="name">Name<a style="color: red">*</a></label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Organization Name" [(ngModel)]="model.name" required #name="ngModel">
  
-                            <label class="form-input" for=" Mobil1"> Mobil No 1 </label>
-                            <input type="number" class="form-control" id="offiephone1" name="officephone1">
+                            <label class="form-input" for="mobileNo1"> Mobil No 1 </label>
+                            <input type="text" class="form-control" id="mobileNo1" name="mobileNo1" [(ngModel)]="model.mobileNo1" required #mobileNo1="ngModel">
 
-                            <label class="form-input" for="Mobil2"> Mobil No 2 </label>
-                            <input type="number" class="form-control" id="offiephone2" name="officephone2">
+                            <label class="form-input" for="mobileNo2"> Mobil No 2 </label>
+                            <input type="text" class="form-control" id="mobileNo2" name="mobileNo2" [(ngModel)]="model.mobileNo2" required #mobileNo2="ngModel">
 
                             
-                            <label class="form-input" for="officeemail1">Office Email ID 1 </label>
-                            <input type="email" class="form-control" id="offieemail1" name="officeemail1">
-                            <label class="form-input" for="officeemail2">Office Email ID 2 </label>
-                            <input type="email" class="form-control" id="offieemail2" name="officeemail2">
+                            <label class="form-input" for="email1">Office Email ID 1 </label>
+                            <input type="email" class="form-control" id="email1" name="email1" [(ngModel)]="model.email1" required #email1="ngModel">
+                            <label class="form-input" for="email2">Office Email ID 2 </label>
+                            <input type="email" class="form-control" id="email2" name="email2" [(ngModel)]="model.email2" required #email2="ngModel">
                            
                             
                             </div>
@@ -42,7 +42,8 @@
                 </div>
                 <!--modal-footer-->
                 <div class="modal-footer">
-                        <button type="button" class="btn btn-success" (click)="closeModalDialog()">Submit</button>
+                    <form #submitrequestorForm="ngForm" (ngSubmit)="submitrequestorlist(event)" class="form-signin" >
+                        <button [disabled]="submitrequestorForm.invalid" class="btn btn-primary">submit</button></form>
                     <button type="button" class="btn btn-danger" (click)="closeModalDialog()">Cancel</button>
                     
                 </div>
@@ -71,16 +72,16 @@
                     <th>Office Email ID 2</th>
                    
                 </tr >
-                 <tr *ngFor="let data of  requestpolist|search:query">
+                 <tr *ngFor="let item of requestorpolist|search:query">
                         <td>
-                            <a href="crm/po-entry/1/2/receiver-selection"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
+                            <a href="crm/po-entry/{{customer_id}}/{{item.id}}/receiver-selection"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
                        </td>
                   
-                       <td>{{data.name}}</td>
-                   <td>{{data.mobile1}}</td>
-                   <td>{{data.mobile2}}</td>
-                   <td>{{data.email1}}</td>
-                   <td>{{data.email2}}</td>
+                       <td>{{item.name}}</td>
+                       <td>{{item.mobileNo1}}</td>
+                      <td>{{item.mobileNo2}}</td>
+                      <td>{{item.email1}}</td>
+                     <td>{{item.email2}}</td>
          
               
                     </tr>

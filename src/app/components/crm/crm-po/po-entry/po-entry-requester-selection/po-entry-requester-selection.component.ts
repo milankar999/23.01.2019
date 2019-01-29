@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
+import{ Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import {PoEntryServicesService}from '../../../../../services/crm/po/po-entry/po-entry-services.service';
+
+import{ HttpResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-po-entry-requester-selection',
@@ -9,18 +12,29 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class PoEntryRequesterSelectionComponent implements OnInit {
   query:string='';
-  requestpolist=[
-    {id:1,name:"krupanka",mobile1:23454,mobile2:24354,email1:"krupa@gmail.com",email2:"ksarika@gmail.com"},
-    {id:2,name:"krupasarika",mobile1:288954,mobile2:245654,email1:"krupanka@gmail.com",email2:"ksarikakrupa@gmail.com"},
-    {id:3,name:"sanju",mobile1:224654,mobile2:247954,email1:"krupasanju@gmail.com",email2:"ksanju@gmail.com"},
-  ]
- 
+  public requestorId;
+  requestorpolist:Object[]=[];
+  model:any={};
   display='none';
+  customer_id="";
 
-  constructor() { }
+  constructor(private poEntryServicesService:PoEntryServicesService,
+    private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
+    let id=this.route.snapshot.paramMap.get('customer');
+    this.customer_id = id;
+    this.requestorId=id;
+    this.PoEntryRequestorSelection(id)
+    
   }
+  PoEntryRequestorSelection(id){
+    this.poEntryServicesService.getPoEntryRequestorSelection(id).subscribe((data)=>{  
+      this. requestorpolist=data;
+      console.log(this.requestorpolist);
+      
+  })
+}
   
   openModalDialog(){
     this.display='block';
@@ -28,5 +42,19 @@ export class PoEntryRequesterSelectionComponent implements OnInit {
   closeModalDialog(){
     this.display='none';
     
+  }
+  submitrequestor(){
+    localStorage.setItem('requestor', this.model.name);
+  }
+  submitrequestorlist(event){
+    //let id=this.route.snapshot.paramMap.get('customer');
+    //this.requestorId=id;
+    //console.log(id);
+    //this.poEntryServicesService.PostRequestorlist(this.model.name,
+     //  this.model.mobileNo1,this.model.mobileNo2, this.model.email1,this.model.email2,id).subscribe(data => {
+        
+     // console.log(data);//display the console
+     
+//});
   }
 }
