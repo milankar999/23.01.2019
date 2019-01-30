@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 import {PoEntryServicesService}from '../../../../../services/crm/po/po-entry/po-entry-services.service';
 
 import{ HttpResponse} from '@angular/common/http';
+import { refreshDescendantViews } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-po-entry-requester-selection',
@@ -43,18 +44,17 @@ export class PoEntryRequesterSelectionComponent implements OnInit {
     this.display='none';
     
   }
-  submitrequestor(){
-    localStorage.setItem('requestor', this.model.name);
-  }
+
   submitrequestorlist(event){
-    //let id=this.route.snapshot.paramMap.get('customer');
-    //this.requestorId=id;
-    //console.log(id);
-    //this.poEntryServicesService.PostRequestorlist(this.model.name,
-     //  this.model.mobileNo1,this.model.mobileNo2, this.model.email1,this.model.email2,id).subscribe(data => {
-        
-     // console.log(data);//display the console
+    let id=this.route.snapshot.paramMap.get('customer');
+    this.requestorId=id;
+    console.log(id);
+    this.poEntryServicesService.PostRequestorlist(this.model.name,
+     this.model.mobileNo1,this.model.mobileNo2, this.model.email1,this.model.email2,id).subscribe(data => {
+    
+      console.log(data);
+      window.location.reload();
      
-//});
+});
   }
 }

@@ -18,31 +18,42 @@
              </div>
               <!--modal-body-->
               <div class="modal-body">
-                  <form>
-                      <div class="form-group">
-                          <label class="form-input" for="name">Name <a style="color: red">*</a></label>
-                          <input type="text" class="form-control" id="name" name="name" placeholder="Organization Name" required>
-                          <label class="form-input" for="mobile1no">Mobile No.1 <a style="color: red">*</a></label>
-                          <input type="text" class="form-control" id="mobile1no" name="mobile1no" required>
-                          <label class="form-input" for="mobile2no">Mobile No.2</label>
-                          <input type="text" class="form-control" id="mobile2no" name="mobile2no"required>
-                          <label class="form-input" for="emial1">Email 1<a style="color: red">*</a></label>
-                          <input type="text" class="form-control" id="email1" name="email1" required>
-                          <label class="form-input" for="email2">Email 2</label>
-                          <input type="text" class="form-control" id="email2" name="email2" required>
-                      </div>
-                  </form>
-              </div>
-              <!--modal-footer-->
-              <div class="modal-footer">
-                      <button type="button" class="btn btn-success" (click)="closeModalDialog()">Submit</button>
-                  <button type="button" class="btn btn-danger" (click)="closeModalDialog()">Cancel</button>
+                    <form #submitreciverForm="ngForm" (ngSubmit)="submitreciverlist(event)" class="form-signin" >
+                    <div class="form-group">
+                        <label class="form-input" for="person_name">person_name<a style="color: red">*</a></label>
+                        <input type="text" class="form-control" id="person_name" name="person_name" [(ngModel)]="model.person_name" required #person_name="ngModel">
+                        <span *ngIf="person_name.touched && person_name.invalid" class="help-block">person_name can't be blank</span><br>
+
+                        <label class="form-input" for="mobileNo1"> Mobil No 1 <a style="color: red">*</a> </label>
+                        <input type="text" class="form-control" id="mobileNo1" name="mobileNo1" [(ngModel)]="model.mobileNo1" required #mobileNo1="ngModel">
+                        <span *ngIf="mobileNo1.touched && mobileNo1.invalid" class="help-block">mobileNo1 can't be blank</span><br>
+
+                        <label class="form-input" for="mobileNo2"> Mobil No 2 </label>
+                        <input type="text" class="form-control" id="mobileNo2" name="mobileNo2" [(ngModel)]="model.mobileNo2" required #mobileNo2="ngModel"><br>
+
+                        
+                        <label class="form-input" for="email1">Office Email ID 1 <a style="color: red">*</a>  </label>
+                        <input type="email" class="form-control" id="email1" name="email1" [(ngModel)]="model.email1" required #email1="ngModel">
+                        <span *ngIf="email1.touched && email1.invalid" class="help-block">email1 can't be blank</span><br>
+
+                        <label class="form-input" for="email2">Office Email ID 2 </label>
+                        <input type="email" class="form-control" id="email2" name="email2" [(ngModel)]="model.email2" required #email2="ngModel"><br>
+                       
+                        <label class="form-input" for="department_name">Department Name <a style="color: red">*</a></label>
+                        <input type="text" class="form-control" id="department_name" name="department_name" [(ngModel)]="model.department_name" required #department_name="ngModel">
+                        <span *ngIf="department_name.touched && department_name.invalid" class="help-block">department_name can't be blank</span><br>
+                   
+                        <hr>
+                        <button [disabled]="submitreciverForm.invalid" class="btn btn-primary">Submit</button>&nbsp;
+                      <button type="button" class="btn btn-danger" (click)="closeModalDialog()">Cancel</button>
                   
-              </div>
-          </div>
+                 </div>
+                       
+         </form>
+ </div>      </div>
       </div>
   </div>
-  </div>
+ </div>
   <hr>
    <div class="col-md-offset-2 col-md-8">
           <div class="panel panel-primary">
@@ -62,6 +73,7 @@
                   <th>Mobile No 2</th>
                   <th>Email 1</th>
                   <th>Email 2</th>
+                  <th>Department_Name</th>
                  
               </tr >
            <tr *ngFor="let data of  reciverpolist|search:query">
@@ -74,6 +86,7 @@
                    <td>{{data.mobile2}}</td>
                    <td>{{data.email1}}</td>
                    <td>{{data.email2}}</td>
+                   <td></td>
          
                </tr>
      </thead>
