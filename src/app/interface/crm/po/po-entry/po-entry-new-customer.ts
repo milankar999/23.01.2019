@@ -1,5 +1,5 @@
 export interface PoEntryNewCustomer {
-          id:string ,
+        id:string ,
         name:string ,
         location:string ,
         code:string ,

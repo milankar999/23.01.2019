@@ -25,7 +25,6 @@ export class PoEntryRequesterSelectionComponent implements OnInit {
   ngOnInit() {
     let id=this.route.snapshot.paramMap.get('customer');
     this.customer_id = id;
-    this.requestorId=id;
     this.PoEntryRequestorSelection(id)
     
   }

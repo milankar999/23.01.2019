@@ -68,26 +68,23 @@
            <thead>
                <tr>
                   <th></th>
-                  <th>Name</th>
-                  <th>Mobile No 1</th>
-                  <th>Mobile No 2</th>
-                  <th>Email 1</th>
-                  <th>Email 2</th>
-                  <th>Department_Name</th>
-                 
+                  <th>Person Name</th>
+                  <th>mobileNo1</th>
+                  <th>mobileNo2</th>
+                  <th>email1</th>
+                  <th>email2</th> 
+                   <th>department_name</th>                 
               </tr >
-           <tr *ngFor="let data of  reciverpolist|search:query">
+           <tr *ngFor="let data of  reciverselectionlist">
                    <td>
-                      <a href="crm/po-entry/1/1/1/supportinginfo"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
-                  </td>
-             
-                   <td>{{data.name}}</td>
-                   <td>{{data.mobile1}}</td>
-                   <td>{{data.mobile2}}</td>
-                   <td>{{data.email1}}</td>
-                   <td>{{data.email2}}</td>
-                   <td></td>
-         
+                      <a href="crm/po-entry/{{customer_id}}/{{requester_id}}/{{data.id}}/supportinginfo"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
+                  </td>                
+                  <td>{{data.person_name}}</td>
+                  <td>{{data.mobileNo1}}</td>
+                  <td>{{data.mobileNo2}}</td>
+                  <td>{{data.email1}}</td>
+                  <td>{{data.email2}}</td>
+                  <td>{{data.department_name}}</td>
                </tr>
      </thead>
       </table> <br>

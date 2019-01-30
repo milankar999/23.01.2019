@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 import  { PoEntryNewCustomer }from '../../../../interface/crm/po/po-entry/po-entry-new-customer'; 
 import  { PoEntryCustomerTable }from '../../../../interface/crm/po/po-entry/po-entry-customer-table'; 
 import {  PoEntryReceiver } from '../../../../interface/crm/po/po-entry/po-entry-receiver';
-
+import  {PoEntryReciver }from '../../../../interface/crm/po/po-entry/po-entry-reciver';
+import  {SupportingInfo} from '../../../../interface/crm/po/po-entry/supporting-info'
 
  
 
@@ -20,6 +21,9 @@ export class PoEntryServicesService {
 
   poEntryCustomer:PoEntryNewCustomer []=[];
   id;
+   reciverselectionlist:PoEntryReciver[]=[];
+
+   supportinfolist:SupportingInfo[]=[];
 
   constructor(private http: HttpClient) { }
 
@@ -30,6 +34,26 @@ export class PoEntryServicesService {
        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
     });       
 }
+
+ //PoEntryReciverSelection using GET method()...
+ getPoEntryReciverSelection(cust_id,requ_id):Observable<PoEntryReciver[]>{
+  return this.http.get<PoEntryReciver[]>("/api/po_from_customer/customer/"+ cust_id +"/contact_person/"+ requ_id +"/delivery_contactperson_selection//", //PoEntry reciverSelection database API LInk
+   {
+       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+    });       
+}
+
+
+
+ //PoEntrySupportingInfo using GET method()...
+ getPoEntrySupportingInfo(cust_id,requ_id,rece_id):Observable< SupportingInfo[]>{
+    return this.http.get<SupportingInfo[]>("/api/po_from_customer/customer/"+ cust_id +"/contact_person/"+ requ_id +"/delivery_contactperson/"+ rece_id +"/supporting_info/",  
+     {
+         headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+      });       
+  }
+  
+
 
 
   getPoEntryRequestorSelection(id):Observable<PoEntryCustomerTable[]>{
