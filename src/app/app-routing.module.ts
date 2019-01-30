@@ -28,11 +28,7 @@ import { CrmPoRejectedDetailsComponent } from './components/crm/crm-po/po-modifi
 
 const routes:Routes=[
   { path:'login',component:LoginComponent },
-
-  { path:'crm/crmheader',component:CrmHeaderComponent },
-  { path:'crm/crmfooter',component:CrmFooterComponent },
-  { path:'crm/crm-home',component:CrmHomeComponent },
-
+//Po Creation/Entry
   { path:'crm/po-entry/customer-selection', component:PoEntryCustomerSelectionComponent },
   { path:'crm/po-entry/:customer/requester-selection',component: PoEntryRequesterSelectionComponent },
   { path:'crm/po-entry/:customer/:requester/receiver-selection',component: PoEntryReceiverSelectionComponent },
@@ -42,17 +38,15 @@ const routes:Routes=[
   { path:'crm/po-entry/quotation-selection-details',component:QuotationSelectionDetailsComponent},
   { path:'crm/po-entry/po-entry-edit-selected-product',component:PoEntryEditSelectedProductComponent},
   { path:'crm/po-entry/po-entry-selected-product',component:PoEntrySelectedProductComponent},
-  { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent},
-  { path:'sales-po/po-approval/sales-po-approval-support-info', component:SalesPoApprovalSupportInfoComponent},
-
+//PO Approval
   { path:'sales/sales-po/sales-po-approval-list',component:SalesPoApprovalListComponent},
-  { path: 'crm/crm-po/po-modification/crm-po-rejected-list',component:CrmPoRejectedListComponent},
-  { path: 'crm/crm-po/po-modification/crm-po-rejected-supporting-edit',component:CrmPoRejectedSuppinfoEditComponent},
-
-  { path:'sales/sales-footer', component:SalesFooterComponent},
   { path:'sales/sales-po/sales-po-approval-details' ,component:SalesPoApprovalDetailsComponent},
-  { path:'crm/crm-po/po-mdification/crm-po-rejected-details', component:CrmPoRejectedDetailsComponent}
-    
+  { path:'sales-po/po-approval/sales-po-approval-support-info', component:SalesPoApprovalSupportInfoComponent},
+//Rejected PO Modification
+  { path:'crm/crm-po/po-modification/crm-po-rejected-list',component:CrmPoRejectedListComponent},
+  { path:'crm/crm-po/po-mdification/crm-po-rejected-details', component:CrmPoRejectedDetailsComponent},
+  { path:'crm/crm-po/po-modification/crm-po-rejected-supporting-edit',component:CrmPoRejectedSuppinfoEditComponent},
+  { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent},    
 ]
 
 @NgModule({

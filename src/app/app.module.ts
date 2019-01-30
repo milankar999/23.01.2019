@@ -38,6 +38,16 @@ import { CrmPoRejectedListComponent } from './components/crm/crm-po/po-modificat
 import { CrmPoRejectedDetailsComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-details/crm-po-rejected-details.component';
 import { CrmPoRejectedLineitemEditComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-lineitem-edit/crm-po-rejected-lineitem-edit.component';
 import { CrmPoRejectedSuppinfoEditComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-suppinfo-edit/crm-po-rejected-suppinfo-edit.component';
+import { SourcingHeaderComponent } from './components/sourcing/sourcing-header/sourcing-header.component';
+import { SourcingFooterComponent } from './components/sourcing/sourcing-footer/sourcing-footer.component';
+import { SourcingHomeComponent } from './components/sourcing/sourcing-home/sourcing-home.component';
+import { SourcingPoComponent } from './components/sourcing/sourcing-po/sourcing-po.component';
+import { SourcingCpoPendingListComponent } from './components/sourcing/sourcing-po/sourcing-cpo-pending-list/sourcing-cpo-pending-list.component';
+import { SourcingCpoPendingDetailsComponent } from './components/sourcing/sourcing-po/sourcing-cpo-pending-details/sourcing-cpo-pending-details.component';
+import { SourcingCpoVendorProductComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-cpo-vendor-product.component';
+import { SourcingCpoLineitemEditComponent } from './components/sourcing/sourcing-po/sourcing-cpo-lineitem-edit/sourcing-cpo-lineitem-edit.component';
+import { SourcingCpoVendorSelectionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-vendor-selection.component';
+import { SourcingCpoNewVendorComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-new-vendor/sourcing-cpo-new-vendor.component';
 
 
 @NgModule({
@@ -76,6 +86,16 @@ import { CrmPoRejectedSuppinfoEditComponent } from './components/crm/crm-po/po-m
     CrmPoRejectedDetailsComponent,
     CrmPoRejectedLineitemEditComponent,
     CrmPoRejectedSuppinfoEditComponent,
+    SourcingHeaderComponent,
+    SourcingFooterComponent,
+    SourcingHomeComponent,
+    SourcingPoComponent,
+    SourcingCpoPendingListComponent,
+    SourcingCpoPendingDetailsComponent,
+    SourcingCpoVendorProductComponent,
+    SourcingCpoLineitemEditComponent,
+    SourcingCpoVendorSelectionComponent,
+    SourcingCpoNewVendorComponent,
   
   ],
   imports: [
