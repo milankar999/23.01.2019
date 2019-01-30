@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import {PoEntryServicesService}from '../../../../../services/crm/po/po-entry/po-entry-services.service';
+
+import{ Router, ActivatedRoute } from '@angular/router';
+import{ HttpResponse} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-po-entry-receiver-selection',
@@ -8,19 +14,35 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class PoEntryReceiverSelectionComponent implements OnInit {
  query:string='';
-  reciverpolist=[
-    {id:1,name:"krupanka",mobile1:23454,mobile2:24354,email1:"krupa@gmail.com",email2:"ksarika@gmail.com"},
-    {id:2,name:"krupasarika",mobile1:288954,mobile2:245654,email1:"krupanka@gmail.com",email2:"ksarikakrupa@gmail.com"},
-    {id:3,name:"sanju",mobile1:224654,mobile2:247954,email1:"krupasanju@gmail.com",email2:"ksanju@gmail.com"},
-  ]
+ public requestorId;
+ reciverselectionlist:Object[]=[];
+ display='none';
+ model:any={};
  
-  display='none';
+ customer_id="";
+ requester_id=""; 
 
-  constructor() { }
+constructor(private  poEntryServicesService:PoEntryServicesService,
+ private router:Router, private route:ActivatedRoute) { }
 
-  ngOnInit() {
-  }
-  
+
+ ngOnInit() {
+    let cust_id=this.route.snapshot.paramMap.get('customer');
+    let requ_id=this.route.snapshot.paramMap.get('requester');
+    this.customer_id = cust_id;
+    this.requester_id = requ_id;
+    this.PoEntryReciverSelection(cust_id,requ_id);
+}
+PoEntryReciverSelection(cust_id,requ_id){
+  this.poEntryServicesService.getPoEntryReciverSelection(cust_id,requ_id).subscribe((data)=>{  
+    this.reciverselectionlist=data;
+    console.log(this.reciverselectionlist);
+    
+})
+}
+
+
+
 openModalDialog()
     {
       this.display='block';

@@ -52,7 +52,7 @@ const routes:Routes=[
   { path:'sales/sales-footer', component:SalesFooterComponent},
   { path:'sales/sales-po/sales-po-approval-details' ,component:SalesPoApprovalDetailsComponent},
   { path:'crm/crm-po/po-mdification/crm-po-rejected-details', component:CrmPoRejectedDetailsComponent}
-
+    
 ]
 
 @NgModule({

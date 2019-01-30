@@ -6,16 +6,16 @@
       <hr>
       <form>
         <div class="form-group">
-            <label class="form-input" for="Shippingaddress">Shipping-Address </label>
-            <input type="text" class="form-control" id="Shippingaddress" name="Shippingaddress"
+            <label class="form-input" for="Shippingaddress">Shipping-Address   </label>
+            <input type="text" class="form-control" id="Shippingaddress" value="{{shipping_address}}"  name="Shippingaddress"
                     [(ngModel)]="model.Shippingaddress"
                     required 
                     #Shippingaddress="ngModel">
-                    <span *ngIf="Shippingaddress.touched && Shippingaddress.invalid" class="help-block">Shipping-Address can't be blank</span><br>
+            <span *ngIf="Shippingaddress.touched && Shippingaddress.invalid" class="help-block">Shipping-Address can't be blank</span><br>
           
 
             <label class="form-input" for="Billingaddress">Billing-Address </label>
-            <input type="text" class="form-control" id="Billingaddress" name="Billingaddress"[(ngModel)]="model.Billingaddress"
+            <input type="text" class="form-control" id="Billingaddress" value="{{billing_address}}" name="Billingaddress"[(ngModel)]="model.Billingaddress"
             required 
             #Billingaddress="ngModel">
             <span *ngIf="Billingaddress.touched && Billingaddress.invalid" class="help-block">Billing-Address can't be blank</span><br>
@@ -38,6 +38,26 @@
             required 
             #date="ngModel">
             <span *ngIf="date.touched && date.invalid" class="help-block">Date can't be blank</span><br>
+
+  
+            <label class="form-input" for="incoterm"> Inco term</label>
+            <input type="text" class="form-control" id="incoterm" value="{{inco_term}}" name="incoterm" [(ngModel)]="model.incoterm"
+             required 
+             #incoterm="ngModel">
+             <span *ngIf="incoterm.touched && incoterm.invalid" class="help-block">inco-term can't be blank</span>
+
+
+
+             <label class="form-input" for="paymentterm"> Payment term</label>
+             <input type="text" class="form-control" id="paymentterm" value="{{payment_term}}" name="paymentterm" [(ngModel)]="model.paymentterm"
+              required 
+              #paymentterm="ngModel">
+              <span *ngIf="paymentterm.touched && paymentterm.invalid" class="help-block">paymentterm can't be blank</span>
+
+
+               
+
+
         </div>
           <hr>
           <button routerLink="/crm/po-entry/po12345" type="button" class="btn btn-success">Submit</button>&nbsp;
