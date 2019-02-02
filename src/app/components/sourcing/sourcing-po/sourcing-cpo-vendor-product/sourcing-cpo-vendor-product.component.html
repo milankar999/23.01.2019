@@ -3,12 +3,14 @@
      <div class="panel panel-primary" *ngFor="let i of [1,2] ">
          <div class="panel-heading text-center">fsgdhf</div>
                  <div class="panel-body">
-                     
+                  <a href="sourcing/sourcing-po/sourcing-cpo-vendor-selection"><button class="btn btn-success btn-sm" style="float:right" >Vendor Change</button></a>
                  </div>
+                 <form [formGroup]="form" (ngSubmit)="submit()">
                 <table id="sourcing1" class="table table-hover table-bordered table-sm" width="100%" >
                    <thead>
                      <tr>
                         <th></th>
+                        <th>SlNo</th>
                         <th>Product Name</th>
                         <th>Description</th>
                         <th>Model</th>
@@ -22,28 +24,31 @@
                         <th>Price</th>  
                         <th></th>
                       </tr>
-                     <tr>
+                      <tr formArrayName="products" *ngFor="let order of form.controls.products.controls; let i = index">
                           <td>
-                             <span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                             <span class="glyphicon glyphicon-forward" style="color: blue"></span> &nbsp;&nbsp;
+                             <input type="checkbox" [formControlName]="i"> 
                          </td>
-                              <td>1</td>
-                              <td>vinay</td>
-                              <td>C00124</td>
-                              <td>mysuru</td>
-                              <td>karnataka</td>
-                              <td>karnataka</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>  
+                         <td>{{products[i].id}}</td>
+                         <td>{{products[i].Product_Name}}</td>
+                         <td>{{products[i].description}}</td>
+                         <td>{{products[i]. model}}</td>
+                         <td>{{products[i].brand}}</td>
+                         <td>{{products[i].part_no}}</td>
+                         <td>{{products[i].product_no}}</td>
+                         <td>{{products[i].hsn_code}}</td>
+                         <td>{{products[i].gst}}</td>
+                         <td>{{products[i].quantity}}</td>
+                         <td>{{products[i].UOM}}</td>
+                         <td>{{products[i].price}}</td>
                               <td>
-                                <span class="glyphicon glyphicon-edit" style="color: blue"></span>&nbsp;
-                                <button class="btn btn-success btn-sm">Change</button>
-                              </td>         
-                         </tr>
+                               <a href="#"> <span class="glyphicon glyphicon-edit" style="color: blue"></span></a>&nbsp;
+                              </td>      
+                         </tr><br>
+                         <button class="btn  btn-danger btn-sm" style="float:right"><span class="glyphicon glyphicon-ok">Proceed</span></button>
                    </thead>
                </table> 
+               </form>
                <br>
        </div>
    </div>
@@ -53,12 +58,13 @@
       <div class="panel panel-primary">
           <div class="panel-heading text-center">Sourcing Vendor Product List</div>
                   <div class="panel-body">
-                    
+                     <a href="#" class="btn btn-info btn-sm" style="float:right"> <span class="glyphicon glyphicon-plus">ADD</span></a>
                   </div>
                  <table id="sourcing1" class="table table-hover table-bordered table-sm" width="100%" >
                     <thead>
                       <tr>
                          <th></th>
+                         <th>SlNo</th>
                          <th>Product Name</th>
                          <th>Description</th>
                          <th>Model</th>
@@ -70,7 +76,6 @@
                          <th>Quantity</th>
                          <th>UOM</th>
                          <th>Price</th>  
-                         <th></th>
                        </tr>
                       <tr>
                            <td>
@@ -88,8 +93,6 @@
                                <td></td>
                                <td></td>  
                                <td>
-                                
-                                  <a href="#" class="btn btn-info btn-sm"> <span class="glyphicon glyphicon-plus">ADD</span></a>
                                </td>         
                           </tr>
                     </thead>
