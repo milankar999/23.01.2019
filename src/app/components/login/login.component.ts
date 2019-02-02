@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginSerivesService } from 'src/app/services/authentication/login-serives.service';
 import{ Router } from '@angular/router';
+import{ HttpResponse} from '@angular/common/http';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,7 +9,8 @@ import{ Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 model:any={};
-  constructor(private LoginServicesService:LoginSerivesService,private router:Router ){}
+  constructor(private LoginServicesService:LoginSerivesService,
+    private router:Router ){}
   ngOnInit() {
     localStorage.removeItem('user');
   }

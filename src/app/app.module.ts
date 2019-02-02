@@ -48,7 +48,7 @@ import { SourcingCpoVendorProductComponent } from './components/sourcing/sourcin
 import { SourcingCpoLineitemEditComponent } from './components/sourcing/sourcing-po/sourcing-cpo-lineitem-edit/sourcing-cpo-lineitem-edit.component';
 import { SourcingCpoVendorSelectionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-vendor-selection.component';
 import { SourcingCpoNewVendorComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-new-vendor/sourcing-cpo-new-vendor.component';
-
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -106,7 +106,7 @@ import { SourcingCpoNewVendorComponent } from './components/sourcing/sourcing-po
     ReactiveFormsModule, 
    
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

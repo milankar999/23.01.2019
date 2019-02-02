@@ -15,7 +15,8 @@ export class PoEntrySupportingInfoComponent implements OnInit {
   public requestorId;
   supportinfolist:Object[]=[];
   display='none';
-  model:any={};
+
+  model:any={}; //model for validation
   
   customer_id="";
   requester_id=""; 

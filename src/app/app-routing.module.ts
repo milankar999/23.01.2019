@@ -26,10 +26,16 @@ import { SalesFooterComponent } from './components/sales/sales-footer/sales-foot
 import { SalesPoApprovalDetailsComponent } from './components/sales/sales-po/po-approval/sales-po-approval-details/sales-po-approval-details.component';
 import { CrmPoRejectedDetailsComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-details/crm-po-rejected-details.component';
 
+import { SourcingCpoPendingDetailsComponent } from './components/sourcing/sourcing-po/sourcing-cpo-pending-details/sourcing-cpo-pending-details.component';
+import { SourcingCpoVendorSelectionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-vendor-selection.component';
+import { SourcingCpoNewVendorComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-new-vendor/sourcing-cpo-new-vendor.component';
+import { AuthGuard } from './auth.guard';
+
 const routes:Routes=[
-  { path:'login',component:LoginComponent },
+  { path:'login',component:LoginComponent ,canActivate:[AuthGuard] },
+
 //Po Creation/Entry
-  { path:'crm/po-entry/customer-selection', component:PoEntryCustomerSelectionComponent },
+  { path:'crm/po-entry/customer-selection', component:PoEntryCustomerSelectionComponent ,canActivate:[AuthGuard]  },
   { path:'crm/po-entry/:customer/requester-selection',component: PoEntryRequesterSelectionComponent },
   { path:'crm/po-entry/:customer/:requester/receiver-selection',component: PoEntryReceiverSelectionComponent },
   { path:'crm/po-entry/:customer/:requester/:receiver/supportinginfo',component: PoEntrySupportingInfoComponent },
@@ -48,6 +54,11 @@ const routes:Routes=[
   { path:'crm/crm-po/po-modification/crm-po-rejected-supporting-edit',component:CrmPoRejectedSuppinfoEditComponent},
   { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent},
 //      
+  { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent},    
+//Sourcing PO Release
+  { path:'sourcing/sourcing-po/sourcing-cpo-pending-details', component:SourcingCpoPendingDetailsComponent},
+  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-selection', component: SourcingCpoVendorSelectionComponent},
+  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-new-vendor', component: SourcingCpoNewVendorComponent}
 ]
 
 @NgModule({
