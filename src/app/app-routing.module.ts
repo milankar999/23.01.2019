@@ -46,7 +46,8 @@ const routes:Routes=[
   { path:'crm/crm-po/po-modification/crm-po-rejected-list',component:CrmPoRejectedListComponent},
   { path:'crm/crm-po/po-mdification/crm-po-rejected-details', component:CrmPoRejectedDetailsComponent},
   { path:'crm/crm-po/po-modification/crm-po-rejected-supporting-edit',component:CrmPoRejectedSuppinfoEditComponent},
-  { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent},    
+  { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent},
+//      
 ]
 
 @NgModule({
