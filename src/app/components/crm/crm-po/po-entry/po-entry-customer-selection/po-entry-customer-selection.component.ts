@@ -23,6 +23,7 @@ export class PoEntryCustomerSelectionComponent implements OnInit {
 
   ngOnInit() {
     this.PoEntryCustomerSelection()
+  
 
   }
   PoEntryCustomerSelection(){
@@ -41,6 +42,7 @@ export class PoEntryCustomerSelectionComponent implements OnInit {
     this.display='none';
 
   }
+ 
 }
 
 

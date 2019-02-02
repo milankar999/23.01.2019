@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthGuard } from './guards/auth.guard';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -48,7 +50,13 @@ import { SourcingCpoVendorProductComponent } from './components/sourcing/sourcin
 import { SourcingCpoLineitemEditComponent } from './components/sourcing/sourcing-po/sourcing-cpo-lineitem-edit/sourcing-cpo-lineitem-edit.component';
 import { SourcingCpoVendorSelectionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-vendor-selection.component';
 import { SourcingCpoNewVendorComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-new-vendor/sourcing-cpo-new-vendor.component';
-import { AuthGuard } from './auth.guard';
+import { SourcingVpoAddBasicInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-add-basic-info/sourcing-vpo-add-basic-info.component';
+import { SourcingVpoAddContactpersonInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-add-contactperson-info/sourcing-vpo-add-contactperson-info.component';
+import { SourcingVpoCheckVendorInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-check-vendor-info/sourcing-vpo-check-vendor-info.component';
+import { SourcingVpoTermsConditionsComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-terms-conditions/sourcing-vpo-terms-conditions.component';
+import { SourcingVpoDeliveryInstructionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-delivery-instruction/sourcing-vpo-delivery-instruction.component';
+import { SourcingVpoRequesterInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info/sourcing-vpo-requester-info.component';
+import { SourcingVpoReceiverInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-receiver-info/sourcing-vpo-receiver-info.component';
 
 @NgModule({
   declarations: [
@@ -96,17 +104,22 @@ import { AuthGuard } from './auth.guard';
     SourcingCpoLineitemEditComponent,
     SourcingCpoVendorSelectionComponent,
     SourcingCpoNewVendorComponent,
-  
+    SourcingVpoAddBasicInfoComponent,
+    SourcingVpoAddContactpersonInfoComponent,
+    SourcingVpoCheckVendorInfoComponent,
+    SourcingVpoTermsConditionsComponent,
+    SourcingVpoDeliveryInstructionComponent,
+    SourcingVpoRequesterInfoComponent,
+    SourcingVpoReceiverInfoComponent,  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule, 
-   
+    ReactiveFormsModule,
   ],
-  providers: [AuthGuard],
+  providers: [CookieService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
