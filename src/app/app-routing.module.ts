@@ -25,6 +25,10 @@ import { SearchPipe } from './pipes/search.pipe';
 import { SalesFooterComponent } from './components/sales/sales-footer/sales-footer.component';
 import { SalesPoApprovalDetailsComponent } from './components/sales/sales-po/po-approval/sales-po-approval-details/sales-po-approval-details.component';
 import { CrmPoRejectedDetailsComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-details/crm-po-rejected-details.component';
+import { SourcingHomeComponent } from './components/sourcing/sourcing-home/sourcing-home.component';
+import { SourcingCpoPendingListComponent } from './components/sourcing/sourcing-po/sourcing-cpo-pending-list/sourcing-cpo-pending-list.component';
+import { SourcingCpoLineitemEditComponent } from './components/sourcing/sourcing-po/sourcing-cpo-lineitem-edit/sourcing-cpo-lineitem-edit.component';
+
 
 const routes:Routes=[
   { path:'login',component:LoginComponent },
@@ -46,7 +50,10 @@ const routes:Routes=[
   { path:'crm/crm-po/po-modification/crm-po-rejected-list',component:CrmPoRejectedListComponent},
   { path:'crm/crm-po/po-mdification/crm-po-rejected-details', component:CrmPoRejectedDetailsComponent},
   { path:'crm/crm-po/po-modification/crm-po-rejected-supporting-edit',component:CrmPoRejectedSuppinfoEditComponent},
-  { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent},    
+  { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent},
+  {path:'sourcing/sourcing-home', component: SourcingHomeComponent},
+  {path:'sourcing/sourcing-po/sourcing-cpo-pending-list', component:SourcingCpoPendingListComponent},
+  {path:'sourcing/sourcing-po/sourcing-cpo-lineitem-edit', component:SourcingCpoLineitemEditComponent}   
 ]
 
 @NgModule({

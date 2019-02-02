@@ -48,6 +48,12 @@ import { SourcingCpoVendorProductComponent } from './components/sourcing/sourcin
 import { SourcingCpoLineitemEditComponent } from './components/sourcing/sourcing-po/sourcing-cpo-lineitem-edit/sourcing-cpo-lineitem-edit.component';
 import { SourcingCpoVendorSelectionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-vendor-selection.component';
 import { SourcingCpoNewVendorComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-new-vendor/sourcing-cpo-new-vendor.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import{NgxPaginationModule} from 'ngx-pagination';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+
 
 
 @NgModule({
@@ -104,6 +110,11 @@ import { SourcingCpoNewVendorComponent } from './components/sourcing/sourcing-po
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule, 
+    MatPaginatorModule,
+    BrowserAnimationsModule,
+    NgxPaginationModule,
+    MatTableModule,
+    MatSortModule
    
   ],
   providers: [],

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+
+
+
 
 @Component({
   selector: 'app-sourcing-cpo-pending-list',
@@ -6,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sourcing-cpo-pending-list.component.css']
 })
 export class SourcingCpoPendingListComponent implements OnInit {
+  
 
   constructor() { }
 
