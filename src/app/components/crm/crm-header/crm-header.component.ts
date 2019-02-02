@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-crm-header',
@@ -6,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crm-header.component.css']
 })
 export class CrmHeaderComponent implements OnInit {
-
-  constructor() { }
+  display='none';
+  constructor(private router:Router, private cookie:CookieService) { }
 
   ngOnInit() {
+ 
   }
-
+  logoutUser(event){
+   
+    localStorage.removeItem('token');
+    localStorage.removeItem('hr_user_type');
+    this.cookie.deleteAll();
+    }
+    openModalDialog()
+    {
+      this.display='block';
+    }
+    closeModalDialog()
+    {
+      this.display='none';
+      }
 }

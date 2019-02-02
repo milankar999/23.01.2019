@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthGuard } from './guards/auth.guard';
+
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -96,6 +100,7 @@ import { SourcingCpoNewVendorComponent } from './components/sourcing/sourcing-po
     SourcingCpoLineitemEditComponent,
     SourcingCpoVendorSelectionComponent,
     SourcingCpoNewVendorComponent,
+    
   
   ],
   imports: [
@@ -103,10 +108,11 @@ import { SourcingCpoNewVendorComponent } from './components/sourcing/sourcing-po
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule, 
-   
+    ReactiveFormsModule,
+  
+  
   ],
-  providers: [],
+  providers: [CookieService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,12 +10,10 @@ export class LoginComponent implements OnInit {
 model:any={};
   constructor(private LoginServicesService:LoginSerivesService,private router:Router ){}
   ngOnInit() {
-    localStorage.removeItem('user');
-  }
-  login(){
-    localStorage.setItem('home', this.model.inputUsername);
-   
-
+    //localStorage.removeItem('token');
+    if(localStorage.getItem('token')!=null)
+      this.router.navigate(['/crm/po-entry/customer-selection']);
+     //console.log(localStorage.getItem('token'));
   }
   loginUser(event){
 
@@ -25,6 +23,7 @@ model:any={};
       localStorage.setItem('hr_user_type', data.hr_user_type);
       this.router.navigate(['/crm/po-entry/customer-selection']);
       console.log(data);
+      localStorage.setItem('crm/po-entry/customer-selection',this.model.inputUsername);
     
     },
     data=>{
