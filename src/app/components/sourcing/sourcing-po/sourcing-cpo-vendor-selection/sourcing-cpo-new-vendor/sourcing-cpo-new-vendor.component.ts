@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sourcing-cpo-new-vendor.component.css']
 })
 export class SourcingCpoNewVendorComponent implements OnInit {
-
+model:any={}
   constructor() { }
 
   ngOnInit() {
   }
 
 }
+ 
