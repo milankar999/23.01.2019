@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sourcing-vpo-check-vendor-info.component.css']
 })
 export class SourcingVpoCheckVendorInfoComponent implements OnInit {
-
+  model:any={}
   constructor() { }
 
   ngOnInit() {
