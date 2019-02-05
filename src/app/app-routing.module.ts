@@ -32,6 +32,10 @@ import { SourcingCpoNewVendorComponent } from './components/sourcing/sourcing-po
 import { SourcingHomeComponent } from './components/sourcing/sourcing-home/sourcing-home.component';
 import { SourcingCpoPendingListComponent } from './components/sourcing/sourcing-po/sourcing-cpo-pending-list/sourcing-cpo-pending-list.component';
 import { SourcingCpoLineitemEditComponent } from './components/sourcing/sourcing-po/sourcing-cpo-lineitem-edit/sourcing-cpo-lineitem-edit.component';
+import { SourcingVpoAddContactpersonInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-add-contactperson-info/sourcing-vpo-add-contactperson-info.component';
+import { SourcingVpoTermsConditionsComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-terms-conditions/sourcing-vpo-terms-conditions.component';
+import { SourcingVpoRequesterInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info/sourcing-vpo-requester-info.component';
+
 
 const routes:Routes=[
   { path:'login',component:LoginComponent },
@@ -64,7 +68,10 @@ const routes:Routes=[
   { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent},
   { path:'sourcing/sourcing-home', component:SourcingHomeComponent},
   { path:'sourcing/sourcing-po/sourcing-cpo-pending-list', component:SourcingCpoPendingListComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-lineitem-edit', component:SourcingCpoLineitemEditComponent}   
+  { path:'sourcing/sourcing-po/sourcing-cpo-lineitem-edit', component:SourcingCpoLineitemEditComponent},
+  {path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-add-contactperson-info',component:SourcingVpoAddContactpersonInfoComponent},
+  {path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-terms-condition', component:SourcingVpoTermsConditionsComponent},
+  {path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info', component:SourcingVpoRequesterInfoComponent}   
 ]
 
 
