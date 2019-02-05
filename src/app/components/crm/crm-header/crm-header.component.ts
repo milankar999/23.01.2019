@@ -17,7 +17,7 @@ export class CrmHeaderComponent implements OnInit {
   logoutUser(event){
    
     localStorage.removeItem('token');
-    localStorage.removeItem('hr_user_type');
+    localStorage.removeItem('type');
     this.cookie.deleteAll();
     }
     openModalDialog()

@@ -32,39 +32,43 @@ import { SourcingCpoNewVendorComponent } from './components/sourcing/sourcing-po
 import { SourcingHomeComponent } from './components/sourcing/sourcing-home/sourcing-home.component';
 import { SourcingCpoPendingListComponent } from './components/sourcing/sourcing-po/sourcing-cpo-pending-list/sourcing-cpo-pending-list.component';
 import { SourcingCpoLineitemEditComponent } from './components/sourcing/sourcing-po/sourcing-cpo-lineitem-edit/sourcing-cpo-lineitem-edit.component';
+import { CrmHomeComponent } from './components/crm/crm-home/crm-home.component';
+import { SalesHomeComponent } from './components/sales/sales-home/sales-home.component';
 
 const routes:Routes=[
   { path:'login',component:LoginComponent },
   { path:'',redirectTo:'/login',pathMatch:'full'},
 
 //Po Creation/Entry
+  {path:'crm/crm-home', component:CrmHomeComponent,canActivate:[AuthGuard]},
   { path:'crm/po-entry/customer-selection', component:PoEntryCustomerSelectionComponent ,canActivate:[AuthGuard]  },
-  { path:'crm/po-entry/:customer/requester-selection',component: PoEntryRequesterSelectionComponent },
-  { path:'crm/po-entry/:customer/:requester/receiver-selection',component: PoEntryReceiverSelectionComponent },
-  { path:'crm/po-entry/:customer/:requester/:receiver/supportinginfo',component: PoEntrySupportingInfoComponent },
-  { path:'crm/po-entry/quotation-selection', component:PoEntryQuotationSelectionComponent},
-  { path:'crm/po-entry/production-selection', component:PoEntryProductSelectionComponent},
-  { path:'crm/po-entry/quotation-selection-details',component:QuotationSelectionDetailsComponent},
-  { path:'crm/po-entry/po-entry-edit-selected-product',component:PoEntryEditSelectedProductComponent},
-  { path:'crm/po-entry/po-entry-selected-product',component:PoEntrySelectedProductComponent},
+  { path:'crm/po-entry/:customer/requester-selection',component: PoEntryRequesterSelectionComponent,canActivate:[AuthGuard]  },
+  { path:'crm/po-entry/:customer/:requester/receiver-selection',component: PoEntryReceiverSelectionComponent,canActivate:[AuthGuard]  },
+  { path:'crm/po-entry/:customer/:requester/:receiver/supportinginfo',component: PoEntrySupportingInfoComponent ,canActivate:[AuthGuard] },
+  { path:'crm/po-entry/quotation-selection', component:PoEntryQuotationSelectionComponent,canActivate:[AuthGuard] },
+  { path:'crm/po-entry/production-selection', component:PoEntryProductSelectionComponent,canActivate:[AuthGuard] },
+  { path:'crm/po-entry/quotation-selection-details',component:QuotationSelectionDetailsComponent,canActivate:[AuthGuard] },
+  { path:'crm/po-entry/po-entry-edit-selected-product',component:PoEntryEditSelectedProductComponent,canActivate:[AuthGuard] },
+  { path:'crm/po-entry/po-entry-selected-product',component:PoEntrySelectedProductComponent,canActivate:[AuthGuard] },
 //PO Approval
+  {path:'sales/sales-home',component:SalesHomeComponent,canActivate:[AuthGuard]},
   { path:'sales/sales-po/sales-po-approval-list',component:SalesPoApprovalListComponent,canActivate:[AuthGuard]},
-  { path:'sales/sales-po/sales-po-approval-details' ,component:SalesPoApprovalDetailsComponent},
-  { path:'sales-po/po-approval/sales-po-approval-support-info', component:SalesPoApprovalSupportInfoComponent},
+  { path:'sales/sales-po/sales-po-approval-details' ,component:SalesPoApprovalDetailsComponent,canActivate:[AuthGuard] },
+  { path:'sales-po/po-approval/sales-po-approval-support-info', component:SalesPoApprovalSupportInfoComponent,canActivate:[AuthGuard] },
 //Rejected PO Modification
-  { path:'crm/crm-po/po-modification/crm-po-rejected-list',component:CrmPoRejectedListComponent},
-  { path:'crm/crm-po/po-mdification/crm-po-rejected-details', component:CrmPoRejectedDetailsComponent},
-  { path:'crm/crm-po/po-modification/crm-po-rejected-supporting-edit',component:CrmPoRejectedSuppinfoEditComponent},
-  { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent},    
+  { path:'crm/crm-po/po-modification/crm-po-rejected-list',component:CrmPoRejectedListComponent,canActivate:[AuthGuard] },
+  { path:'crm/crm-po/po-mdification/crm-po-rejected-details', component:CrmPoRejectedDetailsComponent,canActivate:[AuthGuard] },
+  { path:'crm/crm-po/po-modification/crm-po-rejected-supporting-edit',component:CrmPoRejectedSuppinfoEditComponent,canActivate:[AuthGuard] },
+  { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent,canActivate:[AuthGuard] },    
 //Sourcing PO Release
-  { path:'sourcing/sourcing-po/sourcing-cpo-pending-details', component:SourcingCpoPendingDetailsComponent},
-  { path:'sourcing/sourcing-po/souring-cpo-vendor-product',component:SourcingCpoVendorProductComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-selection', component: SourcingCpoVendorSelectionComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-new-vendor', component: SourcingCpoNewVendorComponent}, 
-  { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent},
-  { path:'sourcing/sourcing-home', component:SourcingHomeComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-pending-list', component:SourcingCpoPendingListComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-lineitem-edit', component:SourcingCpoLineitemEditComponent}   
+  {path:'sourcing/sourcing-home',component:SourcingHomeComponent,canActivate:[AuthGuard]},
+  { path:'sourcing/sourcing-po/sourcing-cpo-pending-details', component:SourcingCpoPendingDetailsComponent,canActivate:[AuthGuard] },
+  { path:'sourcing/sourcing-po/souring-cpo-vendor-product',component:SourcingCpoVendorProductComponent,canActivate:[AuthGuard] },
+  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-selection', component: SourcingCpoVendorSelectionComponent,canActivate:[AuthGuard] },
+  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-new-vendor', component: SourcingCpoNewVendorComponent,canActivate:[AuthGuard] }, 
+  { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent,canActivate:[AuthGuard] },
+  { path:'sourcing/sourcing-po/sourcing-cpo-pending-list', component:SourcingCpoPendingListComponent,canActivate:[AuthGuard] },
+  { path:'sourcing/sourcing-po/sourcing-cpo-lineitem-edit', component:SourcingCpoLineitemEditComponent,canActivate:[AuthGuard] }   
 ]
 
 

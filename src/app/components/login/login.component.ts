@@ -13,10 +13,6 @@ model:any={};
   constructor(private LoginServicesService:LoginSerivesService,
     private router:Router ){}
   ngOnInit() {
-    //localStorage.removeItem('token');
-    if(localStorage.getItem('token')!=null)
-      this.router.navigate(['/crm/po-entry/customer-selection']);
-     //console.log(localStorage.getItem('token'));
   }
   loginUser(event){
 
@@ -26,12 +22,11 @@ model:any={};
       localStorage.setItem('token', data.token);
       localStorage.setItem('type', data.type);
       if(data.type=="CRM")
-        this.router.navigate(['/crm/po-entry/customer-selection']);
+        this.router.navigate(['crm/crm-home']);
       else if(data.type=="Sourcing")
-        this.router.navigate(['/crm/po-entry/customer-selection']);
+        this.router.navigate(['sourcing/sourcing-home']);
       else if(data.type=="Sales")
-        this.router.navigate(['/crm/po-entry/customer-selection']);
-      localStorage.setItem('crm/po-entry/customer-selection',this.model.inputUsername);
+        this.router.navigate(['sales/sales-home']);
     
     },
     data=>{

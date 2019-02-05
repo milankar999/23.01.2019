@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-sales-header',
@@ -6,11 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sales-header.component.css']
 })
 export class SalesHeaderComponent implements OnInit {
+  display='none';
+  constructor(private router:Router, private cookie:CookieService) { }
 
-  constructor() { }
 
   ngOnInit() {
   }
 
+
+logoutUser(event){
+   
+  localStorage.removeItem('token');
+  localStorage.removeItem('type');
+  this.cookie.deleteAll();
+  }
+  openModalDialog()
+  {
+    this.display='block';
+  }
+  closeModalDialog()
+  {
+    this.display='none';
+    }
 }
+
   
