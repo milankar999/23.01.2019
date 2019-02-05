@@ -3,6 +3,7 @@ import { LoginSerivesService } from 'src/app/services/authentication/login-seriv
 import{ Router } from '@angular/router';
 import{ HttpResponse} from '@angular/common/http';
 import { getViewData } from '@angular/core/src/render3/state';
+import { FormBuilder, FormGroup, Validators,AbstractControl } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,9 +11,11 @@ import { getViewData } from '@angular/core/src/render3/state';
 })
 export class LoginComponent implements OnInit {
 model:any={};
+poForm :FormGroup;
   constructor(private LoginServicesService:LoginSerivesService,
-    private router:Router ){}
+    private router:Router, private builder:FormBuilder ){}
   ngOnInit() {
+    this.buildForm();
   }
   loginUser(event){
 
@@ -35,5 +38,10 @@ model:any={};
     });
    
   }
-    
+  buildForm(){
+    this.poForm=this.builder.group({
+     name:['',Validators.required],
+     password:['',Validators.required]
+    });
+  }
 }

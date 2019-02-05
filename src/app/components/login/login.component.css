@@ -4,9 +4,9 @@
     margin-right: auto;
     
   }
-  .jumbotron-billboard .img {
+   .img {
     margin-bottom: 0px;
-    opacity: 0.2;
+    opacity: 0.9;
     color: #fff;
     background: #000 url("https://cdn-grid.fotosearch.com/CSP/CSP058/purchase-order-with-blue-pen-in-the-stock-images__k28235826.jpg");
     width: 100%;
@@ -17,4 +17,18 @@
     top:0;
     left:0;
     z-index:1;
+}
+.form-box{
+  width: 500px;
+  height:400px;
+  background:rgba(0,0,0,0.5);
+  color:50%;
+  top:50%;
+  left:50%;
+  position:absolute;
+  transform:translate(-50%,-50%);
+-webkit-border-radius:70px 0 70px 0;
+-moz-border-radius:70px 0 70px 0;
+border-radius:70px 0 70px 0;
+
 }
