@@ -39,6 +39,10 @@ import { SourcingVpoAddBasicInfoComponent } from './components/sourcing/sourcing
 import { SourcingVpoCheckVendorInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-check-vendor-info/sourcing-vpo-check-vendor-info.component';
 import { SourcingVpoDeliveryInstructionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-delivery-instruction/sourcing-vpo-delivery-instruction.component';
 import { SourcingVpoReceiverInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-receiver-info/sourcing-vpo-receiver-info.component';
+import { SourcingVpoAddContactpersonInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-add-contactperson-info/sourcing-vpo-add-contactperson-info.component';
+import { SourcingVpoTermsConditionsComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-terms-conditions/sourcing-vpo-terms-conditions.component';
+import { SourcingVpoRequesterInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info/sourcing-vpo-requester-info.component';
+
 
 
 const routes:Routes=[
@@ -74,17 +78,18 @@ const routes:Routes=[
   { path:'sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-new-vendor', component: SourcingCpoNewVendorComponent,canActivate:[AuthGuard] }, 
   { path:'sourcing/sourcing-po/sourcing-cpo-pending-list', component:SourcingCpoPendingListComponent,canActivate:[AuthGuard] },
   { path:'sourcing/sourcing-po/sourcing-cpo-lineitem-edit', component:SourcingCpoLineitemEditComponent,canActivate:[AuthGuard] },
-  { path:'sourcing/sourcing-home', component:SourcingHomeComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-pending-list', component:SourcingCpoPendingListComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-lineitem-edit', component:SourcingCpoLineitemEditComponent} , 
+  { path:'sourcing/sourcing-home', component:SourcingHomeComponent}, 
 //sourcing Vpo 
   { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-add-basic-info', component:SourcingVpoAddBasicInfoComponent},
   { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-check-vendor-info', component: SourcingVpoCheckVendorInfoComponent},
   { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-delivery-instruction', component: SourcingVpoDeliveryInstructionComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-receiver-info', component:  SourcingVpoReceiverInfoComponent}
+  { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-receiver-info', component:  SourcingVpoReceiverInfoComponent},
+
+  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-add-contactperson-info',component:SourcingVpoAddContactpersonInfoComponent},
+  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-terms-condition', component:SourcingVpoTermsConditionsComponent},
+  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info', component:SourcingVpoRequesterInfoComponent}   
+
 ]
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

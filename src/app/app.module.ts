@@ -57,6 +57,32 @@ import { SourcingVpoTermsConditionsComponent } from './components/sourcing/sourc
 import { SourcingVpoDeliveryInstructionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-delivery-instruction/sourcing-vpo-delivery-instruction.component';
 import { SourcingVpoRequesterInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info/sourcing-vpo-requester-info.component';
 import { SourcingVpoReceiverInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-receiver-info/sourcing-vpo-receiver-info.component';
+import { VpoApprovalComponent } from './components/sales/sales-po/vpo-approval/vpo-approval.component';
+import { VpoApprovalListComponent } from './components/sales/sales-po/vpo-approval/vpo-approval-list/vpo-approval-list.component';
+import { VpoApprovalDetailsComponent } from './components/sales/sales-po/vpo-approval/vpo-approval-details/vpo-approval-details.component';
+import { VpoApprovalInfoComponent } from './components/sales/sales-po/vpo-approval/vpo-approval-info/vpo-approval-info.component';
+import { SourcingVpoSignatureComponent } from './components/sourcing/sourcing-po/sourcing-vpo-signature/sourcing-vpo-signature.component';
+import { SourcingVpoComponent } from './components/sourcing/sourcing-po/sourcing-vpo/sourcing-vpo.component';
+import { SourcingVpoListComponent } from './components/sourcing/sourcing-po/sourcing-vpo/sourcing-vpo-list/sourcing-vpo-list.component';
+import { SourcingVpoDetailsComponent } from './components/sourcing/sourcing-po/sourcing-vpo/sourcing-vpo-details/sourcing-vpo-details.component';
+import { GrnComponent } from './components/grn/grn.component';
+import { GrnHeaderComponent } from './components/grn/grn-header/grn-header.component';
+import { GrnFooterComponent } from './components/grn/grn-footer/grn-footer.component';
+import { GrnHomeComponent } from './components/grn/grn-home/grn-home.component';
+import { GoodsReceiveComponent } from './components/grn/goods-receive/goods-receive.component';
+import { InvoiceReceiveComponent } from './components/grn/invoice-receive/invoice-receive.component';
+import { GrnSelectTransitionTypeComponent } from './components/grn/goods-receive/grn-select-transition-type/grn-select-transition-type.component';
+import { GrnTraditionalPoListComponent } from './components/grn/goods-receive/grn-traditional-po-list/grn-traditional-po-list.component';
+import { GrnTraditionalPoLineitemsComponent } from './components/grn/goods-receive/grn-traditional-po-lineitems/grn-traditional-po-lineitems.component';
+import { GrnTraditionalPoLineitemsEditComponent } from './components/grn/goods-receive/grn-traditional-po-lineitems-edit/grn-traditional-po-lineitems-edit.component';
+import { GrnTraditionalPoSelectedLineitemsComponent } from './components/grn/goods-receive/grn-traditional-po-selected-lineitems/grn-traditional-po-selected-lineitems.component';
+import { GrnWithoutPoListComponent } from './components/grn/goods-receive/grn-without-po-list/grn-without-po-list.component';
+import { GrnWithoutPoLineitemsComponent } from './components/grn/goods-receive/grn-without-po-lineitems/grn-without-po-lineitems.component';
+import { GrnWithoutPoLineitemsEditComponent } from './components/grn/goods-receive/grn-without-po-lineitems-edit/grn-without-po-lineitems-edit.component';
+import { GrnWithoutPoSelectedLineitemsComponent } from './components/grn/goods-receive/grn-without-po-selected-lineitems/grn-without-po-selected-lineitems.component';
+import { CashPurchaseVendorSelectionComponent } from './components/grn/goods-receive/immediate/cash-purchase-vendor-selection/cash-purchase-vendor-selection.component';
+import { CashPurchaseContactPersonSelectionComponent } from './components/grn/goods-receive/immediate/cash-purchase-contact-person-selection/cash-purchase-contact-person-selection.component';
+import { CashPurchaseContactProductEntryComponent } from './components/grn/goods-receive/immediate/cash-purchase-contact-product-entry/cash-purchase-contact-product-entry.component';
 
 @NgModule({
   declarations: [
@@ -110,7 +136,33 @@ import { SourcingVpoReceiverInfoComponent } from './components/sourcing/sourcing
     SourcingVpoTermsConditionsComponent,
     SourcingVpoDeliveryInstructionComponent,
     SourcingVpoRequesterInfoComponent,
-    SourcingVpoReceiverInfoComponent,  
+    SourcingVpoReceiverInfoComponent,
+    VpoApprovalComponent,
+    VpoApprovalListComponent,
+    VpoApprovalDetailsComponent,
+    VpoApprovalInfoComponent,
+    SourcingVpoSignatureComponent,
+    SourcingVpoComponent,
+    SourcingVpoListComponent,
+    SourcingVpoDetailsComponent,
+    GrnComponent,
+    GrnHeaderComponent,
+    GrnFooterComponent,
+    GrnHomeComponent,
+    GoodsReceiveComponent,
+    InvoiceReceiveComponent,
+    GrnSelectTransitionTypeComponent,
+    GrnTraditionalPoListComponent,
+    GrnTraditionalPoLineitemsComponent,
+    GrnTraditionalPoLineitemsEditComponent,
+    GrnTraditionalPoSelectedLineitemsComponent,
+    GrnWithoutPoListComponent,
+    GrnWithoutPoLineitemsComponent,
+    GrnWithoutPoLineitemsEditComponent,
+    GrnWithoutPoSelectedLineitemsComponent,
+    CashPurchaseVendorSelectionComponent,
+    CashPurchaseContactPersonSelectionComponent,
+    CashPurchaseContactProductEntryComponent, 
   ],
   imports: [
     BrowserModule,

@@ -19,6 +19,8 @@ export class CrmHeaderComponent implements OnInit {
     localStorage.removeItem('token');
     localStorage.removeItem('type');
     this.cookie.deleteAll();
+    this.cookie.delete('sessionid');
+    //this.cookie.delete('csrftoken');
     }
     openModalDialog()
     {
@@ -27,5 +29,5 @@ export class CrmHeaderComponent implements OnInit {
     closeModalDialog()
     {
       this.display='none';
-      }
+    }
 }

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sourcing-vpo-add-contactperson-info.component.css']
 })
 export class SourcingVpoAddContactpersonInfoComponent implements OnInit {
-
+model:any={}
   constructor() { }
 
   ngOnInit() {
