@@ -42,7 +42,9 @@ import { SourcingVpoReceiverInfoComponent } from './components/sourcing/sourcing
 import { SourcingVpoAddContactpersonInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-add-contactperson-info/sourcing-vpo-add-contactperson-info.component';
 import { SourcingVpoTermsConditionsComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-terms-conditions/sourcing-vpo-terms-conditions.component';
 import { SourcingVpoRequesterInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info/sourcing-vpo-requester-info.component';
-
+import { VpoApprovalListComponent } from './components/sales/sales-po/vpo-approval/vpo-approval-list/vpo-approval-list.component';
+import { SourcingVpoDetailsComponent } from './components/sourcing/sourcing-po/sourcing-vpo/sourcing-vpo-details/sourcing-vpo-details.component';
+import { GrnTraditionalPoListComponent } from './components/grn/goods-receive/grn-traditional-po-list/grn-traditional-po-list.component';
 
 
 const routes:Routes=[
@@ -87,7 +89,10 @@ const routes:Routes=[
 
   { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-add-contactperson-info',component:SourcingVpoAddContactpersonInfoComponent},
   { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-terms-condition', component:SourcingVpoTermsConditionsComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info', component:SourcingVpoRequesterInfoComponent}   
+  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info', component:SourcingVpoRequesterInfoComponent},
+  {path:'sales/sales-po/vpo-approval/vpo-approval-list/vpo-approval-list', component:VpoApprovalListComponent},
+  {path:'sourcing/sourcing-po/sourcing-vpo/sourcing-vpo-details/sourcing-vpo-details', component:SourcingVpoDetailsComponent},
+  {path:'grn/goods-receive/grn-traditional-po-list/grn-traditional-po-list', component:GrnTraditionalPoListComponent}   
 
 ]
 

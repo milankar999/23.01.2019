@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PoEntryServicesService } from 'src/app/services/crm/po/po-entry/po-entry-services.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-quotation-selection-details',
@@ -8,15 +10,26 @@ import { Component, OnInit } from '@angular/core';
 export class QuotationSelectionDetailsComponent implements OnInit {
 
  query:string='';
- quotationlist=[
-   {id:1, name:"handlingTool",description:"fdgbdrvfdc",model:"fvg",brand:"ferg",partno:2,productcode:55,hsncode:63,gst:20,uom:3,price:6000},
-   {id:2, name:"cuttingtool",description:"fdgbdrvfdc",model:"fvg",brand:"ferg",partno:2,productcode:55,hsncode:63,gst:20,uom:3,price:6000},
-  {id:3, name:"handlingTool",description:"fdgbdrvfdc",model:"fvg",brand:"ferg",partno:2,productcode:55,hsncode:63,gst:20,uom:3,price:6000},  ]
+ quotationdetails:Object[]=[];
+ public quotationId;
+ quotation_id="";
 
- 
-  constructor() { }
+  constructor(private poEntryServicesService:PoEntryServicesService,
+    private route:ActivatedRoute) { }
 
   ngOnInit() {
-  }
+    let id=this.route.snapshot.paramMap.get('quotationdetail');
+    this.quotation_id=id;
+    this.QuotationDetails(id);
+    
 
+  }
+QuotationDetails(id){
+  this.poEntryServicesService.getQuotationDetails(id).subscribe((data)=>{
+    this.quotationdetails=data;
+    console.log(id);
+    console.log(this.quotationdetails);
+  })
+
+}
 }
