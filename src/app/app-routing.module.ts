@@ -6,7 +6,9 @@ import { PoEntryCustomerSelectionComponent } from './components/crm/crm-po/po-en
 import { PoEntryReceiverSelectionComponent } from './components/crm/crm-po/po-entry/po-entry-receiver-selection/po-entry-receiver-selection.component';
 import { PoEntryRequesterSelectionComponent } from './components/crm/crm-po/po-entry/po-entry-requester-selection/po-entry-requester-selection.component';
 import { PoEntrySupportingInfoComponent } from './components/crm/crm-po/po-entry/po-entry-supporting-info/po-entry-supporting-info.component';
+ 
 
+ 
 
 import { PoEntryQuotationSelectionComponent } from './components/crm/crm-po/po-entry/po-entry-quotation-selection/po-entry-quotation-selection.component';
 import { PoEntryProductSelectionComponent } from './components/crm/crm-po/po-entry/po-entry-product-selection/po-entry-product-selection.component';
@@ -44,6 +46,15 @@ import { SourcingVpoTermsConditionsComponent } from './components/sourcing/sourc
 import { SourcingVpoRequesterInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info/sourcing-vpo-requester-info.component';
 
 
+import { VpoApprovalInfoComponent } from './components/sales/sales-po/vpo-approval/vpo-approval-info/vpo-approval-info.component';
+import { SourcingVpoListComponent } from './components/sourcing/sourcing-po/sourcing-vpo/sourcing-vpo-list/sourcing-vpo-list.component';
+import { GrnTraditionalPoLineitemsEditComponent } from './components/grn/goods-receive/grn-traditional-po-lineitems-edit/grn-traditional-po-lineitems-edit.component';
+import { GrnWithoutPoListComponent } from './components/grn/goods-receive/grn-without-po-list/grn-without-po-list.component';
+import { GrnWithoutPoLineitemsEditComponent } from './components/grn/goods-receive/grn-without-po-lineitems-edit/grn-without-po-lineitems-edit.component';
+import { CashPurchaseContactPersonSelectionComponent } from './components/grn/goods-receive/immediate/cash-purchase-contact-person-selection/cash-purchase-contact-person-selection.component';
+import { SourcingVpoSignatureComponent } from './components/sourcing/sourcing-po/sourcing-vpo-signature/sourcing-vpo-signature.component';
+ 
+
 
 const routes:Routes=[
   { path:'login',component:LoginComponent },
@@ -55,7 +66,8 @@ const routes:Routes=[
   { path:'crm/po-entry/:customer/requester-selection',component: PoEntryRequesterSelectionComponent,canActivate:[AuthGuard]  },
   { path:'crm/po-entry/:customer/:requester/receiver-selection',component: PoEntryReceiverSelectionComponent,canActivate:[AuthGuard]  },
   { path:'crm/po-entry/:customer/:requester/:receiver/supportinginfo',component: PoEntrySupportingInfoComponent ,canActivate:[AuthGuard] },
-  { path:'crm/po-entry/quotation-selection', component:PoEntryQuotationSelectionComponent,canActivate:[AuthGuard] },
+  { path:'crm/po-entry/quotation-selection', component:PoEntryQuotationSelectionComponent,},
+  
   { path:'crm/po-entry/production-selection', component:PoEntryProductSelectionComponent,canActivate:[AuthGuard] },
   { path:'crm/po-entry/quotation-selection-details',component:QuotationSelectionDetailsComponent,canActivate:[AuthGuard] },
   { path:'crm/po-entry/po-entry-edit-selected-product',component:PoEntryEditSelectedProductComponent,canActivate:[AuthGuard] },
@@ -70,7 +82,7 @@ const routes:Routes=[
   { path:'crm/crm-po/po-mdification/crm-po-rejected-details', component:CrmPoRejectedDetailsComponent,canActivate:[AuthGuard] },
   { path:'crm/crm-po/po-modification/crm-po-rejected-supporting-edit',component:CrmPoRejectedSuppinfoEditComponent,canActivate:[AuthGuard] },
   { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent,canActivate:[AuthGuard] },    
-//Sourcing PO Release
+//Sourcing PO Release   
   {path:'sourcing/sourcing-home',component:SourcingHomeComponent,canActivate:[AuthGuard]},
   { path:'sourcing/sourcing-po/sourcing-cpo-pending-details', component:SourcingCpoPendingDetailsComponent,canActivate:[AuthGuard] },
   { path:'sourcing/sourcing-po/souring-cpo-vendor-product',component:SourcingCpoVendorProductComponent,canActivate:[AuthGuard] },
@@ -87,8 +99,20 @@ const routes:Routes=[
 
   { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-add-contactperson-info',component:SourcingVpoAddContactpersonInfoComponent},
   { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-terms-condition', component:SourcingVpoTermsConditionsComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info', component:SourcingVpoRequesterInfoComponent}   
-
+  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info', component:SourcingVpoRequesterInfoComponent},   
+  
+//sales vpo
+  { path:'sales/sales-po/vpo-approval/vpo-approval-info',component:VpoApprovalInfoComponent },
+//sourcing vpo
+  { path:'sourcing/sourcing-po/sourcing-vpo/sourcing-vpo-list',component:SourcingVpoListComponent },
+  { path:'sourcing/sourcing-po/sourcing-vpo-signature',component:SourcingVpoSignatureComponent },
+  
+// GRN
+  { path:'grn/goods-receive/grn-traditional-po-lineitems-edit', component:GrnTraditionalPoLineitemsEditComponent  },
+  { path:'grn/goods-receive/grn-without-po-list',component:GrnWithoutPoListComponent  },
+  { path:'grn/goods-receive/grn-without-po-lineitems-edit',component: GrnWithoutPoLineitemsEditComponent },
+  { path:'grn/goods-receive/immediate/cash-purchase-contact-person-selection',component: CashPurchaseContactPersonSelectionComponent }
+   
 ]
 
 @NgModule({

@@ -8,10 +8,12 @@ import { Observable } from 'rxjs';
 
 import  { PoEntryNewCustomer }from '../../../../interface/crm/po/po-entry/po-entry-new-customer'; 
 import  { PoEntryCustomerTable }from '../../../../interface/crm/po/po-entry/po-entry-customer-table'; 
-import {  PoEntryReceiver } from '../../../../interface/crm/po/po-entry/po-entry-receiver';
-import  {PoEntryReciver }from '../../../../interface/crm/po/po-entry/po-entry-reciver';
-import  {SupportingInfo} from '../../../../interface/crm/po/po-entry/supporting-info'
+import  { PoEntryReceiver } from '../../../../interface/crm/po/po-entry/po-entry-receiver';
+import  { PoEntryReciver }from '../../../../interface/crm/po/po-entry/po-entry-reciver';
+import  { SupportingInfo} from '../../../../interface/crm/po/po-entry/supporting-info';
 
+import  { QuotationSelectionPage} from '../../../../interface/crm/po/po-entry/quotation-selection-page';
+ 
  
 
 @Injectable({
@@ -25,6 +27,9 @@ export class PoEntryServicesService {
 
    supportinfolist:SupportingInfo[]=[];
 
+   Quotationselectionlist: QuotationSelectionPage[]=[];     // 1 QuotationSelectionPage is interface name ..  2 Quotationselectionlist is object name ..
+
+
   constructor(private http: HttpClient) { }
 
   //PoEntryCustomerSelection using GET method()...
@@ -35,6 +40,16 @@ export class PoEntryServicesService {
     });       
 }
 
+
+ //PoEntryQuotationSelectionusing GET method()...
+ getQuotationSelectionPage(quot_id):Observable<QuotationSelectionPage[]>{        
+    return this.http.get<QuotationSelectionPage[]>("/api/po_from_customer/customer/"+ quot_id +"/quotation_selection/", //PoEntryQuotationSelection database API LInk
+     {
+         headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+      });       
+  }
+  
+ 
  //PoEntryReciverSelection using GET method()...
  getPoEntryReciverSelection(cust_id,requ_id):Observable<PoEntryReciver[]>{
   return this.http.get<PoEntryReciver[]>("/api/po_from_customer/customer/"+ cust_id +"/contact_person/"+ requ_id +"/delivery_contactperson_selection//", //PoEntry reciverSelection database API LInk

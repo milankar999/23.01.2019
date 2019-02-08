@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vpo-approval-info.component.css']
 })
 export class VpoApprovalInfoComponent implements OnInit {
-
+  model:any={}
   constructor() { }
 
   ngOnInit() {

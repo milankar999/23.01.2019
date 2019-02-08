@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
-
+import {PoEntryServicesService}from '../../../../../services/crm/po/po-entry/po-entry-services.service';
+import{ Router,ActivatedRoute } from '@angular/router';
+import{ HttpResponse} from '@angular/common/http';
 
 
 @Component({
@@ -10,39 +12,103 @@ import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 })
 export class PoEntryQuotationSelectionComponent implements OnInit {
   form: FormGroup;
-  orders = [
-    { id: 11, quotation_no: 'AP-0011', Date: 'sdf', contact_person:'sdf', sourcing_person:'sdfd' },
-    { id: 12, quotation_no: 'AP-0012', Date: 'sdf', contact_person:'sdf', sourcing_person:'sdfd' },
-    { id: 13, quotation_no: 'AP-0013', Date: 'sdf', contact_person:'sdf', sourcing_person:'sdfd' },
-    { id: 14, quotation_no: 'AP-0014', Date: 'sdf', contact_person:'sdf', sourcing_person:'sdfd' },
-    { id: 15, quotation_no: 'AP-0015', Date: 'sdf', contact_person:'sdf', sourcing_person:'sdfd' }
-  
-  ];
+  model:any={};              //vadilation calling model in html in forms...
+  public requestorId ;
+  product=[                 //its tables counts..
+    {quotation_no:''},
+    {quotation_no:''},
+  ]
   display='none';
-  constructor(private formBuilder: FormBuilder) { 
-    const controls = this.orders.map(c => new FormControl(false));
-    controls[0].setValue(true); 
-    this.form = this.formBuilder.group({
-      orders: new FormArray(controls)
-    });
-  }
-  submit() {
-    const selectedOrderIds = this.form.value.orders
-      .map((v, i) => v ? this.orders[i].id : null)
-      .filter(v => v !== null);
-
-    console.log(selectedOrderIds);
-  }
+  quotation_id="";         //table fiilds.
+  quotation_no;
+  quotation_date;
+  rfp;
+  enquiry_reference;
   
+constructor(private poEntryServicesService:PoEntryServicesService,
+  private router:Router,private route:ActivatedRoute, private formBuilder: FormBuilder) { 
+    const controls = this.product.map(c => new FormControl(false));
+    controls[0].setValue(false); 
+    this.form = this.formBuilder.group({
+      product: new FormArray(controls)            //Array controls
+    });
+    
+  }
+  submit() {                                             // table proceed is as submit 
+    const selectedOrderIds = this.form.value.product
+      .map((v, i) => v ? this.product[i]. quotation_no: null)
+      .filter(v => v !== null);
+    console.log(selectedOrderIds);
+    
+  }
+
 
   ngOnInit() {
+    
+    let quot_id="4f543dda-df4b-46ba-a759-85a05a406893";  //display singel api id --
+    this.quotation_id = quot_id;
+    this.PoQuotationSelectionPage(quot_id)
+    
   }
-  
-  openModalDialog(){
+  PoQuotationSelectionPage(quot_id){
+    this.poEntryServicesService.getQuotationSelectionPage(quot_id).subscribe((data)=>{     // get method
+      this.product=data;
+      console.log(this.product);
+      
+      
+  })
+}
+
+  openModalDialog(){                   //model dilogs
     this.display='block';
   }
-  closeModalDialog(){
+  closeModalDialog(){                  
     this.display='none';
 
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
