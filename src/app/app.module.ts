@@ -84,6 +84,8 @@ import { CashPurchaseVendorSelectionComponent } from './components/grn/goods-rec
 import { CashPurchaseContactPersonSelectionComponent } from './components/grn/goods-receive/immediate/cash-purchase-contact-person-selection/cash-purchase-contact-person-selection.component';
 import { CashPurchaseContactProductEntryComponent } from './components/grn/goods-receive/immediate/cash-purchase-contact-product-entry/cash-purchase-contact-product-entry.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
