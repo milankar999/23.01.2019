@@ -45,7 +45,7 @@ constructor(private poEntryServicesService:PoEntryServicesService,
 
   ngOnInit() {
     
-    let quot_id="4f543dda-df4b-46ba-a759-85a05a406893";  //display singel api id --
+    let quot_id=this.route.snapshot.paramMap.get('cpo_no');  //display singel api id --
     this.quotation_id = quot_id;
     this.PoQuotationSelectionPage(quot_id)
     

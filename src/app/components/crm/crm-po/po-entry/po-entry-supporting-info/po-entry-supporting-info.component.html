@@ -3,7 +3,7 @@
 <div class="col-md-offset-4 col-md-6">  <!--table fields-->
     <div class="well">
       <h2 align="center"> Po-entry Supporting info</h2>
-      <hr>
+      <hr> 
       <form #submitsupportinfoForm="ngForm" (ngSubmit)="submitsupportinfolist(event)" class="form-signin">
         <div class="form-group">
             <label class="form-input">Shipping-Address </label>
@@ -15,7 +15,7 @@
           
 
             <label class="form-input" for="billing_address">Billing-Address </label>
-            <input type="text" class="form-control" id="billing_address" value="{{billing_address}}" name="billing_address"[(ngModel)]="model.billing_address"
+            <input type="text" class="form-control" id="billing_address" value="{{billing_address}}" name="billing_address" [(ngModel)]="model.billing_address"
             required 
             #Billingaddress="ngModel">
             <span *ngIf="Billingaddress.untouched && Billingaddress.invalid" class="help-block"></span><br>

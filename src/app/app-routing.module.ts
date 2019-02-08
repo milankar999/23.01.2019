@@ -50,6 +50,8 @@ import { GrnTraditionalPoListComponent } from './components/grn/goods-receive/gr
 import { CashPurchaseVendorSelectionComponent } from './components/grn/goods-receive/immediate/cash-purchase-vendor-selection/cash-purchase-vendor-selection.component';
 import { CashPurchaseContactProductEntryComponent } from './components/grn/goods-receive/immediate/cash-purchase-contact-product-entry/cash-purchase-contact-product-entry.component';
 
+import { VpoApprovalListComponent } from './components/sales/sales-po/vpo-approval/vpo-approval-list/vpo-approval-list.component';
+import { SourcingVpoDetailsComponent } from './components/sourcing/sourcing-po/sourcing-vpo/sourcing-vpo-details/sourcing-vpo-details.component';
 
 import { VpoApprovalInfoComponent } from './components/sales/sales-po/vpo-approval/vpo-approval-info/vpo-approval-info.component';
 import { SourcingVpoListComponent } from './components/sourcing/sourcing-po/sourcing-vpo/sourcing-vpo-list/sourcing-vpo-list.component';
@@ -71,10 +73,10 @@ const routes:Routes=[
   { path:'crm/po-entry/:customer/requester-selection',component: PoEntryRequesterSelectionComponent,canActivate:[AuthGuard]  },
   { path:'crm/po-entry/:customer/:requester/receiver-selection',component: PoEntryReceiverSelectionComponent,canActivate:[AuthGuard]  },
   { path:'crm/po-entry/:customer/:requester/:receiver/supportinginfo',component: PoEntrySupportingInfoComponent ,canActivate:[AuthGuard] },
-  { path:'crm/po-entry/quotation-selection', component:PoEntryQuotationSelectionComponent,},
+  { path:'crm/po-entry/:cpo_no/quotation-selection', component:PoEntryQuotationSelectionComponent,},
   
   { path:'crm/po-entry/production-selection', component:PoEntryProductSelectionComponent,canActivate:[AuthGuard] },
-  { path:'crm/po-entry/quotation-selection-details',component:QuotationSelectionDetailsComponent,canActivate:[AuthGuard] },
+  { path:'crm/po-entry/:quotation_no/quotation-selection-details',component:QuotationSelectionDetailsComponent,canActivate:[AuthGuard] },
   { path:'crm/po-entry/po-entry-edit-selected-product',component:PoEntryEditSelectedProductComponent,canActivate:[AuthGuard] },
   { path:'crm/po-entry/po-entry-selected-product',component:PoEntrySelectedProductComponent,canActivate:[AuthGuard] },
 //PO Approval sales
@@ -124,7 +126,11 @@ const routes:Routes=[
   { path: 'grn/goods-recive/grn-traditional-po-list', component:GrnTraditionalPoListComponent},
   { path : 'grn/goods-recive/grn-without-po-list', component:GrnWithoutPoListComponent},
   { path : 'grn/good-recive/immediate/cash-purchase-vendor-selection', component:CashPurchaseVendorSelectionComponent},
-  { path : 'grn/good-recive/immediate/cash-purchase-contact-product-entry', component:CashPurchaseContactProductEntryComponent}
+  { path : 'grn/good-recive/immediate/cash-purchase-contact-product-entry', component:CashPurchaseContactProductEntryComponent},
+  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info', component:SourcingVpoRequesterInfoComponent},
+  { path:'sales/sales-po/vpo-approval/vpo-approval-list/vpo-approval-list', component:VpoApprovalListComponent},
+  { path:'sourcing/sourcing-po/sourcing-vpo/sourcing-vpo-details/sourcing-vpo-details', component:SourcingVpoDetailsComponent},
+  { path:'grn/goods-receive/grn-traditional-po-list/grn-traditional-po-list', component:GrnTraditionalPoListComponent}   
 ]
 
 @NgModule({

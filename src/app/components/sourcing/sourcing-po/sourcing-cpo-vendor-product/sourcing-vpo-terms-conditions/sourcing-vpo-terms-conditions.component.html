@@ -62,7 +62,7 @@
                     required 
                     #validity="ngModel">
                     <span *ngIf="validity.touched && validity.invalid" class="help-block">Validity can't be blank</span>
-                    <label class="form-input" for=" igst">IGST %<a style="color: red">*</a></label>
+                    <!----<label class="form-input" for=" igst">IGST %<a style="color: red">*</a></label>
                     <input type="number" min="0" max="20" class="form-control" id="igst " name="igst" [(ngModel)]="model.igst"
                     required 
                     #igst="ngModel">
@@ -72,13 +72,14 @@
                     <input type="number" min="0" max="20" class="form-control" id=" gst" name=" price" [(ngModel)]="model.gst"
                     required 
                     #gst="ngModel">
-                    <span *ngIf="gst.touched && gst.invalid" class="help-block">GST can't be blank</span>
+                    <span *ngIf="gst.touched && gst.invalid" class="help-block">GST can't be blank</span>-->
                 
                  </div>
                    <hr>
                     <button type="button" class="btn btn-success">Submit</button>&nbsp;
                     <button type="button" class="btn btn-danger">Cancel</button>&nbsp;
-                    <button type="button" class="btn btn-primary">Reset</button>
+                    <!----<button type="button" class="btn btn-primary">Reset</button>-->
+                    <input type="reset" class="btn btn-primary" value="Reset">
          </form>
      </div>
 <app-sourcing-header></app-sourcing-header>

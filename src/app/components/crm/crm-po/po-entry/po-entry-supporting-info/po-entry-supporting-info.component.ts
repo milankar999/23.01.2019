@@ -28,6 +28,8 @@ export class PoEntrySupportingInfoComponent implements OnInit {
   inco_terms = "";
   payment_term = 0;
 
+  CPOResponse:Object[]=[];
+
   constructor(private  poEntryServicesService:PoEntryServicesService,
     private router:Router, private route:ActivatedRoute) { }
 
@@ -76,6 +78,9 @@ submitsupportinfolist(event){
     requ_id,
     rece_id).subscribe(data => {
     console.log(data);
+      this.CPOResponse = data;
+      console.log(this.CPOResponse['id'])
+      this.router.navigate(['crm/po-entry/'+ this.CPOResponse['id'] +'/quotation-selection']);
 })
 }
  

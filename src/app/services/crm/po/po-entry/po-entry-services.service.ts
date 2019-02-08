@@ -13,7 +13,7 @@ import  { PoEntryReciver }from '../../../../interface/crm/po/po-entry/po-entry-r
 import  { SupportingInfo} from '../../../../interface/crm/po/po-entry/supporting-info';
 import  { StoreSupportingInfo } from '../../../../interface/crm/po/po-entry/store-supporting-info'
 import  { QuotationSelectionPage} from '../../../../interface/crm/po/po-entry/quotation-selection-page';
- 
+import{QuotationDetails} from '../../../../interface/crm/po/po-entry/quotation-details'
  
 
 @Injectable({
@@ -26,6 +26,7 @@ export class PoEntryServicesService {
    reciverselectionlist:PoEntryReciver[]=[];
 
    supportinfolist:SupportingInfo[]=[];
+   QuotationDetails:QuotationDetails[]=[];
 
    Quotationselectionlist: QuotationSelectionPage[]=[];     // 1 QuotationSelectionPage is interface name ..  2 Quotationselectionlist is object name ..
 
@@ -92,14 +93,13 @@ export class PoEntryServicesService {
     {
         headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))
     });
-
     } 
 
 
 
   getPoEntryRequestorSelection(id):Observable<PoEntryCustomerTable[]>{
-  return this.http.get<PoEntryCustomerTable[]>("/api/po_from_customer/customer/"+id+"/contact_person_selection/", //PoEntryRequestorSelection database API LInk
-   {
+ return this.http.get<PoEntryCustomerTable[]>("/api/po_from_customer/customer/"+id+"/contact_person_selection/", //PoEntryRequestorSelection database API LInk
+   { 
        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
     });       
 }
@@ -131,5 +131,13 @@ PostReciverlist(person_name,mobileNo1,mobileNo2,email1,email2,department_name,id
 });
 
 }
+getQuotationDetails(id):Observable<QuotationDetails[]>{
+
+  return this.http.get<QuotationDetails[]>("/api/po_from_customer/customer/"+ id +"/quotation_details/",
+  {
+    headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header Authorize
+}); 
+  }
+
 
 }

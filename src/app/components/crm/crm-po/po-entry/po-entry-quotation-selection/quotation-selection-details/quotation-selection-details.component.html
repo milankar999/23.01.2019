@@ -15,30 +15,39 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Product name</th>
+                        <th>Product Title</th>
                         <th>Description</th>
                         <th>Model</th>
                         <th>Brand</th>
-                        <th>Part No</th>
                         <th>Product Code</th>
+                        <th>Part No</th>
+                        <th>Pack Size</th>
+                        <th>MOQ</th>
                         <th>Hsn code</th>
                         <th>gst</th>
+                        <th>Quantity</th>
                         <th>UOM</th>
                         <th>Price</th>
+                        <th>Lead Time</th>
                      </tr >
 
-               <tr *ngFor="let item of quotationlist|search:query">
+               <tr *ngFor="let item of  quotationdetails">
                                 <td><span class="glyphicon glyphicon-forward" style="color: blue"></span></td>
-                                <td> {{item.name}}</td>
-                                <td>{{item.description}}</td>
-                                <td>{{item.model}}</td>
-                                <td>{{item.brand}}</td>
-                                <td>{{item.partno}}</td>
-                                <td>{{item.productcode}}</td>
-                                <td>{{item.hsncode}}</td>
-                                <td>{{item.gst}}</td>
-                                <td>{{item.uom}}</td>
-                                <td>{{item.price}}</td>
+                               <td>{{item.product_title}}</td>
+                               <td>{{item.description}}</td>
+                               <td>{{item.model}}</td>
+                               <td>{{item.brand}}</td>
+                               <td>{{item.product_code}}</td>
+                               <td>{{item.part_number}}</td>
+                               <td>{{item.pack_size}}</td>
+                               <td>{{item.moq}}</td>
+                               <td>{{item.hsn_code}}</td>
+                               <td>{{item.gst}}</td>
+                               <td>{{item.quantity}}</td>
+                               <td>{{item.uom}}</td>
+                               <td>{{item.unit_price}}</td>
+                               <td>{{item.lead_time}}</td>
+                                
                      </tr>
                     
                  </thead>
