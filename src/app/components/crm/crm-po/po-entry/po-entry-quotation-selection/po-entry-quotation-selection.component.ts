@@ -12,6 +12,7 @@ import{ HttpResponse} from '@angular/common/http';
 })
 export class PoEntryQuotationSelectionComponent implements OnInit {
   form: FormGroup;
+
   model:any={};              //vadilation calling model in html in forms...
   public requestorId ;
   product=[                 //its tables counts..
@@ -28,7 +29,7 @@ export class PoEntryQuotationSelectionComponent implements OnInit {
 constructor(private poEntryServicesService:PoEntryServicesService,
   private router:Router,private route:ActivatedRoute, private formBuilder: FormBuilder) { 
     const controls = this.product.map(c => new FormControl(false));
-    controls[0].setValue(false); 
+    controls[0].setValue(true); 
     this.form = this.formBuilder.group({
       product: new FormArray(controls)            //Array controls
     });
@@ -38,8 +39,7 @@ constructor(private poEntryServicesService:PoEntryServicesService,
     const selectedOrderIds = this.form.value.product
       .map((v, i) => v ? this.product[i]. quotation_no: null)
       .filter(v => v !== null);
-    console.log(selectedOrderIds);
-    
+    console.log(selectedOrderIds);    
   }
 
 

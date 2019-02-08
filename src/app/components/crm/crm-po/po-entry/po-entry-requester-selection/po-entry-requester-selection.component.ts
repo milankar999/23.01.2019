@@ -56,7 +56,6 @@ export class PoEntryRequesterSelectionComponent implements OnInit {
     this.requestorId=id;
     console.log(id);
     this.poEntryServicesService.PostRequestorlist(this. model.name,this.model.mobileNo1,this.model.mobileNo2,this.model.email1,this.model.email2,id).subscribe(data => {
-    
       console.log(data);
       window.location.reload();
      

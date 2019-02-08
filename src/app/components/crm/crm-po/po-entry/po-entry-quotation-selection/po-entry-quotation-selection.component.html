@@ -1,45 +1,5 @@
 
 <br><br>
-<h2>Select a Quotation Selection List </h2><button type="button" class="btn btn-success btn-lg" (click)="openModalDialog()"> <span class="glyphicon glyphicon-plus"></span>ADD NEW</button> 
-<!--After clicking the buttons open the model dialog using open/close event biniding methods-->
-<div class="backdrop" [ngStyle]="{'display' :display}"></div>  
-<!--modal-->
-<div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
-    <!--modal-dialog-->
-    <div class="modal-dialog" role="document">
-        <!--modal-conent-->
-        <div class="modal-content">
-            <!--modal-header-->
-            <div class="panel panel-primary">
-                <div class="panel-heading text-center">New Quotation-Selection
-                <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
-
-         </div>
-            <!--modal-body-->
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label class="form-input" for="quotationNo">Quotation No <a style="color: red">*</a></label>
-                        <input type="text" class="form-control" id="quotationNo" name="quotationNo" required>
-                        <label class="form-input" for="date">Date <a style="color: red">*</a></label>
-                        <input type="date" class="form-control" id="date" name="date" required>
-                        <label class="form-input" for="contact">Contact Person <a style="color: red">*</a></label>
-                        <input type="text" class="form-control" id="contact" name="contact"required>
-                        <label class="form-input" for="sourcing">Sourcing Person <a style="color: red"></a></label>
-                        <input type="text" class="form-control" id="sourcing" name="sourcing">
-                   </div>
-              </form>
-            </div>
-            <!--modal-footer-->
-            <div class="modal-footer">
-                    <button type="button" class="btn btn-success" (click)="closeModalDialog()">Submit</button>
-                <button type="button" class="btn btn-danger" (click)="closeModalDialog()">Cancel</button>
-                
-            </div>
-        </div>
-    </div>
-</div>
-</div>
 <hr>
  <div class="col-md-offset-2 col-md-8">
         <div class="panel panel-primary">
