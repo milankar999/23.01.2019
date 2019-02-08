@@ -1,4 +1,4 @@
-<app-crm-header></app-crm-header>
+
 <br><br><br>
 <div class="col-md-offset-4 col-md-4">  <!--table fields-->
      <div class="well">
@@ -17,12 +17,6 @@
                      required 
                      #mobilenumber="ngModel">
                      <span *ngIf="mobilenumber.touched && mobilenumber.invalid" class="help-block">Mobile number can't be blank</span>
-                     <!----<label class="form-input" for="phonenumber2">Mobile Number 2</label>
-                     <input type="text" class="form-control" id="phonenumber2" name="phonenumber2" placeholder="phone number" [(ngModel)]="model.phonenumber"
-                      required 
-                      #phonenumber2="ngModel">
-                      <span *ngIf="phonenumber2.touched && phonenumber2.invalid" class="help-block">phonenumber can't be blank</span>-->
-                 
                     <label class="form-input" for="location"> Location<a style="color: red">*</a></label>
                     <input type="text" class="form-control" id="location" name="location" placeholder="location" [(ngModel)]="model.location"
                     required 
@@ -33,46 +27,7 @@
                     <input type="text" class="form-control" id="department" name="department" placeholder="department" [(ngModel)]="model.department"
                     required 
                     #department="ngModel">
-                
-                    <!----<label class="form-input" for="brand">Brand <a style="color: rgb(177, 37, 37)">*</a></label>
-                    <input type="text" class="form-control" id="brand" name="brand" [(ngModel)]="model.brand"
-                    required 
-                    #brand="ngModel">
-                    <span *ngIf="brand.touched && brand.invalid" class="help-block">Brand can't be blank</span>
-                
-                    <label class="form-input" for=" partno">Part No <a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="partno" name="partno" [(ngModel)]="model.partno"
-                    required 
-                    #partno="ngModel">
-                    <span *ngIf="partno.touched && partno.invalid" class="help-block">part no can't be blank</span>
-                
-                    <label class="form-input" for="productcode">Product Code <a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="productcode" name="productcode" [(ngModel)]="model.productcode"
-                    required 
-                    #productcode="ngModel">
-                    <span *ngIf="productcode.touched && productcode.invalid" class="help-block">product code can't be blank</span>
-                
-                    <label class="form-input" for="hsncode">Hsn Code</label>
-                    <input type="text" class="form-control" id="hsncode" name="hsncode">
-                    <label class="form-input" for="GSTNo">Gst</label>
-                    <input type="text" class="form-control" id="GSTNo" name="GSTNo">
-                    <label class="form-input" for="quantity">Quantity</label>
-                    <input type="number" min="1" max="100"class="form-control" id="quantity" name="quantity" [(ngModel)]="model.quantity"
-                    required 
-                    #quantity="ngModel">
-                    <span *ngIf="quantity.touched && quantity.invalid" class="help-block">Quantity can't be blank</span>
-                    <label class="form-input" for=" uom">UOM</label>
-                    <input type="text" class="form-control" id="uom " name="uom" [(ngModel)]="model.uom"
-                    required 
-                    #uom="ngModel">
-                    <span *ngIf="uom.touched && uom.invalid" class="help-block">UOM can't be blank</span>
-                
-                    <label class="form-input" for="  price"> Price / Unit</label>
-                    <input type="text" class="form-control" id=" price" name=" price" [(ngModel)]="model.price"
-                    required 
-                    #price="ngModel">
-                    <span *ngIf="price.touched && price.invalid" class="help-block">price can't be blank</span>-->
-                
+                  
                  </div>
                    <hr>
                     <button type="button" class="btn btn-success">Submit</button>&nbsp;
@@ -80,7 +35,8 @@
                     <button type="button" class="btn btn-primary">Reset</button>
          </form>
      </div>
-     <app-crm-footer></app-crm-footer>
+<app-sourcing-header></app-sourcing-header>
+<app-sourcing-footer></app-sourcing-footer>
    
 
 

@@ -9,7 +9,8 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class CrmHeaderComponent implements OnInit {
   display='none';
-  constructor(private router:Router, private cookie:CookieService) { }
+
+  constructor(private router:Router, private Cookie:CookieService) { }
 
   ngOnInit() {
  
@@ -18,10 +19,11 @@ export class CrmHeaderComponent implements OnInit {
    
     localStorage.removeItem('token');
     localStorage.removeItem('type');
-    this.cookie.deleteAll();
-    this.cookie.delete('sessionid');
-    //this.cookie.delete('csrftoken');
+    this.Cookie.deleteAll();
+    this.Cookie.delete('sessionid');
     }
+
+
     openModalDialog()
     {
       this.display='block';

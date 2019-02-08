@@ -10,7 +10,9 @@ import  { PoEntryNewCustomer }from '../../../../interface/crm/po/po-entry/po-ent
 import  { PoEntryCustomerTable }from '../../../../interface/crm/po/po-entry/po-entry-customer-table'; 
 import {  PoEntryReceiver } from '../../../../interface/crm/po/po-entry/po-entry-receiver';
 import  {PoEntryReciver }from '../../../../interface/crm/po/po-entry/po-entry-reciver';
-import  {SupportingInfo} from '../../../../interface/crm/po/po-entry/supporting-info'
+import  {SupportingInfo} from '../../../../interface/crm/po/po-entry/supporting-info';
+import  { StoreSupportingInfo } from '../../../../interface/crm/po/po-entry/store-supporting-info'
+
 
  
 
@@ -37,7 +39,7 @@ export class PoEntryServicesService {
 
  //PoEntryReciverSelection using GET method()...
  getPoEntryReciverSelection(cust_id,requ_id):Observable<PoEntryReciver[]>{
-  return this.http.get<PoEntryReciver[]>("/api/po_from_customer/customer/"+ cust_id +"/contact_person/"+ requ_id +"/delivery_contactperson_selection//", //PoEntry reciverSelection database API LInk
+  return this.http.get<PoEntryReciver[]>("/api/po_from_customer/customer/"+ cust_id +"/contact_person/"+ requ_id +"/delivery_contactperson_selection/", //PoEntry reciverSelection database API LInk
    {
        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
     });       
@@ -52,7 +54,33 @@ export class PoEntryServicesService {
          headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
       });       
   }
+   
   
+ //PoEntrySupportingInfo using POST method()...
+ PostSupportInfolist(shipping_address,billing_address,inco_terms,payment_term,delivery_date,customer_po_no,customer_po_date,cust_id,requ_id ,rece_id){
+     console.log(customer_po_no);
+     console.log(customer_po_date);
+     console.log(delivery_date);
+     console.log(billing_address);
+     console.log(shipping_address);
+     console.log(inco_terms);
+     console.log(payment_term);
+    return this.http.post<StoreSupportingInfo[]>("/api/po_from_customer/customer/"+ cust_id +"/contact_person/"+ requ_id +"/delivery_contactperson/"+ rece_id +"/store_supporting_info/",
+    {
+        "customer_po_no": customer_po_no,    
+        "customer_po_date" :customer_po_date,
+        "delivery_date": delivery_date,
+        "billing_address":billing_address,
+        "shipping_address": shipping_address,
+        "inco_terms":inco_terms,
+        "payment_term": payment_term,
+    
+    },
+    {
+        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))
+    });
+
+    } 
 
 
 

@@ -25,11 +25,8 @@ export class PoEntrySupportingInfoComponent implements OnInit {
   address = "";
   shipping_address = "";
   billing_address = "";
-  inco_term = "";
+  inco_terms = "";
   payment_term = 0;
-
-
-
 
   constructor(private  poEntryServicesService:PoEntryServicesService,
     private router:Router, private route:ActivatedRoute) { }
@@ -49,7 +46,7 @@ export class PoEntrySupportingInfoComponent implements OnInit {
       this.address=data[0]['address'];
       this.shipping_address=data[0]['shipping_address'];
       this.billing_address=data[0]['billing_address'];
-      this.inco_term=data[0]['inco_term'];
+      this.inco_terms=data[0]['inco_term'];
       this.payment_term=data[0]['payment_term'];
       if(this.shipping_address=="Same")
         this.shipping_address=this.address;
@@ -58,6 +55,31 @@ export class PoEntrySupportingInfoComponent implements OnInit {
       console.log(this.address);      
   })
 }
+submitsupportinfolist(event){
+  
+  let cust_id=this.route.snapshot.paramMap.get('customer');
+  let requ_id=this.route.snapshot.paramMap.get('requester');
+  let rece_id=this.route.snapshot.paramMap.get('receiver');
+  this.customer_id = cust_id;
+  this.requester_id = requ_id;
+  this.receiver_id=rece_id;
+
+  this.poEntryServicesService.PostSupportInfolist(
+    this.model.shipping_address,
+    this.model.billing_address,
+    this.model.inco_terms,
+    this.model.payment_term,
+    this.model.delivery_date,
+    this.model.customer_po_no,
+    this.model.customer_po_date,
+    cust_id,
+    requ_id,
+    rece_id).subscribe(data => {
+    console.log(data);
+})
+}
+ 
+
 
 
 

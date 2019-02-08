@@ -23,7 +23,9 @@ export class SourcingCpoVendorProductComponent implements OnInit {
     this.form = this.formBuilder.group({
       products: new FormArray(controls)
     });
+   
   }
+
   submit() {
     const selectedOrderIds = this.form.value.products
       .map((v, i) => v ? this.products[i].id : null)

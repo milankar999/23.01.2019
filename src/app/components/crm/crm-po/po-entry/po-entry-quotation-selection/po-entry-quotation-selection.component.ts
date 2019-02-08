@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
-
+import {PoEntryServicesService}from '../../../../../services/crm/po/po-entry/po-entry-services.service';
 
 
 @Component({
@@ -10,8 +10,9 @@ import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 })
 export class PoEntryQuotationSelectionComponent implements OnInit {
   form: FormGroup;
+  model:any={};
   orders = [
-    { id: 11, quotation_no: 'AP-0011', Date: 'sdf', contact_person:'sdf', sourcing_person:'sdfd' },
+    { id: 11, quotation_no: 'AP-0011',rfp:"efr", },
     { id: 12, quotation_no: 'AP-0012', Date: 'sdf', contact_person:'sdf', sourcing_person:'sdfd' },
     { id: 13, quotation_no: 'AP-0013', Date: 'sdf', contact_person:'sdf', sourcing_person:'sdfd' },
     { id: 14, quotation_no: 'AP-0014', Date: 'sdf', contact_person:'sdf', sourcing_person:'sdfd' },
@@ -19,7 +20,7 @@ export class PoEntryQuotationSelectionComponent implements OnInit {
   
   ];
   display='none';
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder,private  poEntryServicesService:PoEntryServicesService) { 
     const controls = this.orders.map(c => new FormControl(false));
     controls[0].setValue(true); 
     this.form = this.formBuilder.group({
@@ -30,8 +31,8 @@ export class PoEntryQuotationSelectionComponent implements OnInit {
     const selectedOrderIds = this.form.value.orders
       .map((v, i) => v ? this.orders[i].id : null)
       .filter(v => v !== null);
-
     console.log(selectedOrderIds);
+
   }
   
 
