@@ -1,13 +1,11 @@
+<app-crm-header></app-crm-header>
 <br><br>
-<h2 align="center">Customer Selection List </h2>
+<h2 align="center">pending po list </h2>
 <hr>
-
  <div class="col-md-offset-2 col-md-8">
         <div class="panel panel-primary">
-            <div class="panel-heading text-center">Customer Selection List</div>
+            <div class="panel-heading text-center"> Penfing po  List</div>
                  <div class="panel-body">
-                        
-          
                      <div class="col-md-4">
                          <input type="text" class="form-control" placeholder="search..." [(ngModel)]="query">
                      </div>
@@ -17,39 +15,45 @@
          <thead>
              <tr>
                 <th></th>
-                <th>PO NO</th>
-                <th>Customer Name</th>
-                <th>Location</th>
-                <th>Creation Date</th>
-                <th>Priorrity</th>
+                
+                 <!--<th>id</th>  --> 
+                <th>Customer</th>
+                <th>customer contact person</th>
+                <th>customer po no</th>
+                <th>delivery date</th>
+                
                
             </tr >
         </thead>
-                <tr>
-                    <td>
+                <tr *ngFor="let data of  pendinglist">
+                   
+                  <!-- <td>
                          <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
                          <a href="#"><span class="glyphicon glyphicon-trash"></span></a>
-                    </td>
-                     <td>ui878</td>
-                     <td>jay</td>
-                     <td>bengaluru</td>
-                     <td>24/12/2018</td>
-                     <td>shauvik</td>
-                     <td>regular</td>
-                 </tr>
-                 <tr>
-                     <td>
-                        <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
-                         <a href="#"> <span class="glyphicon glyphicon-trash"></span></a>
-                     </td>
-                     <td>ui878</td>
-                     <td>jay</td>
-                     <td>bengaluru</td>
-                     <td>24/12/2018</td>
-                      <td>shauvik</td>
-                      <td>regular</td>
-                    </tr>
+                    </td> --> 
+                    <td>
+                            <a href="#"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
+                        </td>
+                    
+                 <!--<td>{{data.id}}</td>    -->
+                 <td>{{data.customer}}</td>
+                 <td>{{data.customer_contact_person}}</td>
+                 <td>{{data.customer_po_no}}</td>
+                 <td>{{data.delivery_date}}</td>
+                 </tr> 
     </table> <br>
+    
  </div>
  </div>
+
+
+ <app-crm-footer></app-crm-footer>
+<!--  <button type="submitsupportinfoForm.invalid" class="btn btn-success">Submit</button>&nbsp;   -->
+
+
+
+
+
+
+ 
 

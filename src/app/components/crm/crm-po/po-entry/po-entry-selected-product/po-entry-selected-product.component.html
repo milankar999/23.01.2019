@@ -1,46 +1,76 @@
+<app-crm-header></app-crm-header>
 <br>
 <br>
-<br>
-<div class="container">
-  <div class="col-md-offset-1 col-md-10">
-    <div class="panel panel-primary">
-    <div class="panel-heading text-center">Selected Product List</div>
-    <div class="panel-body">         
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Model</th>
-          <th>Brand</th>
-          <th>Part No.</th>
-          <th>Product Code</th>
-          <th>Price</th>
-        </tr>
-        <tr>
-            <a href="#">
-                <span class="glyphicon glyphicon-pencil"></span>&nbsp;
-              </a>
-              <a href="#">
-                  <span class="glyphicon glyphicon-trash"></span>
-                </a>
-          <td>ABC</td>
-          <td>a ball</td>
-          <td>efg</td>
-          <td>GHI</td>
-          <td>98765</td>
-          <td>jd6789</td>
-          <td>5678</td>
-        </tr>
-      </thead>
-      </table>
-      </div>
-      </div>
-      </div>
-      </div>
-      <form align= "center">
-      <button class="col-md-offset-1 col-md-10" type="button" class="btn btn-success">Submit</button>&nbsp;
-      </form>
+ <h2>  selected product details page </h2>
+   <div class="col-md-offset-0 col-md-12">
+     <div class="panel panel-primary">
+         <div class="panel-heading text-center"> selected product details page </div>
+                 <div class="panel-body">
+                     <div class="col-md-4">
+                      <input type="text" class="form-control" placeholder="search..." [(ngModel)]="query">
+                     </div>
+                 </div>
+                <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+                   <thead>
+                     <tr>
+                        <th></th>
+                        <th>id</th>
+                        <th>product title</th>
+                        <th>description</th>
+                        <th>model</th>
+                        <th>brand</th>
+                        <th>product code</th>
+                        <th>part number</th>
+                        <th>pack size</th>
+                        <th>moq</th>
+                        <th>hsn code</th>
+                        <th>gst</th>
+                        <th>quantity</th>
+                        <th>uom</th>
+                        <th>unit price</th>
+                        <th>lead time</th>
+                      
+                       </tr >
+                                         
+                     <tr *ngFor="let item of  productdetailpagelist">
+                          <td>
+                            <!-- <span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                             </td>-->
+                             
+                             <a href="#">
+                                <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+                              </a>
+                              <a href="#">
+                                  <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                              <td>{{item.id}}</td>
+                              <td>{{item.product_title}}</td>
+                              <td>{{item.description}}</td>
+                              <td>{{item.model}}</td>
+                              <td>{{item.brand}}</td>
+                              <td>{{item.product_code}}</td>
+                              <td>{{item.part_number}} </td>
+                              <td>{{item.pack_size }}</td>
+                              <td>{{item.moq}}</td>
+                              <td>{{item.hsn_code}}</td>
+                              <td>{{item.gst}}</td>
+                              <td>{{item.quantity}}</td>
+                              <td>{{item.uom}}</td>
+                              <td>{{item.unit_price}}</td>
+                              <td>{{item.lead_time}}</td>
+                               
+                              
+                    
+                         </tr>
+
+                         
+                   </thead>
+               </table> <br>
+       </div>
+   </div>
+   <form align= "right">
+   <button class="col-md-offset-1 col-md-10" type="button" class="btn btn-success">Submit</button>&nbsp;
+<app-crm-footer></app-crm-footer>
      
       
 

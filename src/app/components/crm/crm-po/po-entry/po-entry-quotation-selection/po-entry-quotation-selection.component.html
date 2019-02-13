@@ -13,8 +13,11 @@
         <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
              <tr>
                 <th></th>
+               
                 <th>quotation no</th>
+                           
                 <th>quotation date</th>
+                <th>customer contact person</th>  
                 <th>rfp</th>
                 <th>enquiry reference</th>               
             </tr >
@@ -24,9 +27,11 @@
                   <input type="checkbox" [formControlName]="i"> 
               </td>
                  <td>{{product[i].quotation_no}}</td>
-                 <td>{{product[i].quotation_date}}</td>
-                 <td>{{product[i].rfp}}</td>
+                 <td>{{product[i].quotation_date}}</td>  
+                 <td>{{product[i].rfp.customer_contact_person.name}}</td>                  
+                 <td>{{product[i].rfp.rfp_no}}</td>            
                  <td>{{product[i].enquiry_reference}}</td> 
+                 
                  <td>
                         <a href="crm/po-entry/{{product[i].quotation_no}}/quotation-selection-details" target="_blank"><span class="glyphicon glyphicon-edit" style="color: blue"></span></a>
                     </td>               

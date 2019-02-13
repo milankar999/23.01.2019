@@ -1,8 +1,8 @@
 import { Component, OnInit} from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
-
-
-
+import { FormBuilder, FormGroup, } from '@angular/forms';
+import{ Router } from '@angular/router';
+import{ HttpResponse} from '@angular/common/http';
+import { PoVenderService } from 'src/app/services/sourcing/po/po-vender.service'; //services name import
 
 @Component({
   selector: 'app-sourcing-cpo-pending-list',
@@ -10,30 +10,35 @@ import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
   styleUrls: ['./sourcing-cpo-pending-list.component.css']
 })
 export class SourcingCpoPendingListComponent implements OnInit {
+  query:string='';
+    pendinglist:Object[]=[];
+    display='none';
 
-    form: FormGroup;
-    products=[
-      {PO_NO: 908,Customer_name: 'jay',Location:'mumbai',Creation_Date:'1/2/2019',Priorrity:'regular'},
-      {PO_NO: 908,Customer_name: 'jay',Location:'mumbai',Creation_Date:'1/2/2019',Priorrity:'regular'},
-    ];
-  
+ 
 
-  constructor(private formBuilder: FormBuilder) {
-    const controls = this.products.map(c => new FormControl(false));
-    controls[0].setValue(true); 
-    this.form = this.formBuilder.group({
-      products: new FormArray(controls)
-    });
+  constructor(private PoVenderService:PoVenderService,
+    private router:Router) {
+   
    }
-   submit() {
-    const selectedOrderIds = this.form.value.products
-      .map((v, i) => v ? this.products[i].PO_NO : null)
-      .filter(v => v !== null);
-    console.log(selectedOrderIds);
-  }
-  
-
   ngOnInit() {
+    this.CpoPendingList()
   }
+
+  CpoPendingList(){
+
+  this.PoVenderService.getCPOPendingList().subscribe((data)=>{  
+    this.pendinglist=data;  
+    console.log(data);
+})
+} 
+
+//model display   
+openModalDialog(){
+  this.display='block';
+}
+closeModalDialog(){   //when cancel
+  this.display='none';
+
+}
 
 }

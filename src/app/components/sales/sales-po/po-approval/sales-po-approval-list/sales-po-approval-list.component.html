@@ -14,55 +14,60 @@
                    <thead>
                      <tr>
                         <th></th>
-                        <th>RFP NP</th>
-                        <th>Customer</th>
-                        <th>Location</th>
-                        <th>Creation Date</th>
-                        <th> Key Account Person</th>
-                        <th>priority</th>
+                        <th>id</th>
+                        <th>name</th>
+                        <th>location</th>
+                        <th>code</th>
+                        <th>address</th>
+                        <th>city</th>
+                        <th>state</th>
+                        <th>pin</th>
+                        <th>country</th>
+                        <th>office email1</th>
+                        <th>office email2</th>
+                        <th>office phone1</th>
+                        <th>office phone2</th>
+                        <th>vendor code</th>
+                        <th>payment term</th>
+                        <th>inco term</th>
+                        <th>tax type</th>
+                        <th>billing address</th>
+                        <th>shipping addres</th>
+                        <th>created_at</th>
+                        <th>updated_at</th>
+                        <th>created_by</th>
                        </tr >
                                          
-                     <tr>
+                     <tr *ngFor="let item of  salesapprovallist">
                           <td>
                              <span class="glyphicon glyphicon-forward" style="color: blue"></span>
                              </td>
                         
-                              <td>1</td>
-                              <td>vinay</td>
-                              <td>C00124</td>
-                              <td>mysuru</td>
-                              <td>karnataka</td>
-                              <td>karnataka</td>
-                              
-                    
+                              <td>{{item.id}}</td>
+                              <td>{{item.name}}</td>
+                              <td>{{item.location}}</td>
+                              <td>{{item.code}}</td>
+                              <td>{{item.address}}</td>
+                              <td>{{item.city}}</td>
+                              <td>{{item.state}}</td>
+                              <td>{{item.pin}}</td>
+                              <td>{{item.country}}</td>
+                              <td>{{item.office_email1}}</td>
+                              <td>{{item.office_email2}}</td>
+                              <td>{{item.office_phone1}}</td>
+                              <td>{{item.office_phone2}}</td>
+                              <td>{{item.gst_numbe}}</td>
+                              <td>{{item.vendor_code}}</td>
+                              <td>{{item.payment_term}}</td>
+                              <td>{{item.inco_term}}</td>
+                              <td>{{item.tax_type}}</td>
+                              <td>{{item.billing_address}}</td>
+                              <td>{{item.shipping_address}}</td>
+                              <td>{{item.created_at}}</td>
+                              <td>{{item.updated_at}}</td>
+                              <td>{{item.created_by}}</td>                   
                          </tr>
-
-                         <tr>
-                                 <td>
-                                    <span class="glyphicon glyphicon-forward" style="color: blue"></span>
-                                 </td>
-                           
-                                 <td>2</td>
-                                 <td>Sarika</td>
-                                 <td>C00134</td>
-                                 <td>Mandya</td>
-                                 <td>karnataka</td>
-                                 <td>karnataka</td>
-                                
-                          </tr>
-
-                           <tr>
-                                    <td>
-                                      <span class="glyphicon glyphicon-forward" style="color: blue"></span>
-                                    </td>
-                               
-                                     <td>3</td>
-                                     <td>vinayrao</td>
-                                     <td>C00132</td>
-                                     <td>Bangluru</td>
-                                     <td>karnataka</td>
-                                     <td>karnataka</td>
-                            </tr>
+ 
                    </thead>
                </table> <br>
        </div>

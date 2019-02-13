@@ -7,12 +7,13 @@ import { PoEntryReceiverSelectionComponent } from './components/crm/crm-po/po-en
 import { PoEntryRequesterSelectionComponent } from './components/crm/crm-po/po-entry/po-entry-requester-selection/po-entry-requester-selection.component';
 import { PoEntrySupportingInfoComponent } from './components/crm/crm-po/po-entry/po-entry-supporting-info/po-entry-supporting-info.component';
  
-
+   
  
 
 import { PoEntryQuotationSelectionComponent } from './components/crm/crm-po/po-entry/po-entry-quotation-selection/po-entry-quotation-selection.component';
 import { PoEntryProductSelectionComponent } from './components/crm/crm-po/po-entry/po-entry-product-selection/po-entry-product-selection.component';
 import { QuotationSelectionDetailsComponent } from './components/crm/crm-po/po-entry/po-entry-quotation-selection/quotation-selection-details/quotation-selection-details.component';
+
 import { PoEntrySelectedProductComponent } from './components/crm/crm-po/po-entry/po-entry-selected-product/po-entry-selected-product.component';
 import { PoEntryEditSelectedProductComponent } from './components/crm/crm-po/po-entry/po-entry-edit-selected-product/po-entry-edit-selected-product.component';
 import { CrmPoRejectedLineitemEditComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-lineitem-edit/crm-po-rejected-lineitem-edit.component';
@@ -22,6 +23,7 @@ import { SalesPoApprovalSupportInfoComponent } from './components/sales/sales-po
 import { SalesPoApprovalListComponent } from './components/sales/sales-po/po-approval/sales-po-approval-list/sales-po-approval-list.component';
 import { CrmPoRejectedListComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-list/crm-po-rejected-list.component';
 import { CrmPoRejectedSuppinfoEditComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-suppinfo-edit/crm-po-rejected-suppinfo-edit.component';
+
 import { SalesPoApprovalDetailsComponent } from './components/sales/sales-po/po-approval/sales-po-approval-details/sales-po-approval-details.component';
 import { CrmPoRejectedDetailsComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-details/crm-po-rejected-details.component';
 import { SourcingHeaderComponent } from './components/sourcing/sourcing-header/sourcing-header.component';
@@ -65,7 +67,7 @@ import { SourcingVpoSignatureComponent } from './components/sourcing/sourcing-po
 
 const routes:Routes=[
   { path:'login',component:LoginComponent },
-  { path:'',redirectTo:'/login',pathMatch:'full'},
+  { path:'',redirectTo:'/login',pathMatch:'full'},  
 
 //Po Creation/Entry
   {path:'crm/crm-home', component:CrmHomeComponent,canActivate:[AuthGuard]},
@@ -81,10 +83,11 @@ const routes:Routes=[
   { path:'crm/po-entry/po-entry-selected-product',component:PoEntrySelectedProductComponent,canActivate:[AuthGuard] },
 //PO Approval sales
   { path:'sales/sales-home',component:SalesHomeComponent,canActivate:[AuthGuard]},
+  
   { path:'sales/sales-po/sales-po-approval-list',component:SalesPoApprovalListComponent,canActivate:[AuthGuard]},
   { path:'sales/sales-po/sales-po-approval-details' ,component:SalesPoApprovalDetailsComponent,canActivate:[AuthGuard] },
   { path:'sales-po/po-approval/sales-po-approval-support-info', component:SalesPoApprovalSupportInfoComponent,canActivate:[AuthGuard] },
-
+ 
   //VPO Approval Sales
   { path:'sales/sales-po/vpo-approval/vpo-approval-details',component:VpoApprovalDetailsComponent},
 //Rejected PO Modification

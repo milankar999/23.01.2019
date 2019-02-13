@@ -44,14 +44,14 @@ constructor(private poEntryServicesService:PoEntryServicesService,
 
 
   ngOnInit() {
-    
-    let quot_id=this.route.snapshot.paramMap.get('cpo_no');  //display singel api id --
+    let  quot_id="4f543dda-df4b-46ba-a759-85a05a406893"; 
+    //let quot_id=this.route.snapshot.paramMap.get('4f543dda-df4b-46ba-a759-85a05a406893');  //display singel api id --
     this.quotation_id = quot_id;
     this.PoQuotationSelectionPage(quot_id)
     
   }
   PoQuotationSelectionPage(quot_id){
-    this.poEntryServicesService.getQuotationSelectionPage(quot_id).subscribe((data)=>{     // get method
+    this.poEntryServicesService.getQuotationSelectionPage(quot_id).subscribe((data)=>{  // get method
       this.product=data;
       console.log(this.product);
       

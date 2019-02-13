@@ -1,4 +1,4 @@
- <br><br>
+     <br><br>
     <h2 align="center">Requestor Selection List </h2>
    
      <div class="col-md-offset-2 col-md-8">  <!--table fields-->
@@ -20,13 +20,14 @@
                                                   <div class="modal-content">
                                             <!--modal-header-->
                                     <div class="panel panel-primary">
-                                         <div class="panel-heading text-center">New  Request-Selection
+                                         <div class="panel-heading text-center">New  Request-Selection                                   
                                              <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
                                      </div>
                 <!--modal-body-->
                 <div class="modal-body">
                     <form #submitrequestorForm="ngForm" (ngSubmit)="submitrequestorlist(event)" class="form-signin" [formGroup]="poForm" >
                              <div class="form-group" [ngClass]="{'has-error':poForm.get('name').touched && poForm.get('name').invalid}">
+                                 
                                         <label for="name" class="control-label">Name*</label>
                                         <input type="text" id="name" class="form-control" formControlName="name" [(ngModel)]="model.name">
                                         <span *ngIf="poForm.get('name').touched && poForm.get('name').invalid" class="help-block">Name can't be blank.</span>
