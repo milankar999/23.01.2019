@@ -15,7 +15,7 @@ export class PoEntryCustomerSelectionComponent implements OnInit {
     display='none';
 
       constructor(private poEntryServicesService:PoEntryServicesService,
-                   private router:Router) { }
+       private router:Router) { }
   
   ngOnInit() {
     this.PoEntryCustomerSelection()

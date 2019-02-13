@@ -23,6 +23,7 @@
                 <th>State</th>
                
             </tr >
+         </thead>
             <tr *ngFor="let data of customerselectionlist|search:query">
                  <td>
                     <a href="crm/po-entry/{{data.id}}/requester-selection"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
@@ -36,7 +37,7 @@
                  <td>{{data.state}}</td>
              </tr>
             
-        </thead>
+       
     </table> <br>
 
     </div>

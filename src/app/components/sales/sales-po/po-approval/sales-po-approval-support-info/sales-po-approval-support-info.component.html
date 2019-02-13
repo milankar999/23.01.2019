@@ -7,10 +7,14 @@
   
       <div class="form-group">
           <label class="form-input" for="po-no">Customer PO-No: </label>
+    <form>          
+       <div class="form-group">
+           
+          <label class="form-input" for="po-no">Customer Contact Person:{{customer_contact_person.name}} </label>
           <br>
-          <label class="form-input" for="name">Customer Name:</label>
+          <label class="form-input" for="po-no">Customer Po No:{{customer_po_no}} </label>
           <br>
-          <label class="form-input" for="date">PO-Date:</label>
+          <label class="form-input" for="po-no">Customer Po Date:{{customer_po_date}} </label>
           <br>
           <label class="form-input" for="Deliverydate">Delivery Date:</label>
          <br>
@@ -52,3 +56,96 @@
 </div>
 <app-sales-header></app-sales-header>
 <app-sales-footer></app-sales-footer>
+          <label class="form-input" for="po-no">Delivery Date: {{delivery_date}}</label>
+          <br>
+          <label class="form-input" for="name">Billing Address:{{billing_address}}</label>
+          <br>
+          <label class="form-input" for="name">Shipping Address:{{shipping_address}}</label>
+          <br>
+          <label class="form-input" for="name">Inco Terms:{{inco_terms}}</label>
+          <br>
+          <!-- <label class="form-input" for="date">PO-Date:</label>
+          <br>-->
+          <label class="form-input" for="Deliverydate">Payment Terms:{{payment_terms}}</label>
+           <br>
+           <!-- <label class="form-input" for="requestor">Requestor:</label>
+           <br>-->
+          <label class="form-input" for="requestor">Delivery Contact Person:{{delivery_contact_person.person_name}}</label>
+           <br>
+       </div>
+          <hr>
+          <button type="button" class="btn btn-success">Approval</button>&nbsp;
+
+          <!-- <button type="button" class="btn btn-danger">Reject</button>  -->  
+          <!-- </form>  -->
+
+         <button type="button" class="btn btn-danger" (click)="openModalDialog()"> 
+         <span class="glyphicon glyphicon-remove"></span> Rejected</button> 
+         </form>
+         <!--After clicking the buttons open the model dialog using open/close event biniding methods-->
+         <div class="backdrop" [ngStyle]="{'display' :display}"></div>  
+         <!--modal-->
+       <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
+                  <!--modal-dialog-->
+         <div class="modal-dialog" role="document">
+              <!--modal-conent-->
+             <div class="modal-content">
+                
+                <!--modal-header-->
+                <!-- <div class="panel panel-primary">-->
+                <div class="panel-heading text-center"> Approval Rejected 
+                <button type="button" class="close" (click)="closeModalDialog()">&times;</button></div>
+                <!--modal-footer-->
+                <h4>IF you Really want Reject ????</h4> 
+                <br>
+                <label class="form-input" for="rejectionreason">Comment here ...! <a style="color: red">*</a></label>
+                <input type="text" class="form-control" id="rejectionreason" name="rejectionreason" placeholder="Comment here ...!" [(ngModel)]="Model.rejection_reason"> 
+                 <div class="modal-footer"> 
+                  <!-- <button [disabled]="submitsalesApprovalForm.invalid" class="btn btn-primary">submit</button>&nbsp;-->
+                  <button type="button" class="btn btn-success" (click)="RejectRequest()">Submit</button> 
+                  <button type="button" class="btn btn-danger" (click)="closeModalDialog()">Cancel</button>
+            
+            
+                </div>
+            </div>
+         </div>
+       </div>
+
+
+
+ <!--<app-sales-header></app-sales-header>-->
+<!--<app-sales-footer></app-sales-footer>-->
+
+
+<!-- [(ngModel)]="rejection_reason" #rejection_reason="ngModel" -->
+<!--[(ngModel)]="rejection_reason" #rejection_reason="ngModel"-->
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> origin/vinay

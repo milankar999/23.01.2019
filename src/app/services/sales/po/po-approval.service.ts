@@ -12,6 +12,7 @@ import { PostPoApprovalSupportInfo } from '../../../interface/sales/po/post-po-a
 })
 export class PoApprovalService {
 
+
   constructor(private http: HttpClient) { }
 
   getSalesApprovalList():Observable<PoApprovalList[]>{
@@ -39,5 +40,4 @@ export class PoApprovalService {
    });   
 }
 
-  }
-
+}

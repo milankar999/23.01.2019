@@ -1,54 +1,73 @@
+<app-crm-header></app-crm-header>
 <br>
 <br>
-<br>
-<div class="container">
-  <div class="col-md-offset-0 col-md-12">
-    <div class="panel panel-primary">
-    <div class="panel-heading text-center">Sales Po Approval Details</div>
-    <div class="panel-body">         
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Product Name</th>
-          <th>Description</th>
-          <th>Model</th>
-          <th>Brand</th>
-          <th>Part No.</th>
-          <th>Product Code</th>
-          <th>Price</th>
-          <th>HSN Code</th>
-          <th>GST</th>
-          <th>Quantity</th>
-          <th>UOM</th>
-          <th>Price per Unit</th>
-        </tr>
-        <tr>
-           <a href="#">
-                <span class="glyphicon glyphicon-pencil"></span>&nbsp;
-              </a>
-              <a href="#">
-                  <span class="glyphicon glyphicon-trash"></span>&nbsp;
-                </a>
-          <td>874yt2</td>
-          <td>ABC</td>
-          <td>a ball</td>
-          <td>efg</td>
-          <td>GHI</td>
-          <td>98765</td>
-          <td>jd6789</td>
-          <td>5678</td>
-          <td>5353</td>
-          <td>18%</td>
-          <td>34</td>
-          <td>1</td>
-        </tr>
-      </thead>
-      </table>
-      </div>
-      </div>
-      </div>
-      </div>
-      <app-sales-header></app-sales-header>
-<app-sales-footer></app-sales-footer>
+ <h2>    Pending Approval Detail  </h2>
+   <div class="col-md-offset-0 col-md-12">
+     <div class="panel panel-primary">
+         <div class="panel-heading text-center"> Pending Approval Detail </div>
+                 <div class="panel-body">
+                     <div class="col-md-4">
+                      <!--<input type="text" class="form-control" placeholder="search..." [(ngModel)]="query">-->
+                     </div>
+                 </div>
+                <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+                   <thead>
+                     <tr>
+                        <th></th>
+                        <!--<th>id</th>-->
+                        <th>product title</th>
+                        <th>description</th>
+                        <th>model</th>
+                        <th>brand</th>
+                        <th>product code</th>
+                        <th>part no</th>
+                        <th>pack size</th>               
+                        <th>hsn code</th>
+                        <th>gst</th>
+                        <th>quantity</th>
+                        <th>uom</th>
+                        <th>unit price</th>
+                       
+                      
+                       </tr >
+                                         
+                     <tr *ngFor="let item of  SalesPoApprovallist">
+                          <td>
+                            <!-- <span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                             </td>-->
+                             
+                            <!-- <a href="#">
+                                <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+                              </a>
+                              <a href="#">
+                                  <span class="glyphicon glyphicon-trash"></span>
+                                </a>-->
+                             <!-- <td>{{item.id}}</td>       --> 
+                              <td>{{item.product_title}}</td>
+                              <td>{{item.description}}</td>
+                              <td>{{item.model}}</td>
+                              <td>{{item.brand}}</td>
+                              <td>{{item.product_code}}</td>
+                              <td>{{item.part_no}}</td>
+                              <td>{{item.pack_size }}</td>
+                              <td>{{item.hsn_code}}</td>
+                              <td>{{item.gst}}</td>
+                              <td>{{item.quantity}}</td>
+                              <td>{{item.uom}}</td>
+                              <td>{{item.unit_price}}</td>
+                             
+
+                         </tr>
+
+                         
+                   </thead>
+               </table> <br>
+       </div>
+   </div>
+   <form align= "right">
+   <button class="col-md-offset-1 col-md-10" type="button" class="btn btn-success">Submit</button>&nbsp;
+<app-crm-footer></app-crm-footer>
+     
+      
 
 

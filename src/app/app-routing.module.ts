@@ -6,13 +6,10 @@ import { PoEntryCustomerSelectionComponent } from './components/crm/crm-po/po-en
 import { PoEntryReceiverSelectionComponent } from './components/crm/crm-po/po-entry/po-entry-receiver-selection/po-entry-receiver-selection.component';
 import { PoEntryRequesterSelectionComponent } from './components/crm/crm-po/po-entry/po-entry-requester-selection/po-entry-requester-selection.component';
 import { PoEntrySupportingInfoComponent } from './components/crm/crm-po/po-entry/po-entry-supporting-info/po-entry-supporting-info.component';
- 
-
- 
-
 import { PoEntryQuotationSelectionComponent } from './components/crm/crm-po/po-entry/po-entry-quotation-selection/po-entry-quotation-selection.component';
 import { PoEntryProductSelectionComponent } from './components/crm/crm-po/po-entry/po-entry-product-selection/po-entry-product-selection.component';
 import { QuotationSelectionDetailsComponent } from './components/crm/crm-po/po-entry/po-entry-quotation-selection/quotation-selection-details/quotation-selection-details.component';
+
 import { PoEntrySelectedProductComponent } from './components/crm/crm-po/po-entry/po-entry-selected-product/po-entry-selected-product.component';
 import { PoEntryEditSelectedProductComponent } from './components/crm/crm-po/po-entry/po-entry-edit-selected-product/po-entry-edit-selected-product.component';
 import { CrmPoRejectedLineitemEditComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-lineitem-edit/crm-po-rejected-lineitem-edit.component';
@@ -22,6 +19,7 @@ import { SalesPoApprovalSupportInfoComponent } from './components/sales/sales-po
 import { SalesPoApprovalListComponent } from './components/sales/sales-po/po-approval/sales-po-approval-list/sales-po-approval-list.component';
 import { CrmPoRejectedListComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-list/crm-po-rejected-list.component';
 import { CrmPoRejectedSuppinfoEditComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-suppinfo-edit/crm-po-rejected-suppinfo-edit.component';
+
 import { SalesPoApprovalDetailsComponent } from './components/sales/sales-po/po-approval/sales-po-approval-details/sales-po-approval-details.component';
 import { CrmPoRejectedDetailsComponent } from './components/crm/crm-po/po-modification/crm-po-rejected-details/crm-po-rejected-details.component';
 import { SourcingHeaderComponent } from './components/sourcing/sourcing-header/sourcing-header.component';
@@ -65,10 +63,10 @@ import { SourcingVpoSignatureComponent } from './components/sourcing/sourcing-po
 
 const routes:Routes=[
   { path:'login',component:LoginComponent },
-  { path:'',redirectTo:'/login',pathMatch:'full'},
+  { path:'',redirectTo:'/login',pathMatch:'full'},  
 
 //Po Creation/Entry
-  {path:'crm/crm-home', component:CrmHomeComponent,canActivate:[AuthGuard]},
+  { path:'crm/crm-home', component:CrmHomeComponent,canActivate:[AuthGuard]},
   { path:'crm/po-entry/customer-selection', component:PoEntryCustomerSelectionComponent ,canActivate:[AuthGuard]},
   { path:'crm/po-entry/:customer/requester-selection',component: PoEntryRequesterSelectionComponent,canActivate:[AuthGuard]  },
   { path:'crm/po-entry/:customer/:requester/receiver-selection',component: PoEntryReceiverSelectionComponent,canActivate:[AuthGuard]  },
@@ -80,11 +78,10 @@ const routes:Routes=[
   { path:'crm/po-entry/po-entry-edit-selected-product',component:PoEntryEditSelectedProductComponent },
   { path:'crm/po-entry/po-entry-selected-product',component:PoEntrySelectedProductComponent},
 //PO Approval sales
-  { path:'sales/sales-home',component:SalesHomeComponent,canActivate:[AuthGuard]},
-  { path:'sales/sales-po/sales-po-approval-list',component:SalesPoApprovalListComponent},
+  { path:'sales/sales-home',component:SalesHomeComponent,canActivate:[AuthGuard]},  
+  { path:'sales/sales-po/sales-po-approval-list',component:SalesPoApprovalListComponent,canActivate:[AuthGuard]},
   { path:'sales/sales-po/sales-po-approval-details' ,component:SalesPoApprovalDetailsComponent,canActivate:[AuthGuard] },
-  { path:'sales-po/po-approval/sales-po-approval-support-info', component:SalesPoApprovalSupportInfoComponent },
-
+  { path:'sales-po/po-approval/sales-po-approval-support-info', component:SalesPoApprovalSupportInfoComponent,canActivate:[AuthGuard] },
   //VPO Approval Sales
   { path:'sales/sales-po/vpo-approval/vpo-approval-details',component:VpoApprovalDetailsComponent},
 //Rejected PO Modification
@@ -122,11 +119,11 @@ const routes:Routes=[
   { path:'grn/goods-receive/grn-without-po-lineitems-edit',component: GrnWithoutPoLineitemsEditComponent },
   { path:'grn/goods-receive/immediate/cash-purchase-contact-person-selection',component: CashPurchaseContactPersonSelectionComponent },
   //GRN Recive
-  { path: 'grn/goods-receive/grn-select-transition-type',component:GrnSelectTransitionTypeComponent},
-  { path: 'grn/goods-recive/grn-traditional-po-list', component:GrnTraditionalPoListComponent},
-  { path : 'grn/goods-recive/grn-without-po-list', component:GrnWithoutPoListComponent},
-  { path : 'grn/good-recive/immediate/cash-purchase-vendor-selection', component:CashPurchaseVendorSelectionComponent},
-  { path : 'grn/good-recive/immediate/cash-purchase-contact-product-entry', component:CashPurchaseContactProductEntryComponent},
+  { path:'grn/goods-receive/grn-select-transition-type',component:GrnSelectTransitionTypeComponent},
+  { path:'grn/goods-recive/grn-traditional-po-list', component:GrnTraditionalPoListComponent},
+  { path:'grn/goods-recive/grn-without-po-list', component:GrnWithoutPoListComponent},
+  { path:'grn/good-recive/immediate/cash-purchase-vendor-selection', component:CashPurchaseVendorSelectionComponent},
+  { path:'grn/good-recive/immediate/cash-purchase-contact-product-entry', component:CashPurchaseContactProductEntryComponent},
   { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info', component:SourcingVpoRequesterInfoComponent},
   { path:'sales/sales-po/vpo-approval/vpo-approval-list/vpo-approval-list', component:VpoApprovalListComponent},
   { path:'sourcing/sourcing-po/sourcing-vpo/sourcing-vpo-details/sourcing-vpo-details', component:SourcingVpoDetailsComponent},
