@@ -1,8 +1,10 @@
+<app-sales-header></app-sales-header>
+<br><br><br>
 <div class="col-md-offset-4 col-md-4">  <!--table fields-->
   <div class="well">
     <h2 align="center"> Sales PO Approval Supporting info</h2>
     <hr>
-    <form>
+  
       <div class="form-group">
           <label class="form-input" for="po-no">Customer PO-No: </label>
           <br>
@@ -15,10 +17,36 @@
           <label class="form-input" for="requestor">Requestor:</label>
         <br>
       </div>
+      <br><br>
+      <button type="button" class="btn btn-danger">Reject</button>
+        <button type="button" class="btn btn-success btn-sm" style="float:right" (click)="openModalDialog()">Approval</button> 
+    <br><br><br>
+        <div class="backdrop" [ngStyle]="{'display' :display}"></div>  <hr>
+                <!--modal-->
+                <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
+                   <!--modal-dialog-->
+                    <div class="modal-dialog" role="document">
+                    <!--modal-conent-->
+                         <div class="modal-content">
+                   <!--modal-header-->
+           <div class="panel panel-primary">
+                <div class="panel-heading text-center">Assign to approval list
+                    <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
+            </div>
+<!--modal-body-->
+<div class="modal-body">
+<form #submitapprovalsupportinginfoForm="ngForm" (ngSubmit)="submitapprovalsupportinginfolist(event)" class="form-signin" >
+    <div class="form-group" >
+               <label for="username" class="control-label">Assign-TO*</label>
+               <select type="text" id="username" class="form-control" name="username" [(ngModel)]="model.username">
+                 <option *ngFor="let user of buyer">{{user.username}}</option>
+                
+                 </select>
         <hr>
-        <button type="button" class="btn btn-success">Approval</button>&nbsp;
-        <button type="button" class="btn btn-danger">Reject</button>
-    </form>
+      <button type="submitapprovalsupportinginfoForm.invalid" class="btn-success">submit</button>
+        </div>
+</form>
+   
   <div>
 </div>
 </div>

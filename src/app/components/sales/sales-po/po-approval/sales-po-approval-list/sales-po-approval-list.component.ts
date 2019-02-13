@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PoApprovalService } from 'src/app/services/sales/po/po-approval.service';
 
 @Component({
   selector: 'app-sales-po-approval-list',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalesPoApprovalListComponent implements OnInit {
 
-  constructor() { }
+  salesapprovallist:object[]=[];
+  constructor(private PoApprovalService:PoApprovalService) { }
 
   ngOnInit() {
+    this.SalesApprovalList()
+  }
+  SalesApprovalList(){
+    this. PoApprovalService.getSalesApprovalList().subscribe((data)=>{  
+      this.salesapprovallist=data;
+      console.log( this.salesapprovallist);
+      
+  })
+}
   }
 
-}

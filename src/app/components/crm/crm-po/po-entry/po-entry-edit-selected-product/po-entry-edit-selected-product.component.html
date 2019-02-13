@@ -5,68 +5,50 @@
      <div class="well">
         <h2 align="center"> Po-Entry Edit Selceted Product</h2>
             <hr>
-         <form>
+         <form #submiteditproductForm="ngForm" (ngSubmit)="submiteditproductlist(event)" class="form-sigin">
                 <div class="form-group">
-                    <label class="form-input" for="productname">Product name</label>
-                    <input type="text" class="form-control" id="productname" name=" productname" placeholder="product name" [(ngModel)]="model.productname"
-                    required 
-                    #productname="ngModel">
-                    <span *ngIf="productname.touched && productname.invalid" class="help-block">product name can't be blank</span>
+                    <label class="form-input" for="producttitle"> Product Title</label>
+                    <input type="text" class="form-control" id=" producttitle" value="{{producttitle}}" name="producttitle" [(ngModel)]="Model.product_title" required #product_title="ngModel" > <br>
+                  
+                    <label class="form-input" for="descriptions">Description</label>
+                    <input type="text" class="form-control" id="descriptions" name="descriptions" value="{{descriptions}}" [(ngModel)]="Model.description" required #description="ngModel"><br>
+                    
                  
-                    <label class="form-input" for="description">Description</label>
-                    <input type="text" class="form-control" id="description" name="description" [(ngModel)]="model.description"
-                     required 
-                     #description="ngModel">
-                     <span *ngIf="description.touched && description.invalid" class="help-block">description can't be blank</span>
-                 
-                    <label class="form-input" for="model"> Model <a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="model" name="model" [(ngModel)]="model.model"
-                    required 
-                    #model="ngModel">
-                    <span *ngIf="model.touched && model.invalid" class="help-block">model can't be blank</span>
+                    <label class="form-input" for="models"> Model <a style="color: red">*</a></label>
+                    <input type="text" class="form-control" id="models" name="models" value="{{models}}" [(ngModel)]="Model.model" required #model="ngModel"><br>
                 
-                    <label class="form-input" for="brand">Brand <a style="color: rgb(177, 37, 37)">*</a></label>
-                    <input type="text" class="form-control" id="brand" name="brand" [(ngModel)]="model.brand"
-                    required 
-                    #brand="ngModel">
-                    <span *ngIf="brand.touched && brand.invalid" class="help-block">Brand can't be blank</span>
+                    <label class="form-input" for="brands">Brand </label>
+                    <input type="text" class="form-control" id="brands" name="brands" value="{{brands}}" [(ngModel)]="Model.brand" required #brand="ngModel"><br>
                 
-                    <label class="form-input" for=" partno">Part No <a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="partno" name="partno" [(ngModel)]="model.partno"
-                    required 
-                    #partno="ngModel">
-                    <span *ngIf="partno.touched && partno.invalid" class="help-block">part no can't be blank</span>
+                   
+                    <label class="form-input" for="product_codes">Product Code</label>
+                    <input type="text" class="form-control" id="product_codes" name="product_codes" value="{{product_codes}}" [(ngModel)]="Model.product_code" required #product_code="ngModel"><br>
                 
-                    <label class="form-input" for="productcode">Product Code <a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="productcode" name="productcode" [(ngModel)]="model.productcode"
-                    required 
-                    #productcode="ngModel">
-                    <span *ngIf="productcode.touched && productcode.invalid" class="help-block">product code can't be blank</span>
+                    <label class="form-input" for="part_nos">Part No</label>
+                    <input type="text" class="form-control" id="part_nos" name="part_nos" value="{{part_nos}}"  [(ngModel)]="Model.part_no" required #part_no="ngModel"><br>
+
                 
-                    <label class="form-input" for="hsncode">Hsn Code</label>
-                    <input type="text" class="form-control" id="hsncode" name="hsncode">
-                    <label class="form-input" for="GSTNo">gst</label>
-                    <input type="text" class="form-control" id="GSTNo" name="GSTNo">
-                    <label class="form-input" for="quantity">Quantity</label>
-                    <input type="text" class="form-control" id="quantity" name="quantity" [(ngModel)]="model.quantity"
-                    required 
-                    #quantity="ngModel">
-                    <span *ngIf="quantity.touched && quantity.invalid" class="help-block">Quantity can't be blank</span>
-                    <label class="form-input" for=" uom">UOM</label>
-                    <input type="text" class="form-control" id="uom " name="uom" [(ngModel)]="model.uom"
-                    required 
-                    #uom="ngModel">
-                    <span *ngIf="uom.touched && uom.invalid" class="help-block">UOM can't be blank</span>
+                    <label class="form-input" for="pack_sizes">Pack Size</label>
+                    <input type="text" class="form-control" id="pack_sizes" name="pack_sizes" value="{{pack_sizes}}"  [(ngModel)]="Model.pack_size" required #pack_size="ngModel"><br>
+
+                    <label class="form-input" for="hsn_codes">Hsn Code</label>
+                    <input type="text" class="form-control" id="hsn_codes" name="hsn_codes" value="{{hsn_codes}}" [(ngModel)]="Model.hsn_code" required #hsn_code="ngModel" ><br>
+
+                    <label class="form-input" for="gst_no">gst</label>
+                    <input type="text" class="form-control" id="gst_no" name="gst_no" value="{{gst_no}}" [(ngModel)]="Model.gst" required #gst="ngModel" ><br>
+
+                    <label class="form-input" for="quantitys">Quantity</label>
+                    <input type="text" class="form-control" id="quantitys" name="quantitys" value="{{quantitys}}" [(ngModel)]="Model.quantity" required #quantity="ngModel"  ><br>
+
+                    <label class="form-input" for=" uom_no">UOM</label>
+                    <input type="text" class="form-control" id="uom_no " name="uom_no" value="{{uom_no}}"  [(ngModel)]="Model.uom" required #uom="ngModel" ><br>
                 
-                    <label class="form-input" for="  price"> Price / Unit</label>
-                    <input type="text" class="form-control" id=" price" name=" price" [(ngModel)]="model.price"
-                    required 
-                    #price="ngModel">
-                    <span *ngIf="price.touched && price.invalid" class="help-block">price can't be blank</span>
-                
+                    <label class="form-input" for="unit_prices"> Price / Unit</label>
+                    <input type="text" class="form-control" id="unit_prices" name="unit_prices" value="{{unit_prices}}"  [(ngModel)]="Model.unit_price" required #unit_price="ngModel"><br>
+                    
                  </div>
                    <hr>
-                    <button routerLink="/crm/po-entry/po12345" type="button" class="btn btn-success">Submit</button>&nbsp;
+                    <button  type="submiteditproductForm.invalid" class="btn btn-success">Submit</button>&nbsp;
                     <button type="button" class="btn btn-danger">Cancel</button>
          </form>
      </div>

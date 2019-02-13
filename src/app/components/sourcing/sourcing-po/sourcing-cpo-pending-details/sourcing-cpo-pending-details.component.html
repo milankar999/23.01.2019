@@ -6,88 +6,45 @@
           <div class="panel panel-primary">
             <div class="panel-heading text-center"> Sourcing-Customer-Cpo-Pending-Details</div>
                  <div class="panel-body">
-                     <div class="col-md-4">
-                         <input type="text" class="form-control" placeholder="search..." [(ngModel)]="query">
-                     </div>
+                    <button type="button"  class="btn btn-success" style="float:right">Release Po</button> 
                  </div>
     
              <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
                  <thead>
                                <tr>
                                     <th></th>
-                                    <th>Product name</th>
+                                    <th>Product Title</th>
                                     <th>Description</th>
                                     <th>Model</th>
                                     <th>Brand</th>
-                                    <th>Part No</th>
                                     <th>Product Code</th>
-                                    <th>Hsn code</th>
-                                    <th>gst</th>
+                                    <th>Part No</th>
+                                    <th>HSN Code</th>
+                                    <th>Pack Size</th>
+                                    <th>GST</th>
                                     <th>UOM</th>
-                                    <th>Price</th>
-                                    <th>Product detail</th>
                                     <th>Quantity</th>
-                                </tr >
-
-                                <tr >
-                                            <td><span class="glyphicon glyphicon-forward" style="color: blue"></span></td>
-                                            <td> vinay </td>
-                                            <td>yes </td>
-                                            <td> 2019</td>
-                                            <td>brand</td>
-                                            <td>2548 </td>
-                                            <td>656 </td>
-                                            <td> 222</td>
-                                            <td>18 </td>
-                                            <td>023 </td>
-                                            <td> 300</td>
-                                            <td> 300</td>
-                                            <td> 300</td>
+                                    <th></th>
                                 </tr>
-                                
-                                <tr >
-                                  <td><span class="glyphicon glyphicon-forward" style="color: blue"></span></td>
-                                  <td> vinay </td>
-                                  <td>yes </td>
-                                  <td> 2019</td>
-                                  <td>brand</td>
-                                  <td>2548 </td>
-                                  <td>656 </td>
-                                  <td> 222</td>
-                                  <td>18 </td>
-                                  <td>023 </td>
-                                  <td> 300</td>
-                                  <td> 300</td>
-                                  <td> 300</td>
-                               </tr>
-                      
-                               <tr >
-                                        <td><span class="glyphicon glyphicon-forward" style="color: blue"></span></td>
-                                        <td> vinay </td>
-                                        <td>yes </td>
-                                        <td> 2019</td>
-                                        <td>brand</td>
-                                        <td>2548 </td>
-                                        <td>656 </td>
-                                        <td> 222</td>
-                                        <td>18 </td>
-                                        <td>023 </td>
-                                        <td> 300</td>
-                                        <td> 300</td>
-                                         <td> 300</td>
-                               </tr>
-                             
-                               
+
+                                <tr *ngFor="let data of cpopendingdetails" >
+                                   <td><span class="glyphicon glyphicon-forward" style="color: blue"></span></td>          
+                                  <td>{{data.product_title}}</td>
+                                   <td>{{data.description}}</td>
+                                   <td>{{data.model}}</td>
+                                   <td>{{data.brand}}</td>
+                                   <td>{{data.product_code}}</td>
+                                   <td>{{data.part_no}}</td>
+                                   <td>{{data.hsn_code}}</td>
+                                   <td>{{data.pack_size}}</td> 
+                                   <td>{{data.gst}}</td>
+                                   <td>{{data.uom}}</td>
+                                   <td>{{data.quantity}}</td>
+                                    <td></td>
+                                </tr>         
                  </thead>
               </table> <br>
          </div>
- 
-      
-
-       <p align="right">
-        <input type="button"  class="btn btn-success" value="Release Po" /> <!--align right side button release Po-->
-      </p>
-
  </div>
  <app-sourcing-header></app-sourcing-header>
  <app-sourcing-footer></app-sourcing-footer>

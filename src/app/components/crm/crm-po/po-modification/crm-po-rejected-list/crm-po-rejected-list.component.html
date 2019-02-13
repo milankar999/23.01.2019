@@ -14,55 +14,27 @@
                    <thead>
                      <tr>
                         <th></th>
-                        <th>RFP NP</th>
-                        <th>Customer</th>
-                        <th>Location</th>
-                        <th>Creation Date</th>
-                        <th> Key Account Person</th>
-                        <th>priority</th>
+                        <th>Customer Name</th>
+                        <th>Customer-contact-Person Name</th>
+                        <th>Customer-contact-Person Mobile No 1</th>
+                        <th>Customer-Po-No</th>
+                        <th>Customer-Po-Date</th>
+                        <th></th>
                        </tr >
                                          
-                     <tr>
+                     <tr *ngFor="let data of porejectedlist">
                           <td>
                              <span class="glyphicon glyphicon-forward" style="color: blue"></span>
                              </td>
                         
-                              <td>1</td>
-                              <td>vinay</td>
-                              <td>C00124</td>
-                              <td>mysuru</td>
-                              <td>karnataka</td>
-                              <td>karnataka</td>
+                             <td>{{data.customer.name}}</td>
+                             <td>{{data.customer_contact_person.name}}</td>
+                             <td>{{data.customer_contact_person.mobileNo1}}</td>
+                             <td>{{data.customer_po_no}}</td>
+                             <td>{{data.customer_po_date}}</td>
+                              <td></td>
                               
-                    
                          </tr>
-
-                         <tr>
-                                 <td>
-                                    <span class="glyphicon glyphicon-forward" style="color: blue"></span>
-                                 </td>
-                           
-                                 <td>2</td>
-                                 <td>Sarika</td>
-                                 <td>C00134</td>
-                                 <td>Mandya</td>
-                                 <td>karnataka</td>
-                                 <td>karnataka</td>
-                                
-                          </tr>
-
-                           <tr>
-                                    <td>
-                                      <span class="glyphicon glyphicon-forward" style="color: blue"></span>
-                                    </td>
-                               
-                                     <td>3</td>
-                                     <td>vinayrao</td>
-                                     <td>C00132</td>
-                                     <td>Bangluru</td>
-                                     <td>karnataka</td>
-                                     <td>karnataka</td>
-                            </tr>
                    </thead>
                </table> <br>
        </div>

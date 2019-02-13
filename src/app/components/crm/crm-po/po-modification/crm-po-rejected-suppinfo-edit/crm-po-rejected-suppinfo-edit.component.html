@@ -1,44 +1,34 @@
 <app-crm-header></app-crm-header>
- 
-<br><br>
+<br><br><hr>
 <div class="col-md-offset-4 col-md-4">  <!--table fields-->
      <div class="well">
         <h2 align="center">Crm-Po-Rejected-Suppinfo-edit </h2>
             <hr>
-
-         <form  >
-              
-
-           
+            <form #submitrejectedsuppinfoForm="ngForm" (ngSubmit)="submitrejectedsuppinfolist(event)" class="form-sigin">
                 <div class="form-group">
-                    <label class="form-input" for="product name">Product name</label>
-                    <input type="text" class="form-control" id="product name" formControlName=" product name" placeholder="product name" required>
-                    <span class="help-block"> product cnat be blank....</span>
+                    <label class="form-input" for="customer_pono">Customer PO No</label>
+                    <input type="text" class="form-control" id="customer_pono" name="customer_pono" value="{{customer_pono}}" [(ngModel)]="model.customer_po_no" required #customer_po_no="ngModel"><br>
 
-                    <span *ngIf="inputUsername.touched && inputUsername.invalid" class="help-block">Product name  can't be blank</span>
-                    <label class="form-input" for="description">Description</label>
-                    <input type="text" class="form-control" id="description" name="description">
-                    <label class="form-input" for="model"> Model <a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="model" name="model" required>
-                    <label class="form-input" for="brand">Brand <a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="brand" name="brand" required>
-                    <label class="form-input" for=" part no">Part No <a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="part no" name="part no" required>
-                    <label class="form-input" for="product code">Product Code <a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="product code" name="product code" required>
-                    <label class="form-input" for="hsn code">Hsn Code</label>
-                    <input type="text" class="form-control" id="hsn code" name="hsn code">
-                    <label class="form-input" for="GSTNo">gst</label>
-                    <input type="text" class="form-control" id="GSTNo" name="GSTNo">
-                    <label class="form-input" for="quantity">Quantity</label>
-                    <input type="text" class="form-control" id="quantity" name="quantity">
-                    <label class="form-input" for=" uom">UOM</label>
-                    <input type="text" class="form-control" id="uom " name="uom">
-                    <label class="form-input" for="  price / unit"> Price / Unit</label>
-                    <input type="text" class="form-control" id=" price / unit" name=" price / unit">
+                    <label class="form-input" for="customer_podate">Customer PO Date</label>
+                    <input type="date" class="form-control" id="customer_podate" name="customer_podate" value="{{customer_podate}}" [(ngModel)]="model.customer_po_date" required #customer_po_date="ngModel"><br>
+
+                    <label class="form-input" for="deliverydate">Delivery Date</label>
+                    <input type="date" class="form-control" id="deliverydate" name="deliverydate" value="{{deliverydate}}"  [(ngModel)]="model.delivery_date" required #delivery_date="ngModel"><br>
+
+                    <label class="form-input" for="billingaddress">Billing Address</label>
+                    <input type="text" class="form-control" id="billingaddress" name="billingaddress" value="{{billingaddress}}" [(ngModel)]="model.billing_address" required #billing_address="ngModel"><br>
+
+                    <label class="form-input" for="shippingaddress">Shipping Address</label>
+                    <input type="text" class="form-control" id="shippingaddress" name="shippingaddress" value="{{shippingaddress}}" [(ngModel)]="model.shipping_address" required #shipping_address="ngModel"><br>
+
+                    <label class="form-input" for="incoterms">Inco Terms</label>
+                    <input type="text" class="form-control" id="incoterms" name="incoterms" value="{{incoterms}}" [(ngModel)]="model.inco_terms" required #inco_terms="ngModel"><br>
+
+                    <label class="form-input" for="paymentterms">Payment Terms</label>
+                    <input type="text" class="form-control" id="paymentterms" name="paymentterms" value="{{paymentterms}}" [(ngModel)]="model.payment_terms" required #payment_terms="ngModel"><br>
                  </div>
                    <hr>
-                    <button routerLink="/crm/po-entry/po12345" type="button" class="btn btn-success">Submit</button>&nbsp;
+                    <button  type="submitrejectedsuppinfoForm.invalid" class="btn btn-success">Submit</button>&nbsp;
                     <button type="button" class="btn btn-danger">Cancel</button>
          </form>
      </div>

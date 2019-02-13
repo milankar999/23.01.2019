@@ -26,6 +26,9 @@ export class PoEntryQuotationSelectionComponent implements OnInit {
   rfp;
   enquiry_reference;
   
+  
+  
+  
 constructor(private poEntryServicesService:PoEntryServicesService,
   private router:Router,private route:ActivatedRoute, private formBuilder: FormBuilder) { 
     const controls = this.product.map(c => new FormControl(false));
@@ -33,16 +36,8 @@ constructor(private poEntryServicesService:PoEntryServicesService,
     this.form = this.formBuilder.group({
       product: new FormArray(controls)            //Array controls
     });
-    
-  }
-  submit() {                                             // table proceed is as submit 
-    const selectedOrderIds = this.form.value.product
-      .map((v, i) => v ? this.product[i]. quotation_no: null)
-      .filter(v => v !== null);
-    console.log(selectedOrderIds);    
-  }
-
-
+  
+}
   ngOnInit() {
     
     let quot_id=this.route.snapshot.paramMap.get('cpo_no');  //display singel api id --
@@ -53,19 +48,23 @@ constructor(private poEntryServicesService:PoEntryServicesService,
   PoQuotationSelectionPage(quot_id){
     this.poEntryServicesService.getQuotationSelectionPage(quot_id).subscribe((data)=>{     // get method
       this.product=data;
-      console.log(this.product);
-      
+      console.log(this.product);  
       
   })
 }
+submit(event){
+  const selectedOrderIds=this.form.value.product
+  .map((v, i)=> v ? this. product[i].quotation_no:null)
+  .filter(v=>v!==null);
+  console.log(selectedOrderIds);
+  this.poEntryServicesService.PostQuotationlist(this.product[0][1].quotation_no).
+  subscribe(data => {
+    console.log(data);
+  
+   
+});
+}
 
-  openModalDialog(){                   //model dilogs
-    this.display='block';
-  }
-  closeModalDialog(){                  
-    this.display='none';
-
-  }
 }
 
 

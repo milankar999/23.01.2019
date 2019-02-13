@@ -9,14 +9,17 @@
                          <input type="text" class="form-control" placeholder="search...">
                      </div>
                  </div>
-                 <form [formGroup]="form" (ngSubmit)="submit()"> <!--1-->
+        
+         <form [formGroup]="form" #submitForm="ngForm" (ngSubmit)="submit()">
         <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
              <tr>
                 <th></th>
                 <th>quotation no</th>
                 <th>quotation date</th>
-                <th>rfp</th>
-                <th>enquiry reference</th>               
+                <th>RFP Customer contact Name</th>
+                <th>RFP NO</th>
+                <th>enquiry reference</th>  
+                <th></th>             
             </tr >
 
 <!--2-->    <tr formArrayName="product" *ngFor="let products of form.controls.product.controls; let i = index">
@@ -25,17 +28,18 @@
               </td>
                  <td>{{product[i].quotation_no}}</td>
                  <td>{{product[i].quotation_date}}</td>
-                 <td>{{product[i].rfp}}</td>
+                 <td>{{product[i].rfp.customer_contact_person.name}}</td>
+                 <td>{{product[i].rfp.rfp_no}}</td>
                  <td>{{product[i].enquiry_reference}}</td> 
                  <td>
                         <a href="crm/po-entry/{{product[i].quotation_no}}/quotation-selection-details" target="_blank"><span class="glyphicon glyphicon-edit" style="color: blue"></span></a>
                     </td>               
             </tr>
             <hr>
-            &nbsp;  <button class="btn btn-danger">Proceed</button>
+            &nbsp;
+              <button class="btn btn-danger">Proceed</button>
        </table> <br>
-
-</form>
+       </form>
  </div>
  </div>
     <app-crm-footer></app-crm-footer>

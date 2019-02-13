@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators,AbstractControl } from '@angular/forms';
+import { symbolValidator,passwordMatch} from 'src/app/helpers/validation';
 import {PoEntryServicesService}from '../../../../../services/crm/po/po-entry/po-entry-services.service';
 import{ Router, ActivatedRoute } from '@angular/router';
 import{ HttpResponse} from '@angular/common/http';
@@ -15,7 +16,7 @@ export class PoEntrySupportingInfoComponent implements OnInit {
   public requestorId;
   supportinfolist:Object[]=[];
   display='none';
-
+  poForm :FormGroup;
   model:any={}; //model for validation
   
   customer_id="";
@@ -31,9 +32,10 @@ export class PoEntrySupportingInfoComponent implements OnInit {
   CPOResponse:Object[]=[];
 
   constructor(private  poEntryServicesService:PoEntryServicesService,
-    private router:Router, private route:ActivatedRoute) { }
+    private router:Router, private route:ActivatedRoute, private builder:FormBuilder) { }
 
   ngOnInit() { 
+  this.buildForm();
   let cust_id=this.route.snapshot.paramMap.get('customer');
   let requ_id=this.route.snapshot.paramMap.get('requester');
   let rece_id=this.route.snapshot.paramMap.get('receiver');
@@ -84,19 +86,16 @@ submitsupportinfolist(event){
 })
 }
  
-
-
-
-
-
-openModalDialog()
-    {
-      this.display='block';
-    }
-    closeModalDialog()
-    {
-      this.display='none';
-      }
-
+buildForm(){
+  this.poForm=this.builder.group({
+    billing_address:[''],
+    shipping_address:[''],
+    delivery_date:['',Validators.required],
+    customer_po_no:['',Validators.required],
+    customer_po_date:['',Validators.required],
+    inco_terms:['',Validators.required],
+    payment_term:['']
+  });
+}
 }
 

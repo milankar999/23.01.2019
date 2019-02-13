@@ -1,60 +1,59 @@
-<br>
-<br>
-<br>
-<div class="container">
-  <div class="col-md-offset-0 col-md-12">
-    <div class="panel panel-primary">
-    <div class="panel-heading text-center">CRM PO Rejected Details</div>
-    <div class="panel-body">         
-    <table class="table">
-      <thead>
-        <tr>
+<app-crm-header></app-crm-header>
+<br><br><hr>
+<div class="col-md-offset-0 col-md-10">
+  <div class="panel panel-primary">
+      <div class="panel-heading text-center">PO Rejected Details List</div>
+           <div class="panel-body">
+            
+          <form  #submitrejectedpoForm="ngForm" (ngSubmit)="submitrejectedpolist(event)" class="form-sigin"> <button  type="submitrejectedpoForm.invalid" class="btn btn-danger" style="float:right">Delete Rejected PO</button></form>
+          <form  #submitmarkresolvepoForm="ngForm" (ngSubmit)="submitmarkresolvepolist(event)" class="form-sigin"> <button  type="submitmarkresolvepoForm.invalid" class="btn btn-primary" style="float:left">Mark Resolve</button></form>
+            
+            </div>
+
+<table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+   <thead>
+       <tr>
+          <th></th>
+          <th>Product Title</th>
+          <th>Description</th>
+          <th>Model</th>
+          <th>Brand</th>
+          <th>Product Code</th>
+          <th>Part No</th>
+          <th>Pack Size</th>
+          <th> HSN Code</th>
+          <th>GST</th>
+          <th>Quantity</th>
+          <th>UOM</th>
+          <th>Unit Price</th>
+        <th></th>
+        
+      </tr >
+      <tr *ngFor="let data of porejectlinedetailslist">
+           <td>
+              <span class="glyphicon glyphicon-forward" style="color: blue"></span>
+          </td>
           
-          <th></th>  
-          <th>Product Name</th>
-            <th>Description</th>
-            <th>Model</th>
-            <th>Brand</th>
-            <th>Part No.</th>
-            <th>Product Code</th>
-            <th>Price</th>
-            <th>HSN Code</th>
-            <th>GST</th>
-            <th>Quantity</th>
-            <th>UOM</th>
-            <th>Price per Unit</th>
-        </tr>
-        <tr>
-            <a href="#">
-                <span class="glyphicon glyphicon-pencil"></span>&nbsp;
-              </a>
-              <a href="#">
-                  <span class="glyphicon glyphicon-trash"></span>&nbsp;
-                </a>
-                <td>874yt2</td>
-                <td>ABC</td>
-                <td>a ball</td>
-                <td>efg</td>
-                <td>GHI</td>
-                <td>98765</td>
-                <td>jd6789</td>
-                <td>5678</td>
-                <td>5353</td>
-                <td>18%</td>
-                <td>34</td>
-                <td>1</td>
-        </tr>
-      </thead>
-      </table>
-      </div>
-      </div>
-      </div>
-      </div>
-      <!----<form align= "center">
-      <button class="col-md-offset-1 col-md-10" type="button" class="btn btn-success">Submit</button>&nbsp;
-      </form>-->
-     
+          <td>{{data.product_title}}</td>
+          <td>{{data.description}}</td>
+          <td>{{data.model}}</td>
+          <td>{{data.brand}}</td>
+          <td>{{data.product_code}}</td>
+          <td>{{data.part_no}}</td>
+          <td>{{data.pack_size}}</td>
+          <td>{{data.hsn_code}}</td>
+          <td>{{data.gst}}</td>
+          <td>{{data.quantity}}</td>
+          <td>{{data.uom}}</td>
+          <td>{{data.unit_price}}</td>
+          <td> <a href="crm/po-modification/crm-po-rejected-lineitem-edit"><span class="glyphicon glyphicon-edit"></span></a></td>      
+       </tr>
       
+      
+  </thead>
+</table> <br>
 
-
-
+</div>
+</div>
+<app-crm-footer></app-crm-footer>
+          

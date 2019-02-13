@@ -1,47 +1,62 @@
 <br>
-<br>
-<br>
-<div class="container">
-  <div class="col-md-offset-1 col-md-10">
-    <div class="panel panel-primary">
-    <div class="panel-heading text-center">Selected Product List</div>
-    <div class="panel-body">         
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Model</th>
-          <th>Brand</th>
-          <th>Part No.</th>
-          <th>Product Code</th>
-          <th>Price</th>
-        </tr>
-        <tr>
-            <a href="#">
-                <span class="glyphicon glyphicon-pencil"></span>&nbsp;
-              </a>
-              <a href="#">
-                  <span class="glyphicon glyphicon-trash"></span>
-                </a>
-          <td>ABC</td>
-          <td>a ball</td>
-          <td>efg</td>
-          <td>GHI</td>
-          <td>98765</td>
-          <td>jd6789</td>
-          <td>5678</td>
-        </tr>
-      </thead>
-      </table>
-      </div>
-      </div>
-      </div>
-      </div>
-      <form align= "center">
-      <button class="col-md-offset-1 col-md-10" type="button" class="btn btn-success">Submit</button>&nbsp;
-      </form>
+<br><br>
+<h2 align="center">PO-Entry Selection  Product List </h2>
+
+ <div class="col-md-offset-2 col-md-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center">PO-Entry Selection  Product List</div>
+                 <div class="panel-body">
+                    <form #lunchselectedForm="ngForm" (ngSubmit)="lunchselectedlist(event)" class="form-signin">
+                    <button type="lunchselectedForm.invalid" class="btn btn-success">Lunch</button>&nbsp;
+                    </form>
      
+                 </div>
+    <!--Table data-->
+    
+     <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+         <thead><!--table header-->
+             <tr>
+                <th></th>
+                <th>Product Title</th>
+                <th>Description</th>
+                <th>Model</th>
+                <th>Brand</th> 
+                <th>Product Code</th>
+                <th>Part No</th>
+                <th>Pack Size</th>
+                <th>Hsn Code</th>
+                <th>GST</th>
+                <th>Quantity</th>
+                <th>UOM</th>
+                <th>Unit Prize</th>
+                <th></th>
+            </tr >
+            <tr>
+                
+                <td><span class="glyphicon glyphicon-forward" style="color: blue"></span></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
+                 <a href="#"> <span class="glyphicon glyphicon-trash"></span></a></td>
+             </tr> 
+        </thead>
+    </table> 
+  
+    </div>
+    </div>
+           
+    
+      
       
 
 
