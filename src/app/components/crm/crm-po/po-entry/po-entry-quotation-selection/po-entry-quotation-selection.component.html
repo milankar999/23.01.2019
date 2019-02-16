@@ -15,24 +15,21 @@
              <tr>
                 <th></th>
                
-                <th>quotation no</th>
-                           
-                <th>quotation date</th>
+                <th>Quotation no</th>         
+                <th>Quotation date</th>
                 <th>RFP Customer contact Name</th>
                 <th>RFP NO</th>
                 <th>enquiry reference</th>                 
             </tr >
 
-<!--2-->    <tr formArrayName="product" *ngFor="let products of form.controls.product.controls; let i = index">
+   <tr formArrayName="product" *ngFor="let products of form.controls.product.controls; let i = index">
               <td> 
                   <input type="checkbox" [formControlName]="i"> 
               </td>
                  <td>{{product[i].quotation_no}}</td>
                  <td>{{product[i].quotation_date}}</td>
                  <td>{{product[i].rfp.customer_contact_person.name}}</td>
-                 <td>{{product[i].rfp.rfp_no}}</td>
-                 <td>{{product[i].quotation_date}}</td>  
-                 <td>{{product[i].rfp.customer_contact_person.name}}</td>                  
+                 <td>{{product[i].rfp.rfp_no}}</td>                 
                  <td>{{product[i].enquiry_reference}}</td> 
                  
                  <td>

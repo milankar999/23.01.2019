@@ -18,25 +18,28 @@ export class PoEntrySelectedProductComponent implements OnInit {
 query:string='';
   productdetailpagelist:Object[]=[];
   public requestorId ;
-  product_id="";
+  quotation_id="";
 
   ngOnInit() {
      
-    let prod_id="4f543dda-df4b-46ba-a759-85a05a406893";  //display singel api id --
-    this.product_id = prod_id;
-    this.PoEntrySelectedProduct(prod_id)
+    let quot_id=this.route.snapshot.paramMap.get('cpo_id');  //display singel api id --
+    this.quotation_id = quot_id;
+    this.PoEntrySelectedProduct(quot_id)
     
   }
   lunchselectedlist(event){
-    let id="4f543dda-df4b-46ba-a759-85a05a406893"
-    this.poEntryServicesService.PostLunchSelectedlist(id).subscribe(data => {
-
+    
+    let quot_id=this.route.snapshot.paramMap.get('cpo_id')
+    this.poEntryServicesService.PostLunchSelectedlist(quot_id).subscribe(data => {
       console.log(data);
+      alert('Your Launch as been success');
+      this.router.navigate(['crm/crm-home'])
+    
 });
   }
 
-  PoEntrySelectedProduct(prod_id){
-    this.poEntryServicesService.getPoEntrySelectedProduct(prod_id).subscribe((data)=>{  
+  PoEntrySelectedProduct(quot_id){
+    this.poEntryServicesService.getPoEntrySelectedProduct(quot_id).subscribe((data)=>{  
       this. productdetailpagelist=data;
       console.log(this. productdetailpagelist);
       

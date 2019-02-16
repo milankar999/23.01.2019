@@ -9,28 +9,35 @@ import{ Router,ActivatedRoute } from '@angular/router';
 })
 export class CrmPoRejectedDetailsComponent implements OnInit {
   porejectlinedetailslist:object[]=[];
+  cpo_reject_id="";
   
   constructor(private PoEntryServicesService:PoEntryServicesService,private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
-    this.PoRejectDetailsList()
+    let reject_id=this.route.snapshot.paramMap.get('cpo_id');
+    this.cpo_reject_id=reject_id;  //display singel api id --
+    this.PoRejectDetailsList(reject_id)
   }
-  PoRejectDetailsList(){
-    this.PoEntryServicesService.getPoRejectLineDetailsList().subscribe(data=>{
+  PoRejectDetailsList(reject_id){
+    this.PoEntryServicesService.getPoRejectLineDetailsList(reject_id).subscribe(data=>{
       this.porejectlinedetailslist=data;
       console.log(data);
     })
   }
   submitrejectedpolist(event){
-    let id="4f543dda-df4b-46ba-a759-85a05a406893";
-    this.PoEntryServicesService.PostPoRejectPODetails(id).subscribe(data=>{
+    let reject_id=this.route.snapshot.paramMap.get('cpo_id');
+    this.PoEntryServicesService.PostPoRejectPODetails(reject_id).subscribe(data=>{
       console.log(data);
+      alert('Your Rejected PO as been success');
+      this.router.navigate(['crm/crm-po/po-modification/crm-po-rejected-list']);
     })
   }
   submitmarkresolvepolist(event){
-    let id="4f543dda-df4b-46ba-a759-85a05a406893";
-    this.PoEntryServicesService.PostMarkResolvelist(id).subscribe(data=>{
+    let reject_id=this.route.snapshot.paramMap.get('cpo_id');
+    this.PoEntryServicesService.PostMarkResolvelist(reject_id).subscribe(data=>{
       console.log(data);
+      alert('Your MarkResolve as been success');
+      this.router.navigate(['crm/crm-po/po-modification/crm-po-rejected-list']);
     })
   }
 

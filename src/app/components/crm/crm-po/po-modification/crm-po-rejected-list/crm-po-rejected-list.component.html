@@ -24,7 +24,7 @@
                                          
                      <tr *ngFor="let data of porejectedlist">
                           <td>
-                             <span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                          <a href="crm/crm-po/po-mdification/{{data.id}}/crm-po-rejected-details" > <span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
                              </td>
                         
                              <td>{{data.customer.name}}</td>

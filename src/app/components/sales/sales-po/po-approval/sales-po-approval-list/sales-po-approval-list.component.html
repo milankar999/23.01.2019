@@ -24,7 +24,7 @@
                                          
                      <tr *ngFor="let data of salesapprovallist">
                           <td>
-                             <span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                           <a href="sales/sales-po/{{data.id}}/sales-po-approval-details"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
                              </td>
                          
                         <td>{{data.customer.name}}</td>

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
+import {PoEntryServicesService}from '../../../../../services/crm/po/po-entry/po-entry-services.service';
+import{ Router,ActivatedRoute } from '@angular/router';
+import{ HttpResponse} from '@angular/common/http';
+
 
 
 @Component({
@@ -9,32 +13,60 @@ import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 })
 export class PoEntryProductSelectionComponent implements OnInit {
   form: FormGroup;
+  quotation_id="";
+  product_title;
+  description;
+  model;
+  brand;
+  product_code;
+  part_number;
+  pack_size;
+  moq;
+  hsn_code;
+  gst;
+  quantity;
+  uom;
+  unit_price;
+  lead_time;
+
   products = [
-    { id: 111, Product_Name: 'Pro-00011', description: 'sdf', model:'sdf', brand:'sdfd', part_no:123,product_no:222,hsn_code:203,gst:1235,quantity:"good",UOM:18,price:200 },
-    { id: 112, Product_Name: 'Pro-00012', description: 'sdf', model:'sdf', brand:'sdfd', part_no:123,product_no:222,hsn_code:203,gst:1235,quantity:"good",UOM:18,price:200 },
-    { id: 113, Product_Name: 'Pro-00013', description: 'sdf', model:'sdf', brand:'sdfd', part_no:123,product_no:222,hsn_code:203,gst:1235,quantity:"good",UOM:18,price:200 },
-   
-  ];
+    {id:''},{id:''}
+  ]
   display='none';
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private poEntryServicesService:PoEntryServicesService,
+    private router:Router,private route:ActivatedRoute, private formBuilder: FormBuilder) { 
     const controls = this.products.map(c => new FormControl(false));
     controls[0].setValue(true); 
     this.form = this.formBuilder.group({
       products: new FormArray(controls)
     });
   }
-  submit() {
+  ngOnInit() {
+    let quot_id=this.route.snapshot.paramMap.get('cpo_id');  //display singel api id --
+    this.quotation_id = quot_id;
+    this.PoProductSelectionPage(quot_id)
+  }
+
+  PoProductSelectionPage(quot_id){
+    console.log(quot_id);
+    this.poEntryServicesService.getPoProductSelectionList(quot_id).subscribe((data)=>{  // get method
+     this.products=data;
+      console.log(this.products);  
+      
+  })
+}
+productsubmit() {
+  let quot_id=this.route.snapshot.paramMap.get('cpo_id');
     const selectedOrderIds = this.form.value.products
       .map((v, i) => v ? this.products[i].id : null)
       .filter(v => v !== null);
-
     console.log(selectedOrderIds);
-  }
-  
-
-  ngOnInit() {
-  }
-  
+    this.poEntryServicesService.PostProductSelectedPage(this.products[0].id,quot_id).
+  subscribe(data => {
+    console.log(data);
+    this.router.navigate(['crm/po-entry/cpo/'+quot_id+'/selected-product']);
+  });
+}  
   openModalDialog(){
     this.display='block';
   }

@@ -25,7 +25,8 @@ export class PoEntryQuotationSelectionComponent implements OnInit {
   quotation_date;
   rfp;
   enquiry_reference;
-  
+  CPOResponsequot:Object[]=[];
+
   
   
   
@@ -39,13 +40,14 @@ constructor(private poEntryServicesService:PoEntryServicesService,
   
 }
   ngOnInit() {
-    let  quot_id="4f543dda-df4b-46ba-a759-85a05a406893"; 
-    //let quot_id=this.route.snapshot.paramMap.get('4f543dda-df4b-46ba-a759-85a05a406893');  //display singel api id --
+    //let  quot_id="4f543dda-df4b-46ba-a759-85a05a406893"; 
+    let quot_id=this.route.snapshot.paramMap.get('cpo_id');  //display singel api id --
     this.quotation_id = quot_id;
     this.PoQuotationSelectionPage(quot_id)
     
   }
   PoQuotationSelectionPage(quot_id){
+    console.log(quot_id);
     this.poEntryServicesService.getQuotationSelectionPage(quot_id).subscribe((data)=>{  // get method
       this.product=data;
       console.log(this.product);  
@@ -53,14 +55,16 @@ constructor(private poEntryServicesService:PoEntryServicesService,
   })
 }
 submit(event){
+  let quot_id=this.route.snapshot.paramMap.get('cpo_id');  //display singel api id --
   const selectedOrderIds=this.form.value.product
   .map((v, i)=> v ? this. product[i].quotation_no:null)
   .filter(v=>v!==null);
   console.log(selectedOrderIds);
-  this.poEntryServicesService.PostQuotationlist(this.product[0][1].quotation_no).
+  this.poEntryServicesService.PostQuotationlist(this.product[0].quotation_no,quot_id).
   subscribe(data => {
     console.log(data);
-  
+   
+    this.router.navigate(['crm/po-entry/'+quot_id+'/quotation-selection/production-selection']);
    
 });
 }

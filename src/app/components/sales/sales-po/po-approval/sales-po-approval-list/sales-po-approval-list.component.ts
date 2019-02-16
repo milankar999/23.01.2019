@@ -13,12 +13,8 @@ import{ HttpResponse} from '@angular/common/http';
 })
 export class SalesPoApprovalListComponent implements OnInit {
   query:string='';
-  
- 
- 
-
-
   salesapprovallist:object[]=[];
+  
   constructor(private PoApprovalService:PoApprovalService) { }
 
   ngOnInit() {

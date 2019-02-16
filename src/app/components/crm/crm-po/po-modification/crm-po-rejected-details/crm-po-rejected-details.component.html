@@ -4,11 +4,10 @@
   <div class="panel panel-primary">
       <div class="panel-heading text-center">PO Rejected Details List</div>
            <div class="panel-body">
-            
+            <div>
           <form  #submitrejectedpoForm="ngForm" (ngSubmit)="submitrejectedpolist(event)" class="form-sigin"> <button  type="submitrejectedpoForm.invalid" class="btn btn-danger" style="float:right">Delete Rejected PO</button></form>
-          <form  #submitmarkresolvepoForm="ngForm" (ngSubmit)="submitmarkresolvepolist(event)" class="form-sigin"> <button  type="submitmarkresolvepoForm.invalid" class="btn btn-primary" style="float:left">Mark Resolve</button></form>
-            
-            </div>
+          <button  routerLink="/crm/crm-po/po-modification/{{cpo_reject_id}}/crm-po-rejected-supporting-edit" class="btn btn-success btn-sm" style="float:left">Edit SuppInfo</button>
+        </div><br><br>
 
 <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
    <thead>
@@ -31,7 +30,7 @@
       </tr >
       <tr *ngFor="let data of porejectlinedetailslist">
            <td>
-              <span class="glyphicon glyphicon-forward" style="color: blue"></span>
+          <span class="glyphicon glyphicon-forward" style="color: blue"></span>
           </td>
           
           <td>{{data.product_title}}</td>
@@ -46,13 +45,14 @@
           <td>{{data.quantity}}</td>
           <td>{{data.uom}}</td>
           <td>{{data.unit_price}}</td>
-          <td> <a href="crm/po-modification/crm-po-rejected-lineitem-edit"><span class="glyphicon glyphicon-edit"></span></a></td>      
+          <td> <a href="crm/po-modification/{{cpo_reject_id}}/cpo-rejected-details/{{data.id}}/crm-po-rejected-lineitem-edit"><span class="glyphicon glyphicon-edit"></span></a></td>      
        </tr>
       
       
   </thead>
 </table> <br>
-
+<form  #submitmarkresolvepoForm="ngForm" (ngSubmit)="submitmarkresolvepolist(event)" class="form-sigin"> <button  type="submitmarkresolvepoForm.invalid" class="btn btn-primary" style="float:left">Mark Resolve</button></form>
+</div>
 </div>
 </div>
 <app-crm-footer></app-crm-footer>

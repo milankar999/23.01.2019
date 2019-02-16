@@ -18,6 +18,7 @@ export class CrmPoRejectedSuppinfoEditComponent implements OnInit {
   shippingaddress:"";
   incoterms:"";
   paymentterms:0;
+  cpo_reject_id="";
 
   constructor(private PoEntryServicesService:PoEntryServicesService,private route:ActivatedRoute, private router:Router) { }
 
@@ -25,8 +26,9 @@ export class CrmPoRejectedSuppinfoEditComponent implements OnInit {
     this.PoRejectedSuppoInfoList()
   }
   PoRejectedSuppoInfoList(){
-    let id="4f543dda-df4b-46ba-a759-85a05a406893";
-    this.PoEntryServicesService.getPoRejectedSuppoInfoList(id).subscribe(data=>{
+    let reject_id=this.route.snapshot.paramMap.get('cpo_id');
+    this.cpo_reject_id=reject_id;
+    this.PoEntryServicesService.getPoRejectedSuppoInfoList(reject_id).subscribe(data=>{
       this.customer_pono=data['customer_po_no'];
       this.customer_podate=data['customer_po_date'];
       this.deliverydate=data['delivery_date'];
@@ -39,7 +41,8 @@ export class CrmPoRejectedSuppinfoEditComponent implements OnInit {
     })
   }
   submitrejectedsuppinfolist(event){
-    let id="4f543dda-df4b-46ba-a759-85a05a406893";
+    let reject_id=this.route.snapshot.paramMap.get('cpo_id');
+    this.cpo_reject_id=reject_id;
     this.PoEntryServicesService.PostPoRejectSuppInfo(this.model.customer_po_no,
       this.model.customer_po_date,
       this.model.delivery_date,
@@ -47,9 +50,10 @@ export class CrmPoRejectedSuppinfoEditComponent implements OnInit {
       this.model.shipping_address,
       this.model.inco_terms,
       this.model. payment_terms,
-      id).subscribe(data=>{
+      reject_id).subscribe(data=>{
       this.porejectedsuppinfo=data;
       console.log(data);
+      this.router.navigate(['crm/crm-po/po-mdification/'+reject_id+'/crm-po-rejected-details']);
     })
 
   }

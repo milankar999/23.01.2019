@@ -1,151 +1,111 @@
 <app-sales-header></app-sales-header>
 <br><br><br>
-<div class="col-md-offset-4 col-md-4">  <!--table fields-->
+<div class="col-md-offset-2 col-md-6">  <!--table fields-->
   <div class="well">
     <h2 align="center"> Sales PO Approval Supporting info</h2>
     <hr>
   
       <div class="form-group">
-          <label class="form-input" for="po-no">Customer PO-No: </label>
-    <form>          
-       <div class="form-group">
-           
-          <label class="form-input" for="po-no">Customer Contact Person:{{customer_contact_person.name}} </label>
+          <label class="form-input" for="po-no">Customer Contact Person:&nbsp;&nbsp;{{customer_contact_person.name}} </label><br>
           <br>
-          <label class="form-input" for="po-no">Customer Po No:{{customer_po_no}} </label>
+          <label class="form-input" for="po-no">Customer Po No:&nbsp;&nbsp;{{customer_po_no}} </label><br>
           <br>
-          <label class="form-input" for="po-no">Customer Po Date:{{customer_po_date}} </label>
+          <label class="form-input" for="po-no">Customer Po Date:&nbsp;&nbsp;{{customer_po_date}} </label><br>
           <br>
-          <label class="form-input" for="Deliverydate">Delivery Date:</label>
-         <br>
-          <label class="form-input" for="requestor">Requestor:</label>
+          <label class="form-input" for="po-no">Delivery Date:&nbsp;&nbsp; {{delivery_date}}</label><br>
+          <br>
+          <label class="form-input" for="name">Billing Address:&nbsp;&nbsp;{{billing_address}}</label><br>
+          <br>
+          <label class="form-input" for="name">Shipping Address:&nbsp;&nbsp;{{shipping_address}}</label><br>
+          <br>
+          <label class="form-input" for="name">Inco Terms:&nbsp;&nbsp;{{inco_terms}}</label><br>
+          <br>
+          <label class="form-input" for="Deliverydate">Payment Terms:&nbsp;&nbsp;{{payment_terms}}</label><br>
+           <br>
+          <label class="form-input" for="requestor">Delivery Contact Person:&nbsp;&nbsp;{{delivery_contact_person.person_name}}</label><br>
         <br>
       </div>
-      <br><br>
-      <button type="button" class="btn btn-danger">Reject</button>
-        <button type="button" class="btn btn-success btn-sm" style="float:right" (click)="openModalDialog()">Approval</button> 
-    <br><br><br>
-        <div class="backdrop" [ngStyle]="{'display' :display}"></div>  <hr>
-                <!--modal-->
-                <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
-                   <!--modal-dialog-->
-                    <div class="modal-dialog" role="document">
-                    <!--modal-conent-->
-                         <div class="modal-content">
-                   <!--modal-header-->
-           <div class="panel panel-primary">
-                <div class="panel-heading text-center">Assign to approval list
-                    <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
-            </div>
-<!--modal-body-->
-<div class="modal-body">
-<form #submitapprovalsupportinginfoForm="ngForm" (ngSubmit)="submitapprovalsupportinginfolist(event)" class="form-signin" >
-    <div class="form-group" >
-               <label for="username" class="control-label">Assign-TO*</label>
-               <select type="text" id="username" class="form-control" name="username" [(ngModel)]="model.username">
-                 <option *ngFor="let user of buyer">{{user.username}}</option>
-                
-                 </select>
-        <hr>
-      <button type="submitapprovalsupportinginfoForm.invalid" class="btn-success">submit</button>
-        </div>
-</form>
-   
-  <div>
-</div>
-</div>
-<app-sales-header></app-sales-header>
-<app-sales-footer></app-sales-footer>
-          <label class="form-input" for="po-no">Delivery Date: {{delivery_date}}</label>
-          <br>
-          <label class="form-input" for="name">Billing Address:{{billing_address}}</label>
-          <br>
-          <label class="form-input" for="name">Shipping Address:{{shipping_address}}</label>
-          <br>
-          <label class="form-input" for="name">Inco Terms:{{inco_terms}}</label>
-          <br>
-          <!-- <label class="form-input" for="date">PO-Date:</label>
-          <br>-->
-          <label class="form-input" for="Deliverydate">Payment Terms:{{payment_terms}}</label>
-           <br>
-           <!-- <label class="form-input" for="requestor">Requestor:</label>
-           <br>-->
-          <label class="form-input" for="requestor">Delivery Contact Person:{{delivery_contact_person.person_name}}</label>
-           <br>
-       </div>
-          <hr>
-          <button type="button" class="btn btn-success">Approval</button>&nbsp;
+      <!--Approval Model-->
 
-          <!-- <button type="button" class="btn btn-danger">Reject</button>  -->  
-          <!-- </form>  -->
-
-         <button type="button" class="btn btn-danger" (click)="openModalDialog()"> 
-         <span class="glyphicon glyphicon-remove"></span> Rejected</button> 
-         </form>
-         <!--After clicking the buttons open the model dialog using open/close event biniding methods-->
-         <div class="backdrop" [ngStyle]="{'display' :display}"></div>  
-         <!--modal-->
-       <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
-                  <!--modal-dialog-->
-         <div class="modal-dialog" role="document">
-              <!--modal-conent-->
-             <div class="modal-content">
-                
-                <!--modal-header-->
-                <!-- <div class="panel panel-primary">-->
-                <div class="panel-heading text-center"> Approval Rejected 
-                <button type="button" class="close" (click)="closeModalDialog()">&times;</button></div>
-                <!--modal-footer-->
-                <h4>IF you Really want Reject ????</h4> 
-                <br>
-                <label class="form-input" for="rejectionreason">Comment here ...! <a style="color: red">*</a></label>
-                <input type="text" class="form-control" id="rejectionreason" name="rejectionreason" placeholder="Comment here ...!" [(ngModel)]="Model.rejection_reason"> 
-                 <div class="modal-footer"> 
-                  <!-- <button [disabled]="submitsalesApprovalForm.invalid" class="btn btn-primary">submit</button>&nbsp;-->
-                  <button type="button" class="btn btn-success" (click)="RejectRequest()">Submit</button> 
-                  <button type="button" class="btn btn-danger" (click)="closeModalDialog()">Cancel</button>
-            
-            
+      <div>
+      <button type="button" class="btn btn-success btn-sm" style="float:right" (click)="openAcceptedModalDialog()">Approval</button>&nbsp;&nbsp;&nbsp;
+      
+      <div class="backdrop" [ngStyle]="{'display' :accepted_display}"></div>
+      <!--modal-->
+      <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':accepted_display}">
+          <!--modal-dialog-->
+          <div class="modal-dialog" role="document">
+           <!--modal-conent-->
+                <div class="modal-content">
+                  <!--modal-header-->
+                 <div class="panel panel-primary">
+                  <div class="panel-heading text-center">Assign to approval list</div>
+                  <div class="panel-body">
+                      <button type="button" class="close" (click)="closeAcceptedModalDialog()">&times;</button>
+                      <form #submitapprovalsupportinginfoForm="ngForm" (ngSubmit)="submitapprovalsupportinginfolist(event)" class="form-signin" >
+                          <div class="form-group" >
+                                     <label for="username" class="control-label">Assign-TO*</label>
+                                     <select type="text" id="username" class="form-control" name="username" [(ngModel)]="model.username">
+                                       <option *ngFor="let user of buyer">{{user.username}}</option>
+                                      
+                                       </select>
+                              <hr>
+                            <button type="submitapprovalsupportinginfoForm.invalid" class="btn-success">submit</button>
+                           </div>
+                      </form>
+                  </div>
+                 </div>
                 </div>
-            </div>
-         </div>
-       </div>
+          </div>
+      </div>
+    
+        <!--modal-body-->
+
+      <!-- End of Approval Model-->
+
+      <!--Rejected Model-->
+
+    
+      <button type="button" class="btn btn-danger btn-sm" style="float:left" (click)="openRejectedModalDialog()">Reject</button> 
+      <br><br><br>
+      <div class="backdrop" [ngStyle]="{'display' :rejected_display}"></div>
+      <!--modal-->
+      <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':rejected_display}">
+          <!--modal-dialog-->
+          <div class="modal-dialog" role="document">
+           <!--modal-conent-->
+                <div class="modal-content">
+                  <!--modal-header-->
+                 <div class="panel panel-primary">
+                  <div class="panel-heading text-center">Please Mention The Rejection Reason</div>
+                  <div class="panel-body">
+                      <button type="button" class="close" (click)="closeRejectedModalDialog()">&times;</button>
+                      <label class="form-input" for="rejectionreason">Comment here ...! <a style="color: red">*</a></label>
+                      <input type="text" class="form-control" id="rejectionreason" name="rejectionreason" placeholder="Comment here ...!" [(ngModel)]="model.rejection_reason"> 
+                       <div class="modal-footer"> 
+                        <button type="button" class="btn btn-success" (click)="RejectRequest()">Submit</button> 
+                      </div>
+                  </div>
+                 </div>
+                </div>
+          </div>
+      </div>
+    </div>
+        <!--modal-body-->
 
 
 
- <!--<app-sales-header></app-sales-header>-->
-<!--<app-sales-footer></app-sales-footer>-->
 
 
-<!-- [(ngModel)]="rejection_reason" #rejection_reason="ngModel" -->
-<!--[(ngModel)]="rejection_reason" #rejection_reason="ngModel"-->
-
- 
+        
 
 
 
 
+      <!-- End of Rejected Model-->
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> origin/vinay
+  </div>
+</div>
+<app-sales-footer></app-sales-footer>

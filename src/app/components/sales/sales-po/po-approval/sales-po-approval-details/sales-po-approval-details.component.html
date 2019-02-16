@@ -1,20 +1,17 @@
-<app-crm-header></app-crm-header>
+<app-sales-header></app-sales-header>
 <br>
 <br>
- <h2>    Pending Approval Detail  </h2>
+ <h2>Pending Approval Details</h2>
    <div class="col-md-offset-0 col-md-12">
      <div class="panel panel-primary">
-         <div class="panel-heading text-center"> Pending Approval Detail </div>
+         <div class="panel-heading text-center"> Pending Approval Details</div>
                  <div class="panel-body">
-                     <div class="col-md-4">
-                      <!--<input type="text" class="form-control" placeholder="search..." [(ngModel)]="query">-->
-                     </div>
-                 </div>
+                  <br>
+               
                 <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
                    <thead>
                      <tr>
                         <th></th>
-                        <!--<th>id</th>-->
                         <th>product title</th>
                         <th>description</th>
                         <th>model</th>
@@ -27,22 +24,12 @@
                         <th>quantity</th>
                         <th>uom</th>
                         <th>unit price</th>
-                       
-                      
                        </tr >
                                          
                      <tr *ngFor="let item of  SalesPoApprovallist">
                           <td>
-                            <!-- <span class="glyphicon glyphicon-forward" style="color: blue"></span>
-                             </td>-->
-                             
-                            <!-- <a href="#">
-                                <span class="glyphicon glyphicon-pencil"></span>&nbsp;
-                              </a>
-                              <a href="#">
-                                  <span class="glyphicon glyphicon-trash"></span>
-                                </a>-->
-                             <!-- <td>{{item.id}}</td>       --> 
+                             <span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                             </td> 
                               <td>{{item.product_title}}</td>
                               <td>{{item.description}}</td>
                               <td>{{item.model}}</td>
@@ -55,17 +42,15 @@
                               <td>{{item.quantity}}</td>
                               <td>{{item.uom}}</td>
                               <td>{{item.unit_price}}</td>
-                             
-
                          </tr>
 
                          
                    </thead>
                </table> <br>
+               <button routerLink="/sales-po/po-approval/{{sales_id}}/sales-po-approval-support-info" class="btn btn-success" style="float:right">Submit</button>
+            </div>
        </div>
    </div>
-   <form align= "right">
-   <button class="col-md-offset-1 col-md-10" type="button" class="btn btn-success">Submit</button>&nbsp;
 <app-crm-footer></app-crm-footer>
      
       

@@ -22,17 +22,22 @@ export class PoEntryEditSelectedProductComponent implements OnInit {
   quantitys="";
   uom_no="";
   unit_prices="";
+  quotation_id="";
+  product_id="";
 
 
   constructor(private PoEntryServicesService:PoEntryServicesService,private route:ActivatedRoute, private router:Router
      ) { }
 
   ngOnInit() {
-    let id=this.route.snapshot.paramMap.get('id');
-    this.PoEntryEditSelectProduct(id);
+    let quot_id=this.route.snapshot.paramMap.get('cpo_id');
+    this.quotation_id=quot_id;
+    let prod_id=this.route.snapshot.paramMap.get('selected-product');
+    this.product_id=prod_id;
+    this.PoEntryEditSelectProduct(quot_id,prod_id);
   }
-  PoEntryEditSelectProduct(id){
-    this.PoEntryServicesService.getPoEntryEditSelectProduct(id).subscribe((data)=>{  
+  PoEntryEditSelectProduct(quot_id,prod_id){
+    this.PoEntryServicesService.getPoEntryEditSelectProduct(quot_id,prod_id).subscribe((data)=>{  
       this.producttitle=data['product_title'];
       this.descriptions=data['description'];
       this.models=data['model'];
@@ -51,8 +56,10 @@ export class PoEntryEditSelectedProductComponent implements OnInit {
   });
 }
 submiteditproductlist(event){
-  let id=this.route.snapshot.paramMap.get('id');
-
+  let quot_id=this.route.snapshot.paramMap.get('cpo_id');
+  this.quotation_id=quot_id;
+  let prod_id=this.route.snapshot.paramMap.get('selected-product');
+  this.product_id=prod_id;
   this.PoEntryServicesService.putEditSelectedProduct(
     this.Model.product_title,
     this.Model.description,
@@ -63,9 +70,9 @@ submiteditproductlist(event){
     this.Model.pack_size,
     this.Model.hsn_code,this.Model.gst,
     this.Model.quantity,
-    this.Model.uom,this.Model.unit_price,id).subscribe(data => {
+    this.Model.uom,this.Model.unit_price,quot_id,prod_id).subscribe(data => {
       console.log(data);
-      this.router.navigate(['crm/po-entry/po-entry-selected-product'])
+      this.router.navigate(['crm/po-entry/cpo/'+quot_id+'/selected-product'])
     })
   }
 }

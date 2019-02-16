@@ -19,10 +19,13 @@ import { CrmPoRejectList } from '../../../../interface/crm/po/po-entry/crm-po-re
 import { CrmPoRejectLineitems } from '../../../../interface/crm/po/po-entry/crm-po-reject-lineitems';
 import { PoRejectedDetails } from '../../../../interface/crm/po/po-entry/po-rejected-details';
 import { CrmPoRejectSuppinfoEdit } from '../../../../interface/crm/po/po-entry/crm-po-reject-suppinfo-edit';
+import { ProductSelectionPage } from '../../../../interface/crm/po/po-entry/product-selection-page';
 import  {SelectedProduct} from '../../../../interface/crm/po/po-entry/selected-product';
+import  {PostProductSelected } from '../../../../interface/crm/po/po-entry/post-product-selected';
+
 //import to sales iterface
 import  {SalesApprovalDetails} from '../../../../interface/sales/po/sales-approval-details';
-import  {SalesPoApprovalSupport}from '../../../../interface/sales/po/sales-po-approval-support';
+
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +39,7 @@ export class PoEntryServicesService {
    Quotationselectionlist:QuotationSelectionPage[]=[];     // 1 QuotationSelectionPage is interface name ..  2 Quotationselectionlist is object name ..
 //salse interface
    SalesPoApprovallist:SalesApprovalDetails[]=[];
-   salespoapprovalsupport:SalesPoApprovalSupport[]=[];
+
 //Sourcing cpo  interface is in po-vender.service.ts
 
   constructor(private http: HttpClient) { }
@@ -48,29 +51,6 @@ export class PoEntryServicesService {
        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
     });       
 }
-getSalesPoApprovalSupport(sal_id):Observable<SalesPoApprovalSupport[]> {
-    return this.http.get<SalesPoApprovalSupport[]>(" /api/po_from_customer/approval/"+ sal_id +"/informations/", 
-    {
-        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))
-     }); 
-  }
-   
-  //Po-Entry-Selected-Product using GET method()...
-   getPoEntrySelectedProduct(prod_id):Observable<SelectedProduct[]>{
-    return this.http.get<SelectedProduct[]>("/api/po_from_customer/customer/"+ prod_id +"/quotation_product_list/", //PoEntrySelectedProduct database API LInk
-     {
-         headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
-      });       
-  }
-
-   // sales-po-Approval Details using GET method()...
-    getSalesPoApprovalDetails(sal_id):Observable<SalesApprovalDetails[]>{
-    return this.http.get<SalesApprovalDetails[]>("/api/po_from_customer/approval/"+ sal_id +"/lineitems/", //PoEntrySelectedProduct database API LInk
-     {
-         headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
-      });       
-  }
-
 
 //PoEntryReciverSelection using GET method()...
     getPoEntryReciverSelection(cust_id,requ_id):Observable<PoEntryReciver[]>{
@@ -168,8 +148,9 @@ getQuotationSelectionPage(quot_id):Observable<QuotationSelectionPage[]>{
 }
 
 //PoEntryQuotationSelectionusing Post method()...Component--(po-entry-QuotationSelection-page)
-  PostQuotationlist(quotation_no:object[]){
-    return this.http.post<PostQuotationSelection >("api/po_from_customer/customer/4f543dda-df4b-46ba-a759-85a05a406893/quotation_selected/",
+  PostQuotationlist(quotation_no,quot_id){
+    console.log(quot_id);
+    return this.http.post<PostQuotationSelection >("api/po_from_customer/customer/"+quot_id+"/quotation_selected/",
     {
        "quotation_no" : [quotation_no]
 },{
@@ -187,12 +168,18 @@ getQuotationDetails(id):Observable<QuotationDetails[]>{
 }); 
   }
 
+  getPoEntrySelectedProduct(quot_id):Observable<SelectedProduct[]>{
+    return this.http.get<SelectedProduct[]>("/api/po_from_customer/customer/"+quot_id+"/selected_product_list/", //PoEntrySelectedProduct database API LInk
+     {
+         headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+      });       
+  }
 
 //PoEntryQuotationSelectionusing LUNCH Post method()...Component--(po-entry-QuotationSelection-Details)
-PostLunchSelectedlist(id){
-  return this.http.post<[]>("/api/po_from_customer/customer/4f543dda-df4b-46ba-a759-85a05a406893/launch/",
+PostLunchSelectedlist(quot_id){
+  return this.http.post<[]>("/api/po_from_customer/customer/"+quot_id+"/launch/",
   {
-    "id":id
+    "quot_id":quot_id
   },
   {
       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header Authorize
@@ -201,32 +188,19 @@ PostLunchSelectedlist(id){
 
 
 //PoEntryEditSelectedProduct GET method()...Component--(po-entry-Edit-Select-Product)
-getPoEntryEditSelectProduct(id):Observable<PoEntryEditSelectedProduct[]>{        
-  return this.http.get<PoEntryEditSelectedProduct[]>("api/po_from_customer/customer/4f543dda-df4b-46ba-a759-85a05a406893/selected_product/ddd5a05b-765c-4573-8527-89eface7bbd7/edit/", //PoEntryQuotationSelection database API LInk
+getPoEntryEditSelectProduct(quot_id,prod_id):Observable<PoEntryEditSelectedProduct[]>{ 
+  console.log(prod_id)       
+  return this.http.get<PoEntryEditSelectedProduct[]>("api/po_from_customer/customer/"+quot_id+"/selected_product/"+prod_id+"/edit/", //PoEntryQuotationSelection database API LInk
    {
        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
     });       
 }
 
-//sales-po-approval-Support-info using POST method()...
-
-  postRejectionlist(rejection_reason,sal_id){
-   console.log(rejection_reason);
-  return this.http.post<SalesPoApprovalSupport[]>("/api/po_from_customer/approval/"+sal_id+"/reject/",
-  {
-
-   "rejection_reason":rejection_reason,
-   },
-   {
-       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))
-   });
-}
-
 //PoEntryputEditSelectedProduct PUT method()...Component--(po-entry-Edit-Select-Product)
-putEditSelectedProduct(product_title,description,model,brand,product_code,part_no,pack_size,hsn_code,gst,quantity,uom,unit_price,id){
-  return this.http.put<PoEntryEditSelectedProduct[]>("api/po_from_customer/customer/4f543dda-df4b-46ba-a759-85a05a406893/selected_product/ddd5a05b-765c-4573-8527-89eface7bbd7/edit/",
+putEditSelectedProduct(product_title,description,model,brand,product_code,part_no,pack_size,hsn_code,gst,quantity,uom,unit_price,quot_id,prod_id){
+  return this.http.put<PoEntryEditSelectedProduct[]>("api/po_from_customer/customer/"+quot_id+"/selected_product/"+prod_id+"/edit/",
   {
-    "id":id,    
+     
     "product_title":product_title,
     "description":description,
     "model":model,
@@ -259,18 +233,18 @@ getCrmPoRejectList():Observable<CrmPoRejectList []>{
 
 
 //PoEntrygetPoRejectLineDetailsList GET method()...Component--(po-modification-Rejected-Details)
-getPoRejectLineDetailsList():Observable<PoRejectedDetails[]>{        
-  return this.http.get<PoRejectedDetails[]>("/api/po_from_customer/rejected/4f543dda-df4b-46ba-a759-85a05a406893/rejected_lineitems/", //PoEntryrejected Details list database API LInk
+getPoRejectLineDetailsList(reject_id):Observable<PoRejectedDetails[]>{        
+  return this.http.get<PoRejectedDetails[]>("/api/po_from_customer/rejected/"+reject_id+"/rejected_lineitems/", //PoEntryrejected Details list database API LInk
    {
        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
     });       
 }
 
 //PoEntryPostPoRejectPODetails POST method()...Component--(po-modification-Reject-Details)
-PostPoRejectPODetails(id){
-  return this.http.post<[]>("/api/po_from_customer/rejected/4f543dda-df4b-46ba-a759-85a05a406893/delete/", //PoEntryrejected Details list database API LInk
+PostPoRejectPODetails(reject_id){
+  return this.http.post<[]>("/api/po_from_customer/rejected/"+reject_id+"/delete/", //PoEntryrejected Details list database API LInk
   {
-      "id":id
+      "reject_id":reject_id
   },
   {
        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
@@ -278,10 +252,10 @@ PostPoRejectPODetails(id){
 }
 
 //PoEntryPostMarkResolvelist POST method()...Component--(po-modification-Reject-Details)
-PostMarkResolvelist(id){
-  return this.http.post<[]>("/api/po_from_customer/rejected/4f543dda-df4b-46ba-a759-85a05a406893/mark_resolve/", //PoEntryrejected Details list database API LInk
+PostMarkResolvelist(reject_id){
+  return this.http.post<[]>("/api/po_from_customer/rejected/"+reject_id+"/mark_resolve/", //PoEntryrejected Details list database API LInk
   {
-    "id":id
+    "reject_id":reject_id
   },
   {
        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
@@ -289,8 +263,8 @@ PostMarkResolvelist(id){
 }
 
 //PoEntry getPoRejectLineItemListEdit GET method()...Component--(po-modification-Rejected-LineItem-Edit)
-getPoRejectLineItemListEdit(id,id1):Observable< CrmPoRejectLineitems[]>{  
-  return this.http.get< CrmPoRejectLineitems[]>("/api/po_from_customer/rejected/"+id+"/lineitem/"+id1+"/edit/", //PoEntryrejected lineitem list database API LInk
+getPoRejectLineItemListEdit(reject_id,edit_reject_id):Observable< CrmPoRejectLineitems[]>{  
+  return this.http.get< CrmPoRejectLineitems[]>("/api/po_from_customer/rejected/"+reject_id+"/lineitem/"+edit_reject_id+"/edit/", //PoEntryrejected lineitem list database API LInk
    {
        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
     });       
@@ -299,10 +273,9 @@ getPoRejectLineItemListEdit(id,id1):Observable< CrmPoRejectLineitems[]>{
 
 
 //PoEntry putrejectedlineitemlist PUT method()....Component--(po-modification-Rejected-LineItem-Edit)
-putrejectedlineitemlist(product_title,description,model,brand,product_code,part_no,pack_size,hsn_code,gst,quantity,uom,unit_price,id){
-  return this.http.put<CrmPoRejectLineitems[]>("api/po_from_customer/rejected/4f543dda-df4b-46ba-a759-85a05a406893/lineitem/6323ced1-17aa-4ae8-8939-c59fc03f8a47/edit/", //PoEntryrejected lineitem list database API LInk,
-  {
-    "id":id,    
+putrejectedlineitemlist(product_title,description,model,brand,product_code,part_no,pack_size,hsn_code,gst,quantity,uom,unit_price,reject_id,edit_reject_id){
+  return this.http.put<CrmPoRejectLineitems[]>("api/po_from_customer/rejected/"+reject_id+"/lineitem/"+edit_reject_id+"/edit/", //PoEntryrejected lineitem list database API LInk,
+  {   
     "product_title":product_title,
     "description":description,
     "model":model,
@@ -324,8 +297,8 @@ putrejectedlineitemlist(product_title,description,model,brand,product_code,part_
 }
 
 //PoEntry postdeleterejectlineitemDetails Delete method()....Component--(po-modification-Rejected-LineItem-Edit)
-postdeleterejectlineitemDetails(id){
-  return this.http.delete<[]>("api/po_from_customer/rejected/4f543dda-df4b-46ba-a759-85a05a406893/lineitem/"+id+"/edit/", //PoEntryrejected lineitem list database API LInk,
+postdeleterejectlineitemDetails(reject_id,edit_reject_id){
+  return this.http.delete<[]>("api/po_from_customer/rejected/"+reject_id+"/lineitem/"+edit_reject_id+"/edit/", //PoEntryrejected lineitem list database API LInk,
   
     {
     headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
@@ -333,8 +306,9 @@ postdeleterejectlineitemDetails(id){
     }
 
 //PoEntry getPoRejectedSuppoInfoList GET method()...Component--(po-modification-Rejected-Supp-info-edit)
- getPoRejectedSuppoInfoList(id):Observable<CrmPoRejectSuppinfoEdit[]>{        
-      return this.http.get<CrmPoRejectSuppinfoEdit[]>("/api/po_from_customer/rejected/"+id+"/supporting_info_edit/", //PoEntryQuotationSelection database API LInk
+ getPoRejectedSuppoInfoList(reject_id):Observable<CrmPoRejectSuppinfoEdit[]>{    
+   console.log(reject_id);    
+      return this.http.get<CrmPoRejectSuppinfoEdit[]>("/api/po_from_customer/rejected/"+reject_id+"/supporting_info_edit/", //PoEntryQuotationSelection database API LInk
        {
            headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
         });        
@@ -342,8 +316,8 @@ postdeleterejectlineitemDetails(id){
   
 
 //PoEntry PostPoRejectSuppInfo PUT method()... .Component--(po-modification-Rejected-Supp-info-edit)
- PostPoRejectSuppInfo(customer_po_no,customer_po_date,delivery_date,billing_address,shipping_address, inco_terms,payment_terms,id){
-      return this.http.put<CrmPoRejectSuppinfoEdit[]>("/api/po_from_customer/rejected/"+id+"/supporting_info_edit/", //PoEntryQuotationSelection database API LInk
+ PostPoRejectSuppInfo(customer_po_no,customer_po_date,delivery_date,billing_address,shipping_address, inco_terms,payment_terms,reject_id){
+      return this.http.put<CrmPoRejectSuppinfoEdit[]>("/api/po_from_customer/rejected/"+reject_id+"/supporting_info_edit/", //PoEntryQuotationSelection database API LInk
       {
        
         "customer_po_no":customer_po_no,
@@ -358,4 +332,25 @@ postdeleterejectlineitemDetails(id){
           headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
        });        
    }
+    
+   //PoEntry getPoProductSelectionList GET method()...Component--Product SelectionPage
+    getPoProductSelectionList(quot_id):Observable<ProductSelectionPage[]>{  
+      return this.http.get<ProductSelectionPage[]>("/api/po_from_customer/customer/"+quot_id+"/quotation_product_list/", //PoEntryrejected lineitem list database API LInk
+       {
+           headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+        });       
+    
     }
+    PostProductSelectedPage(quotation_lineitems,quot_id){
+      console.log(quot_id)
+      return this.http.post<PostProductSelected>("/api/po_from_customer/customer/"+quot_id+"/quotation_product_selected/",
+      
+      {
+         "quotation_lineitems" : [quotation_lineitems]
+  },{
+    headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header Authorize
+  });
+  
+  }
+ 
+  }

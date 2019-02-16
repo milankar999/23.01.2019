@@ -71,24 +71,25 @@ const routes:Routes=[
   { path:'crm/po-entry/:customer/requester-selection',component: PoEntryRequesterSelectionComponent,canActivate:[AuthGuard]  },
   { path:'crm/po-entry/:customer/:requester/receiver-selection',component: PoEntryReceiverSelectionComponent,canActivate:[AuthGuard]  },
   { path:'crm/po-entry/:customer/:requester/:receiver/supportinginfo',component: PoEntrySupportingInfoComponent ,canActivate:[AuthGuard] },
-  { path:'crm/po-entry/:cpo_no/quotation-selection', component:PoEntryQuotationSelectionComponent,},
+  { path:'crm/po-entry/:cpo_id/quotation-selection', component:PoEntryQuotationSelectionComponent,},
   
-  { path:'crm/po-entry/production-selection', component:PoEntryProductSelectionComponent,canActivate:[AuthGuard] },
+  { path:'crm/po-entry/:cpo_id/quotation-selection/production-selection', component:PoEntryProductSelectionComponent,canActivate:[AuthGuard] },
   { path:'crm/po-entry/:quotation_no/quotation-selection-details',component:QuotationSelectionDetailsComponent,canActivate:[AuthGuard] },
-  { path:'crm/po-entry/po-entry-edit-selected-product',component:PoEntryEditSelectedProductComponent },
-  { path:'crm/po-entry/po-entry-selected-product',component:PoEntrySelectedProductComponent},
+  { path:'crm/po-entry/cpo/:cpo_id/selected-product',component:PoEntrySelectedProductComponent},
+  { path:'crm/po-entry/cpo/:cpo_id/selected-product/:selected-product/edit-selected-product',component:PoEntryEditSelectedProductComponent },
 //PO Approval sales
   { path:'sales/sales-home',component:SalesHomeComponent,canActivate:[AuthGuard]},  
   { path:'sales/sales-po/sales-po-approval-list',component:SalesPoApprovalListComponent,canActivate:[AuthGuard]},
-  { path:'sales/sales-po/sales-po-approval-details' ,component:SalesPoApprovalDetailsComponent,canActivate:[AuthGuard] },
-  { path:'sales-po/po-approval/sales-po-approval-support-info', component:SalesPoApprovalSupportInfoComponent,canActivate:[AuthGuard] },
+  { path:'sales/sales-po/:cpo_id/sales-po-approval-details' ,component:SalesPoApprovalDetailsComponent,canActivate:[AuthGuard] },
+  { path:'sales-po/po-approval/:cpo_id/sales-po-approval-support-info', component:SalesPoApprovalSupportInfoComponent,canActivate:[AuthGuard] },
   //VPO Approval Sales
   { path:'sales/sales-po/vpo-approval/vpo-approval-details',component:VpoApprovalDetailsComponent},
 //Rejected PO Modification
   { path:'crm/crm-po/po-modification/crm-po-rejected-list',component:CrmPoRejectedListComponent },
-  { path:'crm/crm-po/po-mdification/crm-po-rejected-details', component:CrmPoRejectedDetailsComponent,canActivate:[AuthGuard] },
-  { path:'crm/crm-po/po-modification/crm-po-rejected-supporting-edit',component:CrmPoRejectedSuppinfoEditComponent,canActivate:[AuthGuard] },
-  { path:'crm/po-modification/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent,canActivate:[AuthGuard] },    
+  { path:'crm/crm-po/po-mdification/:cpo_id/crm-po-rejected-details', component:CrmPoRejectedDetailsComponent,canActivate:[AuthGuard] },
+  { path:'crm/crm-po/po-modification/:cpo_id/crm-po-rejected-supporting-edit',component:CrmPoRejectedSuppinfoEditComponent,canActivate:[AuthGuard] },
+  { path:'crm/po-modification/:cpo_id/cpo-rejected-details/:cpor-details/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent,canActivate:[AuthGuard] },    
+  
 //Sourcing PO Release   
   { path:'sourcing/sourcing-home',component:SourcingHomeComponent,canActivate:[AuthGuard]},
   { path:'sourcing/sourcing-po/sourcing-cpo-pending-details', component:SourcingCpoPendingDetailsComponent,canActivate:[AuthGuard] },
