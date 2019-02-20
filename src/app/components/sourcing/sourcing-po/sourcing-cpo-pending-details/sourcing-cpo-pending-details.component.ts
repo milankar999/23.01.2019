@@ -9,10 +9,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SourcingCpoPendingDetailsComponent implements OnInit {
   cpopendingdetails:object[]=[];
+  vendor_id="";
+  cpo_id = "";
   constructor(private PoVendorService:PoVendorService, private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
-    let id="5cb2964d-5b70-466e-8cf5-c8730217a6ca";
+    let id= this.route.snapshot.paramMap.get('sourcingdetail');
+    this.cpo_id=id;
     this.CPOPendingDetails(id)
   }
   CPOPendingDetails(id){
@@ -23,4 +26,6 @@ export class SourcingCpoPendingDetailsComponent implements OnInit {
     })
   }
   }
+
+
 

@@ -11,5 +11,4 @@ pack_size: string,
 gst: number,
 uom: string,
 quantity: string,
-
 }

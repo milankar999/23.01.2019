@@ -68,7 +68,9 @@ const routes:Routes=[
 //Po Creation/Entry
   { path:'crm/crm-home', component:CrmHomeComponent,canActivate:[AuthGuard]},
   { path:'crm/po-entry/customer-selection', component:PoEntryCustomerSelectionComponent ,canActivate:[AuthGuard]},
+  
   { path:'crm/po-entry/:customer/requester-selection',component: PoEntryRequesterSelectionComponent,canActivate:[AuthGuard]  },
+  
   { path:'crm/po-entry/:customer/:requester/receiver-selection',component: PoEntryReceiverSelectionComponent,canActivate:[AuthGuard]  },
   { path:'crm/po-entry/:customer/:requester/:receiver/supportinginfo',component: PoEntrySupportingInfoComponent ,canActivate:[AuthGuard] },
   { path:'crm/po-entry/:cpo_id/quotation-selection', component:PoEntryQuotationSelectionComponent,},
@@ -90,13 +92,15 @@ const routes:Routes=[
   { path:'crm/crm-po/po-modification/:cpo_id/crm-po-rejected-supporting-edit',component:CrmPoRejectedSuppinfoEditComponent,canActivate:[AuthGuard] },
   { path:'crm/po-modification/:cpo_id/cpo-rejected-details/:cpor-details/crm-po-rejected-lineitem-edit', component:CrmPoRejectedLineitemEditComponent,canActivate:[AuthGuard] },    
   
-//Sourcing PO Release   
+//Sourcing PO Release      
   { path:'sourcing/sourcing-home',component:SourcingHomeComponent,canActivate:[AuthGuard]},
-  { path:'sourcing/sourcing-po/sourcing-cpo-pending-details', component:SourcingCpoPendingDetailsComponent,canActivate:[AuthGuard] },
-  { path:'sourcing/sourcing-po/souring-cpo-vendor-product',component:SourcingCpoVendorProductComponent },
+  { path:'sourcing/sourcing-po/sourcing-cpo-pending-list', component:SourcingCpoPendingListComponent },
+  { path:'sourcing/sourcing-po/:sourcingdetail/sourcing-cpo-pending-details', component:SourcingCpoPendingDetailsComponent,canActivate:[AuthGuard] },
+  
+  { path:'sourcing/sourcing-po/:cpo_id/souring-cpo-vendor-product',component:SourcingCpoVendorProductComponent },
   { path:'sourcing/sourcing-po/sourcing-cpo-vendor-selection', component: SourcingCpoVendorSelectionComponent },
   { path:'sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-new-vendor', component: SourcingCpoNewVendorComponent,canActivate:[AuthGuard] }, 
-  { path:'sourcing/sourcing-po/sourcing-cpo-pending-list', component:SourcingCpoPendingListComponent },
+ 
   { path:'sourcing/sourcing-po/sourcing-cpo-lineitem-edit', component:SourcingCpoLineitemEditComponent },
   { path:'sourcing/sourcing-home', component:SourcingHomeComponent}, 
 //sourcing Vpo 

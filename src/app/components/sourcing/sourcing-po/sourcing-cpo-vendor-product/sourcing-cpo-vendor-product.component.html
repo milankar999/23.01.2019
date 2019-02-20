@@ -2,22 +2,24 @@
 <h2 align="center"> Sourcing Vendor Product List </h2>
    <div class="col-md-offset-0 col-md-12">
      <div class="panel panel-primary" *ngFor="let i of [1,2] ">
-         <div class="panel-heading text-center">fsgdhf</div>
-                 <div class="panel-body">
+      <div class="panel-heading text-center">Vender name &nbsp; &nbsp; Vendor Contact Person&nbsp;&nbsp; Offer reference  &nbsp;&nbsp; Offer date </div> 
+    
+
+               <!--  <div class="panel-body">
                      <button class="btn btn-primary btn-sm">Generate PO</button>&nbsp;&nbsp;
                      <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Asking Approval To Release PO">Release PO</button>&nbsp;&nbsp;
                      <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Asking for Direct Buying">Direct Buying PO</button>
                      
                   <a href="sourcing/sourcing-po/sourcing-cpo-vendor-selection"> <button class="btn btn-danger btn-sm" style="float: right">Change</button></a>
                      
-                 </div>
+                 </div> -->
                  
-                 <form [formGroup]="form" (ngSubmit)="submit()">
+                <form [formGroup]="form" (ngSubmit)="submit()">
                 <table id="sourcing1" class="table table-hover table-bordered table-sm" width="100%" >
                    <thead>
                      <tr>
                         <th></th>
-                        <th>Product Name</th>
+                       <!-- <th>Product Name</th>
                         <th>Description</th>
                         <th>Model</th>
                         <th>Brand</th>
@@ -27,15 +29,19 @@
                         <th>GST</th>
                         <th>Quantity</th>
                         <th>UOM</th>
-                        <th>Price</th>  
-                        <th></th>
+                        <th>Price</th> --> 
+                        
+                    
+
+              <!--     <th></th>
                       </tr>
                      <tr formArrayName="products" *ngFor="let order of form.controls.products.controls; let i = index">
                           <td>
                              <span class="glyphicon glyphicon-forward" style="color: blue"></span>&nbsp;&nbsp;
-                             <input type="checkbox" [formControlName]="i"> 
-                         </td>
-                         <td>{{products[i].Product_Name}}</td>
+                             <input type="checkbox" [formControlName]="i">      
+                         </td> -->
+                         
+                        <!-- <td>{{products[i].Product_Name}}</td>
                          <td>{{products[i].description}}</td>
                          <td>{{products[i]. model}}</td>
                          <td>{{products[i].brand}}</td>
@@ -45,13 +51,16 @@
                          <td>{{products[i].gst}}</td>
                          <td>{{products[i].quantity}}</td>
                          <td>{{products[i].UOM}}</td>
-                         <td>{{products[i].price}}</td>
-                              <td>
+                         <td>{{products[i].price}}</td>-->
+
+                       
+
+                          <!--    <td>
                               <a href="sourcing/sourcing-po/sourcing-cpo-lineitem-edit">  <span class="glyphicon glyphicon-edit" style="color: blue"></span></a>&nbsp;
-                              </td>         
+                              </td>        
                          </tr>
                          <hr>
-                           <button class="btn btn-success" style="float: right">Proceed</button>
+                           <button class="btn btn-success" style="float: right">Proceed</button>--> 
                    </thead>
                </table> 
                </form>
@@ -72,7 +81,7 @@
                        <thead>
                          <tr>
                             <th></th>
-                            <th>Product Name</th>
+                           <!-- <th>Product Name</th>
                             <th>Description</th>
                             <th>Model</th>
                             <th>Brand</th>
@@ -82,7 +91,7 @@
                             <th>GST</th>
                             <th>Quantity</th>
                             <th>UOM</th>
-                            <th>Price</th>  
+                            <th>Price</th>  -->
                             <th></th>
                           </tr>
                          <tr formArrayName="products" *ngFor="let order of form.controls.products.controls; let i = index">
@@ -90,7 +99,7 @@
                                  <span class="glyphicon glyphicon-forward" style="color: blue"></span>&nbsp;&nbsp;
                                  <input type="checkbox" [formControlName]="i"> 
                              </td>
-                             <td>{{products[i].Product_Name}}</td>
+                             <!--<td>{{products[i].Product_Name}}</td>
                              <td>{{products[i].description}}</td>
                              <td>{{products[i]. model}}</td>
                              <td>{{products[i].brand}}</td>
@@ -100,7 +109,7 @@
                              <td>{{products[i].gst}}</td>
                              <td>{{products[i].quantity}}</td>
                              <td>{{products[i].UOM}}</td>
-                             <td>{{products[i].price}}</td>
+                             <td>{{products[i].price}}</td>-->
                                   <td>
                                     <span class="glyphicon glyphicon-edit" style="color: blue"></span>&nbsp;
                                   </td>         

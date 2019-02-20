@@ -17,27 +17,27 @@
                 <th></th>
                 
                  <!--<th>id</th>  --> 
-                <th>Customer</th>
-                <th>customer contact person</th>
-                <th>customer po no</th>
-                <th>delivery date</th>
+                <th>Customer Name</th>
+                <th>Customer contact person</th>
+                <th>Customer po no</th>
+                <th>Delivery date</th>
                 
                
             </tr >
         </thead>
                 <tr *ngFor="let data of  pendinglist">
                    
-                  <!-- <td>
+                  <!--<td>
                          <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
                          <a href="#"><span class="glyphicon glyphicon-trash"></span></a>
                     </td> --> 
                     <td>
-                            <a href="#"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
+                            <a href="sourcing/sourcing-po/{{data.id}}/sourcing-cpo-pending-details"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
                         </td>
                     
                  <!--<td>{{data.id}}</td>    -->
-                 <td>{{data.customer}}</td>
-                 <td>{{data.customer_contact_person}}</td>
+                 <td>{{data.customer.name}}</td>
+                 <td>{{data.customer_contact_person.name}}</td>
                  <td>{{data.customer_po_no}}</td>
                  <td>{{data.delivery_date}}</td>
                  </tr> 
