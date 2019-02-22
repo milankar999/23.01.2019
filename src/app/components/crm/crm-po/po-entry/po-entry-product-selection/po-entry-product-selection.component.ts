@@ -14,33 +14,16 @@ import{ HttpResponse} from '@angular/common/http';
 export class PoEntryProductSelectionComponent implements OnInit {
   form: FormGroup;
   quotation_id="";
-  product_title;
-  description;
-  model;
-  brand;
-  product_code;
-  part_number;
-  pack_size;
-  moq;
-  hsn_code;
-  gst;
-  quantity;
-  uom;
-  unit_price;
-  lead_time;
-
-  products = [
-    {id:''},{id:''}
-  ]
+  item_list=[];
+ products=[];
+ quotation_lineitems = [];
+ selected_lineitem_list: Array<{id: string}> = [];
+ 
+  
   display='none';
   constructor(private poEntryServicesService:PoEntryServicesService,
-    private router:Router,private route:ActivatedRoute, private formBuilder: FormBuilder) { 
-    const controls = this.products.map(c => new FormControl(false));
-    controls[0].setValue(true); 
-    this.form = this.formBuilder.group({
-      products: new FormArray(controls)
-    });
-  }
+    private router:Router,private route:ActivatedRoute, private formBuilder: FormBuilder) { }
+    
   ngOnInit() {
     let quot_id=this.route.snapshot.paramMap.get('cpo_id');  //display singel api id --
     this.quotation_id = quot_id;
@@ -55,23 +38,30 @@ export class PoEntryProductSelectionComponent implements OnInit {
       
   })
 }
-productsubmit() {
+productsubmit(event) {
   let quot_id=this.route.snapshot.paramMap.get('cpo_id');
-    const selectedOrderIds = this.form.value.products
-      .map((v, i) => v ? this.products[i].id : null)
-      .filter(v => v !== null);
-    console.log(selectedOrderIds);
-    this.poEntryServicesService.PostProductSelectedPage(this.products[0].id,quot_id).
+  
+  for(let item in this.selected_lineitem_list)
+  {
+    this.item_list.push(this.selected_lineitem_list[item]['id']);
+  }
+  console.log(this.item_list);
+
+    this.poEntryServicesService.PostProductSelectedPage(this.item_list,quot_id).
   subscribe(data => {
     console.log(data);
-    this.router.navigate(['crm/po-entry/cpo/'+quot_id+'/selected-product']);
+   this.router.navigate(['crm/po-entry/cpo/'+quot_id+'/selected-product']);
+    
   });
 }  
-  openModalDialog(){
-    this.display='block';
-  }
-  closeModalDialog(){
-    this.display='none';
-
-  }
+ 
+  checkLineitem(event,id) {
+    if(event.target.checked) {
+        this.selected_lineitem_list.push({id:event.target.name});
+    } 
+    else {
+      this.selected_lineitem_list.splice(event.target.name,1);
+    }
 }
+}
+

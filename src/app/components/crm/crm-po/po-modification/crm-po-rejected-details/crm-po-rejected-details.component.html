@@ -5,7 +5,31 @@
       <div class="panel-heading text-center">PO Rejected Details List</div>
            <div class="panel-body">
             <div>
-          <form  #submitrejectedpoForm="ngForm" (ngSubmit)="submitrejectedpolist(event)" class="form-sigin"> <button  type="submitrejectedpoForm.invalid" class="btn btn-danger" style="float:right">Delete Rejected PO</button></form>
+            <!---Rejected PO Model start-->
+       <button class="btn btn-danger" style="float:right" data-toggle="tooltip" title="Deleted Reject PO" (click)="openAcceptedModalDialog()">Rejecte PO</button>
+          <div class="backdrop" [ngStyle]="{'display' :accepted_display}"></div>
+              <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':accepted_display}">
+                          <!--modal-dialog-->
+                       <div class="modal-dialog" role="document">
+                           <!--modal-conent-->
+                          <div class="modal-content">
+                          <!--modal-header-->
+                                <div class="modal-header">
+                                     <button type="button" class="close" (click)="closeAcceptedModalDialog()">&times;</button>
+                                      <h4 class="modal-title">Warning <span class="glyphicon glyphicon-fire"></span></h4>
+                                </div>
+                                <div class="modal-body">
+                                   <p>Do you really want to Rejected PO ?</p>
+                            </div>
+                       
+                                <div class="modal-footer">
+                                   <button routerLink="/crm/crm-po/po-modification/crm-po-rejected-list" class="btn btn-success" (click)="submitrejectedpolist(event)">Confirm</button>&nbsp;
+                                    <button type="button" class="btn btn-danger" (click)="closeAcceptedModalDialog()">Cancel</button>
+                              </div>
+                       </div>
+                    </div>
+                 </div>
+              <!--END Rejected PO -->
           <button  routerLink="/crm/crm-po/po-modification/{{cpo_reject_id}}/crm-po-rejected-supporting-edit" class="btn btn-success btn-sm" style="float:left">Edit SuppInfo</button>
         </div><br><br>
 
@@ -51,7 +75,30 @@
       
   </thead>
 </table> <br>
-<form  #submitmarkresolvepoForm="ngForm" (ngSubmit)="submitmarkresolvepolist(event)" class="form-sigin"> <button  type="submitmarkresolvepoForm.invalid" class="btn btn-primary" style="float:left">Mark Resolve</button></form>
+<!-- MARK Resolve the PO-->
+<button class="btn btn-success" style="float:left" data-toggle="tooltip" title="Mark Resolve PO" (click)=" openRejectedModalDialog()">Resolve</button>
+<div class="backdrop" [ngStyle]="{'display' : rejected_display}"></div>
+    <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display': rejected_display}">
+                <!--modal-dialog-->
+             <div class="modal-dialog" role="document">
+                 <!--modal-conent-->
+                <div class="modal-content">
+                <!--modal-header-->
+                      <div class="modal-header">
+                           <button type="button" class="close" (click)=" closeRejectedModalDialog()">&times;</button>
+                            <h4 class="modal-title">Warning <span class="glyphicon glyphicon-fire"></span></h4>
+                      </div>
+                      <div class="modal-body">
+                         <p>Do you really want to Mark Resolve PO ?</p>
+                  </div>
+             
+                      <div class="modal-footer">
+                         <button routerLink="/crm/crm-po/po-modification/crm-po-rejected-list" class="btn btn-success" (click)= submitmarkresolvepolist(event)>Confirm</button>&nbsp;
+                          <button type="button" class="btn btn-danger" (click)="closeRejectedModalDialog()">Cancel</button>
+                    </div>
+             </div>
+          </div>
+       </div>
 </div>
 </div>
 </div>

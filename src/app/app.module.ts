@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthGuard } from './guards/auth.guard';
+import { DragDropModule } from '@angular/cdk/drag-drop';
  
  
 import { AppComponent } from './app.component';
@@ -90,6 +91,7 @@ import { GrnWithoutPoSelectedLineitemsComponent } from './components/grn/goods-r
 import { CashPurchaseVendorSelectionComponent } from './components/grn/goods-receive/immediate/cash-purchase-vendor-selection/cash-purchase-vendor-selection.component';
 import { CashPurchaseContactPersonSelectionComponent } from './components/grn/goods-receive/immediate/cash-purchase-contact-person-selection/cash-purchase-contact-person-selection.component';
 import { CashPurchaseContactProductEntryComponent } from './components/grn/goods-receive/immediate/cash-purchase-contact-product-entry/cash-purchase-contact-product-entry.component';
+import { QuotationSearchPipe } from './pipes/quotation-search.pipe';
 
 
 
@@ -171,7 +173,8 @@ import { CashPurchaseContactProductEntryComponent } from './components/grn/goods
     GrnWithoutPoSelectedLineitemsComponent,
     CashPurchaseVendorSelectionComponent,
     CashPurchaseContactPersonSelectionComponent,
-    CashPurchaseContactProductEntryComponent, 
+    CashPurchaseContactProductEntryComponent,
+    QuotationSearchPipe, 
   ],
   imports: [
     BrowserModule,
@@ -179,6 +182,7 @@ import { CashPurchaseContactProductEntryComponent } from './components/grn/goods
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    DragDropModule
   ],
   providers: [CookieService,AuthGuard],
   bootstrap: [AppComponent]

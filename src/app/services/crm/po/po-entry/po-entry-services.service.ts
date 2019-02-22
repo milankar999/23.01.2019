@@ -22,9 +22,11 @@ import { CrmPoRejectSuppinfoEdit } from '../../../../interface/crm/po/po-entry/c
 import { ProductSelectionPage } from '../../../../interface/crm/po/po-entry/product-selection-page';
 import  {SelectedProduct} from '../../../../interface/crm/po/po-entry/selected-product';
 import  {PostProductSelected } from '../../../../interface/crm/po/po-entry/post-product-selected';
+import {SelectProductNewLineitem} from '../../../../interface/crm/po/po-entry/select-product-new-lineitem';
 
 //import to sales iterface
 import  {SalesApprovalDetails} from '../../../../interface/sales/po/sales-approval-details';
+import { identifierModuleUrl } from '@angular/compiler';
 
 
 @Injectable({
@@ -149,10 +151,10 @@ getQuotationSelectionPage(quot_id):Observable<QuotationSelectionPage[]>{
 
 //PoEntryQuotationSelectionusing Post method()...Component--(po-entry-QuotationSelection-page)
   PostQuotationlist(quotation_no,quot_id){
-    console.log(quot_id);
+    console.log(quotation_no);
     return this.http.post<PostQuotationSelection >("api/po_from_customer/customer/"+quot_id+"/quotation_selected/",
     {
-       "quotation_no" : [quotation_no]
+       "quotation_no" : quotation_no
 },{
   headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header Authorize
 });
@@ -342,15 +344,51 @@ postdeleterejectlineitemDetails(reject_id,edit_reject_id){
     
     }
     PostProductSelectedPage(quotation_lineitems,quot_id){
-      console.log(quot_id)
+     
       return this.http.post<PostProductSelected>("/api/po_from_customer/customer/"+quot_id+"/quotation_product_selected/",
       
       {
-         "quotation_lineitems" : [quotation_lineitems]
+         "quotation_lineitems" : quotation_lineitems
   },{
     headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header Authorize
   });
   
   }
+  postSelectedProduct(product_title,description,model,brand,product_code,part_no,pack_size,hsn_code,gst,quantity,uom,unit_price,quot_id){
+    console.log(product_title);
+    console.log(description);
+    console.log(model);
+    console.log(brand);
+    console.log(product_code);
+    console.log(part_no);
+    console.log(pack_size);
+    console.log(hsn_code);
+    console.log(gst);
+    console.log(quantity);
+    console.log(uom);
+    console.log(unit_price);
+    
+  return this.http.post<SelectProductNewLineitem[]>("/api/po_from_customer/customer/"+quot_id+"/add_new_item/", //PoEntryrejected lineitem list database API LInk,
+  {   
+   
+    "product_title":product_title,
+    "description":description,
+    "model":model,
+    "brand":brand,
+    "product_code":product_code,
+    "part_no":part_no,
+    "pack_size":pack_size,
+    "hsn_code":hsn_code,
+    "gst":gst,
+    "quantity":quantity,
+    "uom":uom,
+    "unit_price":unit_price,
+    },
+    {
+    
+    headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+  });     
  
+}
+
   }

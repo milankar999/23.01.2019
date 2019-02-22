@@ -46,6 +46,7 @@
                           <div class="form-group" >
                                      <label for="username" class="control-label">Assign-TO*</label>
                                      <select type="text" id="username" class="form-control" name="username" [(ngModel)]="model.username">
+                                       <option></option>
                                        <option *ngFor="let user of buyer">{{user.username}}</option>
                                       
                                        </select>
@@ -80,11 +81,17 @@
                   <div class="panel-heading text-center">Please Mention The Rejection Reason</div>
                   <div class="panel-body">
                       <button type="button" class="close" (click)="closeRejectedModalDialog()">&times;</button>
-                      <label class="form-input" for="rejectionreason">Comment here ...! <a style="color: red">*</a></label>
-                      <input type="text" class="form-control" id="rejectionreason" name="rejectionreason" placeholder="Comment here ...!" [(ngModel)]="model.rejection_reason"> 
-                       <div class="modal-footer"> 
-                        <button type="button" class="btn btn-success" (click)="RejectRequest()">Submit</button> 
-                      </div>
+                     
+                      <form #submitrejectrequestinfoForm="ngForm" (ngSubmit)="submitrejectrequest(event)" class="form-signin" [formGroup]="poForm" >
+                         <div class="form-group" [ngClass]="{'has-error':poForm.get('rejectionreason').touched && poForm.get('rejectionreason').invalid}" [formGroup]="poForm">          
+                            <label for="name" class="control-label">Comment here ...!*</label>
+                            <input type="text" id="rejectionreason" class="form-control" formControlName="rejectionreason" placeholder="Comment here ...!" [(ngModel)]="model.rejection_reason">
+                              <span *ngIf="poForm.get('rejectionreason').touched && poForm.get('rejectionreason').invalid" class="help-block">Rejection Reason can't be blank.</span>
+                             <br>
+                             <button [disabled]="submitrejectrequestinfoForm.invalid" class=" btn btn-success">Submit</button>
+                    
+                        </div>
+                    </form>
                   </div>
                  </div>
                 </div>
@@ -92,17 +99,7 @@
       </div>
     </div>
         <!--modal-body-->
-
-
-
-
-
-        
-
-
-
-
-      <!-- End of Rejected Model-->
+    <!-- End of Rejected Model-->
 
 
 

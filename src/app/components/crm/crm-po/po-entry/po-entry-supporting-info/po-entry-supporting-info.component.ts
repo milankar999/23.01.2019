@@ -56,7 +56,15 @@ export class PoEntrySupportingInfoComponent implements OnInit {
         this.shipping_address=this.address;
       if(this.billing_address=="Same")
         this.billing_address=this.address;
-      console.log(this.address);      
+      console.log(this.address);  
+      if(this.model.billing_address==null)
+      this.model.billing_address = this.billing_address;
+
+    if(this.model.shipping_address==null)
+      this.model.shipping_address = this.shipping_address;
+
+    if(this.model.payment_term==null)
+      this.model.payment_term = this.payment_term;    
   })
 }
 submitsupportinfolist(event){

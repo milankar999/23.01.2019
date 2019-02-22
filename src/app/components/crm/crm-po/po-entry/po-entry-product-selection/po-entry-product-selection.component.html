@@ -1,75 +1,17 @@
 
 <br><br>
-<h2>Select a Product Selection List </h2><button type="button" class="btn btn-success btn-lg" (click)="openModalDialog()"> <span class="glyphicon glyphicon-plus"></span>ADD NEW</button> 
-<!--After clicking the buttons open the model dialog using open/close event biniding methods-->
-<div class="backdrop" [ngStyle]="{'display' :display}"></div>  
-<!--modal-->
-<div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
-    <!--modal-dialog-->
-    <div class="modal-dialog" role="document">
-        <!--modal-conent-->
-        <div class="modal-content">
-            <!--modal-header-->
-            <div class="panel panel-primary">
-                <div class="panel-heading text-center">New Product-Selection
-                <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
-
-         </div>
-            <!--modal-body-->
-
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label class="form-input" for="name">Product Name <a style="color: red">*</a></label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Product Name" required>
-                        <label class="form-input" for="description">Description <a style="color: red">*</a></label>
-                        <input type="text" class="form-control" id="description" name="description" required>
-                        <label class="form-input" for="model">Model</label>
-                        <input type="text" class="form-control" id="model" name="model" required>
-                        <label class="form-input" for="brand">Brand</label>
-                        <input type="text" class="form-control" id="brand" name="brand" required>
-                        <label class="form-input" for="partno">Part No</label>
-                        <input type="text" class="form-control" id="partno" name="partno" required>
-                        <label class="form-input" for="code">Code</label>
-                        <input type="text" class="form-control" id="code" name="code" required>
-                        <label class="form-input" for="hsncode">HSN Code</label>
-                        <input type="text" class="form-control" id="hsncode" name="hsncode" required>
-                        <label class="form-input" for="gst">GST</label>
-                        <input type="text" class="form-control" id="gst" name="gst" required>
-                        <label class="form-input" for="quantity">Quantity</label>
-                        <input type="text" class="form-control" id="quantity" name="quantity" required>
-                        <label class="form-input" for="uom">UOM</label>
-                        <input type="text" class="form-control" id="uom" name="uom" required>
-                        <label class="form-input" for="price">Price</label>
-                        <input type="text" class="form-control" id="price" name="price" required>
-                       
-
-                       
-                        </div>
-                </form>
-            </div>
-            <!--modal-footer-->
-            <div class="modal-footer">
-                    <button type="button" class="btn btn-success" (click)="closeModalDialog()">Submit</button>
-                <button type="button" class="btn btn-danger" (click)="closeModalDialog()">Cancel</button>
-                
-            </div>
-        </div>
-    </div>
-</div>
-</div>
 <hr>
- <div class="col-md-offset-0 col-md-10">
+ <div class="col-md-offset-2 col-md-10">
         <div class="panel panel-primary">
             <div class="panel-heading text-center">Product Selection List</div>
                  <div class="panel-body">
         
                  </div>
-                 <form [formGroup]="form" #productsubmitForm="ngForm" (ngSubmit)="productsubmit()">
+                <form  #productsubmitForm="ngForm"  (ngSubmit)="productsubmit(event)">
      <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
            <tr>
 
-                <th></th>
+               <th></th>
                 <th>Product Title</th>
                 <th>Description</th>
                 <th>Model</th>
@@ -78,7 +20,7 @@
                 <th>Part No</th>
                 <th>Pack Size</th>
                 <th>MOQ</th>
-                <th> HSN Code</th>
+                <th>HSN Code</th>
                 <th>GST</th>
                 <th>Quantity</th>
                 <th>UOM</th>
@@ -86,25 +28,29 @@
                 <th></th>
                
             </tr >
-            <tr formArrayName="products" *ngFor="let order of form.controls.products.controls; let i = index">
-                 <td>
-                    <input type="checkbox" [formControlName]="i"> 
-                </td>
-                 <td>{{products[i].product_title}}</td>
-                 <td>{{products[i].description}}</td>
-                 <td>{{products[i].model}}</td>
-                 <td>{{products[i].brand}}</td>
-                 <td>{{products[i].product_code}}</td>
-                 <td>{{products[i].part_number}}</td>
-                 <td>{{products[i].pack_size}}</td>
-                 <td>{{products[i].moq}}</td>
-                 <td>{{products[i].hsn_code}}</td>
-                 <td>{{products[i].gst}}</td>
-                 <td>{{products[i].quantity}}</td>
-                 <td>{{products[i].uom}}</td>
-                 <td>{{products[i].lead_time}}</td>
+            <tr  *ngFor="let data of products">
+               
+                    <td><span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                        <input type="checkbox" name="{{data.id}}" id="{{data.id}}" (change)="checkLineitem($event,this.name)"/>
+                    </td>
+
+                 <td>{{data.product_title}}</td>
+                 <td>{{data.description}}</td>
+                 <td>{{data.model}}</td>
+                 <td>{{data.brand}}</td>
+                 <td>{{data.product_code}}</td>
+                 <td>{{data.part_number}}</td>
+                 <td>{{data.pack_size}}</td>
+                 <td>{{data.moq}}</td>
+                 <td>{{data.hsn_code}}</td>
+                 <td>{{data.gst}}</td>
+                 <td>{{data.quantity}}</td>
+                 <td>{{data.uom}}</td>
+                 <td>{{data.lead_time}}</td>
                  <td></td>
-             </tr>
+                </tr>
+          
+             
              <hr>
             &nbsp;  <button class="btn btn-danger">Proceed</button>
        </table> <br>

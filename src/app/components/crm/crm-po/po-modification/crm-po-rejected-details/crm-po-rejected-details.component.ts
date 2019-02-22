@@ -10,6 +10,8 @@ import{ Router,ActivatedRoute } from '@angular/router';
 export class CrmPoRejectedDetailsComponent implements OnInit {
   porejectlinedetailslist:object[]=[];
   cpo_reject_id="";
+  accepted_display='none';
+  rejected_display='none';
   
   constructor(private PoEntryServicesService:PoEntryServicesService,private route:ActivatedRoute, private router:Router) { }
 
@@ -28,19 +30,27 @@ export class CrmPoRejectedDetailsComponent implements OnInit {
     let reject_id=this.route.snapshot.paramMap.get('cpo_id');
     this.PoEntryServicesService.PostPoRejectPODetails(reject_id).subscribe(data=>{
       console.log(data);
-      alert('Your Rejected PO as been success');
-      this.router.navigate(['crm/crm-po/po-modification/crm-po-rejected-list']);
+     
     })
   }
   submitmarkresolvepolist(event){
     let reject_id=this.route.snapshot.paramMap.get('cpo_id');
     this.PoEntryServicesService.PostMarkResolvelist(reject_id).subscribe(data=>{
       console.log(data);
-      alert('Your MarkResolve as been success');
-      this.router.navigate(['crm/crm-po/po-modification/crm-po-rejected-list']);
     })
   }
-
+  openAcceptedModalDialog(){
+    this.accepted_display='block';
+  }
+  closeAcceptedModalDialog(){
+    this.accepted_display='none';
+  }
+  openRejectedModalDialog(){
+    this.rejected_display='block';
+  }
+  closeRejectedModalDialog(){
+    this.rejected_display='none';
+  }
   }
 
 
